@@ -1,0 +1,33 @@
+<div class="content-container">
+  <div lang="zh-Hant" class="hanzi">{{Hanzi}}</div>
+  <div class="sentence-container stacked fadeIn">
+    <div class="sentence">
+      {{SentencePreWord}}<span class="highlight">{{Hanzi}}</span
+      >{{SentencePostWord}}
+    </div>
+  </div>
+</div>
+
+--
+
+<div class="content-container">
+  <div lang="zh-Hant" class="hanzi">{{Hanzi}}</div>
+  <div class="pinyin">{{HanziPinyin}} {{HanziAudio}}</div>
+  <div lang="zh-Hant" class="english">{{HanziMeaning}}</div>
+  <hr />
+  <div class="sentence-section">
+    <div class="sentence-container">
+      <div lang="zh-Hant" class="sentence">
+        {{SentencePreWord}}<span class="highlight">{{Hanzi}}</span
+        >{{SentencePostWord}}
+      </div>
+    </div>
+    <div class="pinyinSen">{{SentencePinyin}} {{SentenceAudio}}</div>
+    <div lang="zh-Hant" class="meaningSent">{{SentenceTranslation}}</div>
+  </div>
+
+  {{#Note}}
+  <div lang="zh-Hant" class="note">{{Note}}</div>
+  {{/Note}}
+  <div class="deckName">{{Subdeck}}</div>
+</div>

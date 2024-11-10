@@ -1,0 +1,125 @@
+.card,
+.card.nightMode {
+  font-family: Georgia;
+  font-size: 10px;
+  background-color: #222327;
+  color: #e2e2e3;
+  padding: 20px;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+hr {
+  height: 3px;
+  background: #e2e2e3;
+  border: none;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.hanzi {
+  font-family: PingFang TC;
+  font-size: 78px;
+}
+
+.sentence-container {
+  text-align: center;
+}
+
+.sentence {
+  font-family: PingFang TC;
+  font-size: 30px;
+}
+
+.highlight {
+  font-style: bold;
+  color: #e7c664;
+}
+
+.fadeIn {
+  animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.pinyin {
+  font-size: 22px;
+  font-family: Palatino !important;
+}
+
+.pinyinSen {
+  font-family: Palatino !important;
+  font-size: 20px;
+}
+
+/* Tone colors */
+.tone1 {
+  color: #fc5d7c; /* Red - first tone */
+}
+
+.tone2 {
+  color: #9ed072; /* Green - second tone */
+}
+
+.tone3 {
+  color: #76cce0; /* Blue - third tone */
+}
+
+.tone4 {
+  color: #b39df3; /* Purple - fourth tone */
+}
+
+.tone5 {
+  color: #7f8490; /* Gray - neutral tone */
+}
+
+.english,
+.meaningSent {
+  font-family: Didot;
+  font-size: 16px;
+  white-space: pre-line;
+  margin: 5px 0;
+}
+
+.english *:lang(zh-Hant),
+.meaningSent *:lang(zh-Hant),
+.note *:lang(zh-Hant) {
+  font-family: PingFang TC;
+}
+
+.sentence-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.note {
+  font-family: Didot;
+  font-size: 14px;
+  color: #7f8490;
+  margin-top: 5px;
+  padding: 10px;
+  border: 1px solid #414550;
+  border-radius: 5px;
+}
+
+.deckName {
+  margin-top: 15px;
+  color: #595f6f;
+}

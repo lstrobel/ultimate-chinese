@@ -1,0 +1,27 @@
+name: Ultimate Chinese
+id: 251f7f46-c2d4-49fe-8810-34dd2a7a4d01
+css_file: src/note_models/style.css
+fields:
+  - name: Hanzi
+    font: Arial
+  - name: HanziPinyin
+    font: Arial
+  - name: HanziMeaning
+    font: Arial
+  - name: HanziAudio
+    font: Arial
+  - name: SentencePreWord
+    font: Arial
+  - name: SentencePostWord
+    font: Arial
+  - name: SentencePinyin
+    font: Arial
+  - name: SentenceTranslation
+    font: Arial
+  - name: SentenceAudio
+    font: Arial
+  - name: Note
+    font: Arial
+templates:
+  - name: Vocab Review
+    html_file: src/note_models/templates/Vocab Review.html
