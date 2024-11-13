@@ -1,24 +1,16 @@
-#!/usr/bin/env python3
 """
-Script to convert TBCL wordlist CSV to our format.
-Reads from res/tbcl/TBCL_wordlist_2023-05-17.csv
-Writes to src/data/tbcl_words.csv
+The script used to generate the first iteration of tbcl_words.csv
+Manual corrections were needed after running this script, so it was really only useful once.
 """
 
 import csv
 import os
 import re
-from pathlib import Path
 import pandas as pd
+from pypinyin.contrib.tone_convert import to_tone
 
-
-def find_project_root() -> Path:
-    """Find the project root by looking for pyproject.toml or .git"""
-    current = Path(__file__).resolve().parent
-    for parent in [current, *current.parents]:
-        if (parent / "pyproject.toml").exists() or (parent / ".git").exists():
-            return parent
-    raise RuntimeError("Unable to find project root")
+from utils import find_project_root
+from cedict import search_dict
 
 
 def context_to_tag(context: str) -> str:
@@ -67,6 +59,76 @@ def category_to_tag(category: str) -> str:
     return f"UC::TBCL-{category_map.get(category, '')}"
 
 
+def normalize_pinyin(pinyin: str) -> str:
+    """Convert cedict pinyin format to a unicode format.
+
+    Handles each space-separated syllable separately to ensure proper tone conversion.
+    Replaces 'u:' with 'v' for proper tone handling.
+    """
+    words = pinyin.split()
+    converted = [to_tone(word.replace("u:", "v")) for word in words]
+    return " ".join(converted).strip()
+
+
+def choose_entry(word: str, entries: list, expected_pinyin: str) -> str:
+    """Sometimes there might be multiple dictionary entries for a word that we need the definition of.
+
+    This method will choose one intelligently, and log to console if no choice could be made
+    """
+
+    # Fast-fail
+    if len(entries) == 1:
+        return entries[0].definitions
+
+    matching_entries = [
+        entry for entry in entries if normalize_pinyin(entry.pinyin) == expected_pinyin
+    ]
+
+    # If exactly one match, use it without prompting
+    if len(matching_entries) == 1:
+        return matching_entries[0].definitions
+    # If some matches found, the user needs to choose between them
+    elif matching_entries:
+        entries = matching_entries
+    else:
+        # Last-ditch effort: Someimes CEDICT differs in whether to put spaces between pinyin syllables.
+        # Try looking for matching entries by removing spaces.
+        no_spaces = [
+            entry
+            for entry in entries
+            if ("".join(normalize_pinyin(entry.pinyin).split())) == expected_pinyin
+        ]
+
+        if len(no_spaces) == 1:
+            return no_spaces[0].definitions
+        elif no_spaces:
+            entries = matching_entries
+
+    print(
+        f"\nMultiple entries found for '{word}' (expected pinyin: {expected_pinyin}):"
+    )
+    for i, entry in enumerate(entries, 0):
+        print(f"{i}. {entry.traditional} {entry.simplified} [{entry.pinyin}]")
+        print(f"   Definitions: {'/ '.join(entry.definitions)}")
+    return ["REPLACE_ME"]
+
+
+def get_definition(word: str, pinyin: str) -> list:
+    """Get definition for a word from CC-CEDICT.
+
+    If the word contains forward slashes, only look up the first word.
+    If multiple entries are found, try to match pinyin first, then let user choose.
+    """
+    # Take first word if multiple words are separated by slashes
+    first_word = word.split("/")[0].strip()
+    first_pinyin = pinyin.split("/")[0].strip()
+    entries = search_dict(first_word)
+    if not entries:
+        print(f"No entry found for word: {word}\n")
+        return ["REPLACE_ME"]
+    return choose_entry(first_word, entries, first_pinyin)
+
+
 def level_to_tag(level: str) -> str:
     """Convert level string to tag format.
 
@@ -112,6 +174,11 @@ def main():
     df = pd.read_csv(input_file)
     df = df.rename(columns=header_mapping)
     df = df.drop(columns=["簡編本系統號"])
+
+    # Add definitions column, using pinyin to help match entries
+    df["definition"] = df.apply(
+        lambda row: get_definition(row["word"], row["pinyin"]), axis=1
+    )
 
     # Create tags column combining level and category tags
     df["tags"] = df.apply(

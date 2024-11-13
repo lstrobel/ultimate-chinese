@@ -71,6 +71,15 @@ wheels = [
 ]
 
 [[package]]
+name = "pypinyin"
+version = "0.53.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/b8/2d/58c9e7d0825d834fc5ac62a340640953d39a80e78cba70eb73d3bad5b4be/pypinyin-0.53.0.tar.gz", hash = "sha256:a2d39ddc2bd31b55897bbb10d2e11a0c4d399988a97c00ad489c151afd9b106d", size = 824458 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b1/af/a1f9ee31b860ea55985a743b53fc06e61fe156bc1a9d64d94a81afa80470/pypinyin-0.53.0-py2.py3-none-any.whl", hash = "sha256:a906768919da3c31771f2c5e0e5a759214dc38d0087e15e6ff67649e03df8097", size = 834720 },
+]
+
+[[package]]
 name = "python-dateutil"
 version = "2.9.0.post0"
 source = { registry = "https://pypi.org/simple" }
@@ -158,12 +167,14 @@ source = { virtual = "." }
 dependencies = [
     { name = "brain-brew" },
     { name = "pandas" },
+    { name = "pypinyin" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "brain-brew", specifier = ">=0.3.11" },
     { name = "pandas", specifier = ">=2.2.3" },
+    { name = "pypinyin", specifier = ">=0.53.0" },
 ]
 
 [[package]]
