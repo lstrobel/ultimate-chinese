@@ -1,5 +1,5 @@
 All content in this repository uses the MIT license, with the following exceptions:
-- TBCL data under `res/tbcl` is [©2023 National Academy for Educational Research, R.O.C.](https://coct.naer.edu.tw/page.jsp?ID=41)
+- TBCL data under `res/tbcl` is [Copyright (c) 2023 National Academy for Educational Research, R.O.C.](https://coct.naer.edu.tw/page.jsp?ID=41)
 - CC-CEDICT under `res/cedict` belongs to [mdbg.net](https://www.mdbg.net/chinese/dictionary?page=cedict) and is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
 
 ---
