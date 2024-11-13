@@ -1,0 +1,1 @@
+In this folder are one-off scripts that I used to generate and modify the decks, supplied for reference. They aren't written or really meant to be used again.
