@@ -121,6 +121,7 @@ def get_definition(word: str, pinyin: str) -> list:
     """
     # Take first word if multiple words are separated by slashes
     first_word = word.split("/")[0].strip()
+    first_word = "".join(i for i in first_word if not i.isdigit()).strip()
     first_pinyin = pinyin.split("/")[0].strip()
     entries = search_dict(first_word)
     if not entries:
