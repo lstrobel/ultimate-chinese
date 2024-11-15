@@ -1,5 +1,6 @@
 from pathlib import Path
 import ast
+import hashlib
 import pandas as pd
 import re
 
@@ -42,11 +43,19 @@ def _convert_meaning_to_html_list(meaning: str) -> str:
         meanings = ast.literal_eval(meaning)
         if not meanings:  # Handle empty list
             return ""
-        # Create HTML ordered list
-        items = "\n".join(f"<li>{m}</li>" for m in meanings)
-        return f"<ol>\n{items}\n</ol>"
+        # Create HTML ordered list on a single line
+        items = "".join(f"<li>{m}</li>" for m in meanings)
+        return f"<ol>{items}</ol>"
     except (ValueError, SyntaxError):
         return meaning  # Return original if parsing fails
+
+
+def _generate_guid(word: str, pinyin: str) -> str:
+    """Generate a deterministic GUID from word and pinyin."""
+    # Combine word and pinyin, encode to bytes
+    combined = f"{word}:{pinyin}".encode("utf-8")
+    # Create SHA-256 hash and take first 32 chars
+    return hashlib.sha256(combined).hexdigest()[:32]
 
 
 def build_tbcl_words(input: Path, output_dir: Path) -> None:
@@ -59,8 +68,10 @@ def build_tbcl_words(input: Path, output_dir: Path) -> None:
     # Read the input CSV
     df = pd.read_csv(input)
 
-    # Add empty 'guid' column
-    df["guid"] = ""
+    # Generate GUIDs and rename columns to match note model
+    df["guid"] = df.apply(
+        lambda row: _generate_guid(row["word"], row["pinyin"]), axis=1
+    )
 
     # Rename columns to match note model
     df = df.rename(columns={"word": "hanzi", "definition": "meaning"})

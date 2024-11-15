@@ -1,9 +1,3 @@
-- generate_guids_in_csvs:
-    source:
-      - build/data/tbcl_words.csv
-    columns:
-      - guid
-
 - build_parts:
     - note_models_from_yaml_part:
         part_id: Ultimate Chinese
