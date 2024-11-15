@@ -1,12 +1,9 @@
 [project]
 name = "ultimate-chinese"
 version = "0.1.0"
-description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = [
-    "brain-brew>=0.3.11",
-    "pandas>=2.2.3",
-    "pyperclip>=1.9.0",
-    "pypinyin>=0.53.0",
-]
+dependencies = ["brain-brew>=0.3.11"]
+
+[dependency-groups]
+dev = ["ruff>=0.7.3", "pandas>=2.2.3", "pyperclip>=1.9.0", "pypinyin>=0.53.0"]

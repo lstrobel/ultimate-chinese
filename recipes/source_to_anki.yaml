@@ -4,14 +4,25 @@
     columns:
       - guid
 
+- generate_guids_in_csvs:
+    source:
+      - src/data/tbcl_words.csv
+    columns:
+      - guid
+
 - build_parts:
     - note_models_from_yaml_part:
         part_id: Ultimate Chinese
         file: src/note_models/Ultimate_Chinese.yaml
 
     - headers_from_yaml_part:
-        part_id: deck_headers
-        file: src/headers/default.yaml
+        - part_id: deck_headers
+          file: src/headers/default.yaml
+        - part_id: tbcl_words_headers
+          file: src/headers/default.yaml
+          override:
+            name: Ultimate Chinese::TBCL Words
+            deck_description_html_file: src/headers/desc.html
 
     - notes_from_csvs:
         part_id: deck_notes
@@ -21,6 +32,22 @@
         note_model_mappings:
           - note_models:
               - Ultimate Chinese
+
+    - notes_from_csvs:
+        part_id: tbcl_words_notes
+        file_mappings:
+          - file: src/data/tbcl_words.csv
+            note_model: Ultimate Chinese
+        note_model_mappings:
+          - note_models:
+              - Ultimate Chinese
+            columns_to_fields:
+              guid: guid
+              id: id
+              word: hanzi
+              pinyin: hanzipinyin
+              definition: hanzimeaning
+              tags: tags
 
     - media_group_from_folder:
         part_id: deck_media
@@ -35,6 +62,18 @@
       parts:
         - part_id: Ultimate Chinese
     headers: deck_headers
+    media:
+      parts:
+        - deck_media
+
+- generate_crowd_anki:
+    folder: build/Ultimate_Chinese__TBCL_Words
+    notes:
+      part_id: tbcl_words_notes
+    note_models:
+      parts:
+        - part_id: Ultimate Chinese
+    headers: tbcl_words_headers
     media:
       parts:
         - deck_media
