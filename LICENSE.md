@@ -1,6 +1,4 @@
-All content in this repository uses the MIT license, with the following exceptions:
-- TBCL data under `res/tbcl` is [Copyright (c) 2023 National Academy for Educational Research, R.O.C.](https://coct.naer.edu.tw/page.jsp?ID=41)
-- CC-CEDICT under `res/cedict` belongs to [mdbg.net](https://www.mdbg.net/chinese/dictionary?page=cedict) and is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
+Code in this repository is licensed under the MIT License:
 
 ---
 
@@ -25,3 +23,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+Deck content, data, documentation, and all other materials are licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/)
