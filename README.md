@@ -6,4 +6,4 @@ Currently focused on Taiwanese Mandarin, but the long-term plan is to support al
 
 If you have any suggestions or concerns, please leave an issue.
 
-TBCL Data sourced from: https://coct.naer.edu.tw/page.jsp?ID=41
+TBCL data was originally sourced from: https://coct.naer.edu.tw/page.jsp?ID=41
