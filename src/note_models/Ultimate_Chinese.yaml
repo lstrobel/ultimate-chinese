@@ -6,9 +6,11 @@ fields:
     font: Arial
   - name: Hanzi
     font: Arial
-  - name: HanziPinyin
+  - name: Pinyin
     font: Arial
-  - name: HanziMeaning
+  - name: Zhuyin
+    font: Arial
+  - name: Meaning
     font: Arial
   # - name: HanziAudio
   #   font: Arial
@@ -27,3 +29,4 @@ fields:
 templates:
   - name: Vocab Review
     html_file: src/note_models/templates/Vocab Review.html
+
