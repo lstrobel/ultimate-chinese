@@ -197,22 +197,24 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "brain-brew" },
+    { name = "pandas" },
 ]
 
 [package.dev-dependencies]
 dev = [
-    { name = "pandas" },
     { name = "pyperclip" },
     { name = "pypinyin" },
     { name = "ruff" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "brain-brew", specifier = ">=0.3.11" }]
+requires-dist = [
+    { name = "brain-brew", specifier = ">=0.3.11" },
+    { name = "pandas", specifier = ">=2.2.3" },
+]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "pandas", specifier = ">=2.2.3" },
     { name = "pyperclip", specifier = ">=1.9.0" },
     { name = "pypinyin", specifier = ">=0.53.0" },
     { name = "ruff", specifier = ">=0.7.3" },
