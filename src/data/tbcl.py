@@ -1,3 +1,4 @@
+import itertools
 from pathlib import Path
 import ast
 import hashlib
@@ -52,89 +53,96 @@ def _convert_meaning_to_html_list(meaning: str) -> str:
         return meaning  # Return original if parsing fails
 
 
-def _process_single_pinyin(
-    word: str, pinyin: str, max_chars: int | None = None
-) -> str | None:
-    """Process a single pinyin string and return its HTML representation."""
-    possible_splits = split(pinyin, include_erhua=True, include_nonstandard=True)
+def _split_pinyin(word: str, pinyin: str, max_chars: int):
+    """Given a word and pinyin string from TBCL, return a list where entries are either a single pinyin syllable, or whitespace"""
+    INITIAL_VOWEL = re.compile(r"^[aeiouāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]", re.IGNORECASE)
 
-    # Determine valid splits based on character count
-    if max_chars is None:
-        valid_splits = [split for split in possible_splits if len(split) == len(word)]
-    else:
-        valid_splits = [split for split in possible_splits if len(split) <= max_chars]
+    grouped = ["".join(g) for _, g in itertools.groupby(pinyin, str.isspace)]
+    out = []
 
-    if len(valid_splits) == 0:
-        print(
-            f"WARNING: No valid syllable splits for '{word}' "
-            f"with pinyin '{pinyin}': {possible_splits}"
-        )
-        return None
+    discovered_syllables = 0
+    for entry in grouped:
+        if entry.isspace():
+            out.append(entry)
+            continue
 
-    # If multiple valid splits exist, prefer the one where no syllables begin with a vowel
-    if len(valid_splits) > 1:
+        possible_splits = split(entry, include_erhua=True, include_nonstandard=True)
+
+        if len(possible_splits) == 0:
+            raise RuntimeError(f"No splits found for {word} {pinyin}!")
+
+        if len(possible_splits) == 1:
+            discovered_syllables += len(possible_splits[0])
+            out.extend(possible_splits[0])
+            continue
+
+        # Prefer splits where no syllable starts with a vowel over splits where that is the case.
         no_initial_vowels = [
             split
-            for split in valid_splits
-            if not any(
-                syllable[0].lower() in "aeiouāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ"
-                for syllable in split
-            )
+            for split in possible_splits
+            if not any(INITIAL_VOWEL.match(syllable) for syllable in split)
         ]
-        if no_initial_vowels:
-            syllables = no_initial_vowels[0]
+        valid_splits = no_initial_vowels if no_initial_vowels else possible_splits
+        if len(valid_splits) == 1:
+            discovered_syllables += len(valid_splits[0])
+            out.extend(valid_splits[0])
         else:
-            syllables = valid_splits[0]
-    else:
-        syllables = valid_splits[0]
-    tone_nums = []
-    tone_marks = []
+            out.append(valid_splits)
 
-    for syllable in syllables:
-        tone_nums.append(to_tone3(syllable, neutral_tone_with_five=True))
-        tone_marks.append(syllable)
+    if not any(isinstance(x, list) for x in out):
+        return out
 
-    # Verify against the original pinyin
-    verify = "".join(tone_marks).replace(" ", "")
-    if not pinyin or verify != pinyin.replace(" ", "").strip():
-        print(
-            f"WARNING: Pinyin verification failed for word '{word}'. "
-            f"Expected '{pinyin}', but pypinyin produced '{verify}'"
-        )
-        return None
+    # Resolve remaining possiblities greedily. This works fine for our usecase, even if it wouldnt be robust to all scenarios
+    def find_eligible(lst, remaining_length):
+        eligible = [
+            x for x in lst if isinstance(x, list) and len(x) <= remaining_length
+        ]
+        if len(eligible) > 1:
+            print(
+                f"Warning: Multiple eligible entries found for {lst}, {remaining_length}"
+            )
+        return eligible[0] if eligible else None
 
-    # Convert to HTML
-    html_syllables = []
-    for tone_num, tone_mark in zip(tone_nums, tone_marks):
-        tone = tone_num[-1] if tone_num[-1].isdigit() else "5"
-        html_syllables.append(f'<span class="tone{tone}">{tone_mark}</span>')
+    remaining_syllables = max_chars - discovered_syllables
+    reduced_out = []
+    for entry in out:
+        if isinstance(entry, list):
+            selected = find_eligible(entry, remaining_syllables)
+            if selected:
+                reduced_out.extend(selected)
+                remaining_syllables -= len(selected)
+        else:
+            reduced_out.append(entry)
+    return reduced_out
 
-    return "".join(html_syllables)
+
+def _syllable_to_html(syllable: str):
+    """Process a single pinyin syllable and return its HTML representation. If the passed syllable is whitespace, just returns whitespace"""
+    if syllable.isspace():
+        return syllable
+
+    as_tone3 = to_tone3(syllable, neutral_tone_with_five=True)
+    tone_num = as_tone3[-1] if as_tone3[-1].isdigit() else "5"
+    return f'<span class="tone{tone_num}">{syllable}</span>'
 
 
 def _convert_pinyin_to_html(word: str, pinyin: str) -> str:
     """Convert pinyin to HTML with tone classes, using pypinyin for syllable detection."""
     words = [w.strip() for w in word.split("/") if w]
     pinyins = [p.strip() for p in pinyin.split("/") if p]
-    html_alternatives = []
+    as_html = []
 
-    if len(words) == len(pinyins):
-        # Process each word-pinyin pair
-        for word, pinyin in zip(words, pinyins):
-            html = _process_single_pinyin(word, pinyin)
-            if html is None:
-                return ["ERR"]
-            html_alternatives.append(html)
-    else:
-        # Process each pinyin with max character limit
-        max_chars = max(len(w) for w in words)
-        for pinyin in pinyins:
-            html = _process_single_pinyin(words[0], pinyin, max_chars)
-            if html is None:
-                return ["ERR"]
-            html_alternatives.append(html)
+    max_chars = max(len(w) for w in words)
 
-    return " / ".join(html_alternatives)
+    for word, pinyin in zip(words, pinyins):
+        if len(words) == len(pinyins):
+            max_chars = len(word)
+
+        split = _split_pinyin(word, pinyin, max_chars)
+        # print(f"{words}, {split}, {max_chars}")
+        as_html.append("".join(map(lambda x: _syllable_to_html(x), split)))
+
+    return " / ".join(as_html)
 
 
 def _generate_guid(word: str, pinyin: str) -> str:

@@ -8,6 +8,7 @@ dependencies = [
     "pandas>=2.2.3",
     "pinyinsplit>=0.1.4",
     "py-pinyin-split>=1.1.0",
+    "tqdm>=4.67.0",
 ]
 
 [dependency-groups]
