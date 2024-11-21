@@ -1,3 +1,5 @@
+Usage of the Font TW-Kai is licensed under the [SIL Open Font License, Version 1.1.](https://openfontlicense.org/)
+
 Code in this repository is licensed under the MIT License:
 
 ---

@@ -19,10 +19,10 @@
           - note_models:
               - Ultimate Chinese
 
-    # - media_group_from_folder:
-    #     part_id: deck_media
-    #     source: src/media/
-    #     recursive: true
+    - media_group_from_folder:
+        - part_id: fonts
+          source: src/media/fonts
+          recursive: true
 
 - generate_crowd_anki:
     folder: build/Ultimate_Chinese__TBCL_Words
@@ -32,6 +32,5 @@
       parts:
         - part_id: Ultimate Chinese
     headers: tbcl_words_headers
-    # media:
-    #   parts:
-    #     - deck_media
+    media:
+      parts: [fonts]

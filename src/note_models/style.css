@@ -23,48 +23,14 @@ hr {
 }
 
 .hanzi {
-  font-family: PingFang TC;
-  font-size: 78px;
-}
-
-.sentence-container {
-  text-align: center;
-}
-
-.sentence {
-  font-family: PingFang TC;
-  font-size: 30px;
-}
-
-.highlight {
-  font-style: bold;
-  color: #e7c664;
-}
-
-.fadeIn {
-  animation: fadeIn 3s;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  70% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  font-family: TW-Kai;
+  src: url("_TW-Kai.ttf");
+  font-size: 90px;
 }
 
 .pinyin {
   font-size: 22px;
   font-family: Palatino !important;
-}
-
-.pinyinSen {
-  font-family: Palatino !important;
-  font-size: 20px;
 }
 
 /* Tone colors */
@@ -88,38 +54,13 @@ hr {
   color: #7f8490; /* Gray - neutral tone */
 }
 
-.english,
-.meaningSent {
+.english {
   font-family: Didot;
   font-size: 16px;
   white-space: pre-line;
   margin: 5px 0;
 }
 
-.english *:lang(zh-Hant),
-.meaningSent *:lang(zh-Hant),
-.note *:lang(zh-Hant) {
+.english *:lang(zh-Hant) {
   font-family: PingFang TC;
-}
-
-.sentence-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.note {
-  font-family: Didot;
-  font-size: 14px;
-  color: #7f8490;
-  margin-top: 5px;
-  padding: 10px;
-  border: 1px solid #414550;
-  border-radius: 5px;
-}
-
-.deckName {
-  margin-top: 15px;
-  color: #595f6f;
 }
