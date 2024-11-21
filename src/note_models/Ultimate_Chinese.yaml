@@ -12,21 +12,6 @@ fields:
     font: Arial
   - name: Meaning
     font: Arial
-  # - name: HanziAudio
-  #   font: Arial
-  # - name: SentencePreWord
-  #   font: Arial
-  # - name: SentencePostWord
-  #   font: Arial
-  # - name: SentencePinyin
-  #   font: Arial
-  # - name: SentenceTranslation
-  #   font: Arial
-  # - name: SentenceAudio
-  #   font: Arial
-  # - name: Note
-  #   font: Arial
 templates:
   - name: Vocab Review
     html_file: src/note_models/templates/Vocab Review.html
-

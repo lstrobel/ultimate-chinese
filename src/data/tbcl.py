@@ -7,14 +7,19 @@ import re
 from pinyin_split import split
 from pypinyin.contrib.tone_convert import to_tone3
 
+# Compile regex patterns once at module level
+LEVEL_STAR_PATTERN = re.compile(r"UC::TBCL-level-(\d+)-star")
+LEVEL_REGULAR_PATTERN = re.compile(r"UC::TBCL-level-(\d+)")
+INITIAL_VOWEL = re.compile(r"^[aeiouāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]", re.IGNORECASE)
+
 
 def _extract_level(tags: str) -> float:
     """Extract TBCL level from tags string."""
-    star_match = re.search(r"UC::TBCL-level-(\d+)-star", tags)
+    star_match = LEVEL_STAR_PATTERN.search(tags)
     if star_match:
         return float(star_match.group(1)) + 0.5
 
-    regular_match = re.search(r"UC::TBCL-level-(\d+)", tags)
+    regular_match = LEVEL_REGULAR_PATTERN.search(tags)
     return (
         float(regular_match.group(1)) if regular_match else 999.0
     )  # Default high number for sorting
@@ -55,7 +60,6 @@ def _convert_meaning_to_html_list(meaning: str) -> str:
 
 def _split_pinyin(word: str, pinyin: str, max_chars: int):
     """Given a word and pinyin string from TBCL, return a list where entries are either a single pinyin syllable, or whitespace"""
-    INITIAL_VOWEL = re.compile(r"^[aeiouāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]", re.IGNORECASE)
 
     grouped = ["".join(g) for _, g in itertools.groupby(pinyin, str.isspace)]
     out = []

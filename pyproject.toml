@@ -6,10 +6,10 @@ requires-python = ">=3.13"
 dependencies = [
     "brain-brew>=0.3.11",
     "pandas>=2.2.3",
-    "pinyinsplit>=0.1.4",
-    "py-pinyin-split>=1.1.0",
+    "py-pinyin-split>=1.2.0",
     "tqdm>=4.67.0",
+    "pypinyin>=0.53.0",
 ]
 
 [dependency-groups]
-dev = ["ruff>=0.7.3", "pyperclip>=1.9.0", "pypinyin>=0.53.0"]
+dev = ["ruff>=0.7.3", "pyperclip>=1.9.0"]
