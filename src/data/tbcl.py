@@ -45,11 +45,6 @@ def _sort_by_level_and_frequency(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def _clean_definition(definition: str) -> str:
-    """Remove simplified measure words from definition."""
-    return re.sub(r"\|[^[]+(?=\[)", "", definition)
-
-
 def _convert_meaning_to_html_list(meaning: str) -> str:
     """Convert meaning string list to HTML ordered list."""
     # Safely evaluate string representation of list
@@ -57,9 +52,8 @@ def _convert_meaning_to_html_list(meaning: str) -> str:
         meanings = ast.literal_eval(meaning)
         if not meanings:  # Handle empty list
             return ""
-        # Clean and create HTML ordered list
-        cleaned_meanings = [_clean_definition(m) for m in meanings]
-        items = "".join(f"<li>{m}</li>" for m in cleaned_meanings)
+        # Create HTML ordered list
+        items = "".join(f"<li>{m}</li>" for m in meanings)
         return f"<ol>{items}</ol>"
     except (ValueError, SyntaxError):
         return meaning  # Return original if parsing fails
