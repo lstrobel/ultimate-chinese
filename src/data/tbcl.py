@@ -2,6 +2,7 @@ import itertools
 from pathlib import Path
 import ast
 import hashlib
+from typing import List
 import pandas as pd
 import re
 from pinyin_split import split
@@ -44,6 +45,11 @@ def _sort_by_level_and_frequency(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def _clean_definition(definition: str) -> str:
+    """Remove simplified measure words from definition."""
+    return re.sub(r"\|[^[]+(?=\[)", "", definition)
+
+
 def _convert_meaning_to_html_list(meaning: str) -> str:
     """Convert meaning string list to HTML ordered list."""
     # Safely evaluate string representation of list
@@ -51,14 +57,15 @@ def _convert_meaning_to_html_list(meaning: str) -> str:
         meanings = ast.literal_eval(meaning)
         if not meanings:  # Handle empty list
             return ""
-        # Create HTML ordered list on a single line
-        items = "".join(f"<li>{m}</li>" for m in meanings)
+        # Clean and create HTML ordered list
+        cleaned_meanings = [_clean_definition(m) for m in meanings]
+        items = "".join(f"<li>{m}</li>" for m in cleaned_meanings)
         return f"<ol>{items}</ol>"
     except (ValueError, SyntaxError):
         return meaning  # Return original if parsing fails
 
 
-def _split_pinyin(word: str, pinyin: str, max_chars: int):
+def _split_pinyin(word: str, pinyin: str, max_chars: int) -> List:
     """Given a word and pinyin string from TBCL, return a list where entries are either a single pinyin syllable, or whitespace"""
 
     grouped = ["".join(g) for _, g in itertools.groupby(pinyin, str.isspace)]
@@ -97,7 +104,7 @@ def _split_pinyin(word: str, pinyin: str, max_chars: int):
         return out
 
     # Resolve remaining possiblities greedily. This works fine for our usecase, even if it wouldnt be robust to all scenarios
-    def find_eligible(lst, remaining_length):
+    def find_eligible(lst, remaining_length) -> List | None:
         eligible = [
             x for x in lst if isinstance(x, list) and len(x) <= remaining_length
         ]
@@ -120,7 +127,7 @@ def _split_pinyin(word: str, pinyin: str, max_chars: int):
     return reduced_out
 
 
-def _syllable_to_html(syllable: str):
+def _syllable_to_html(syllable: str) -> str:
     """Process a single pinyin syllable and return its HTML representation. If the passed syllable is whitespace, just returns whitespace"""
     if syllable.isspace():
         return syllable
