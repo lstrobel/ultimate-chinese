@@ -51,11 +51,12 @@ def _convert_meaning_to_html_list(meaning: str) -> str:
     try:
         meanings = ast.literal_eval(meaning)
         if not meanings:  # Handle empty list
-            return ""
+            raise ValueError
         # Create HTML ordered list
         items = "".join(f"<li>{m}</li>" for m in meanings)
         return f"<ol>{items}</ol>"
-    except (ValueError, SyntaxError):
+    except (ValueError, SyntaxError) as e:
+        print(f"ERROR: Received error: {e} while parsing {meaning}")
         return meaning  # Return original if parsing fails
 
 
