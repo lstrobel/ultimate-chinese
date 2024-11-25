@@ -1,7 +1,18 @@
+@font-face {
+  font-family: TW-Kai;
+  src: url("_TW-Kai.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Embedded-Kai;
+  src: url("_TW-Kai.ttf");
+  unicode-range: U+4E00-9FFF;
+  font-display: fallback;
+}
+
 .card,
 .card.nightMode {
-  font-family: Georgia;
-  font-size: 10px;
   background-color: #222327;
   color: #e2e2e3;
   padding: 20px;
@@ -14,53 +25,40 @@
   text-align: center;
 }
 
-hr {
-  height: 3px;
-  background: #e2e2e3;
-  border: none;
-  margin: 10px 0;
-  width: 100%;
-}
-
 .hanzi {
-  font-family: TW-Kai;
-  src: url("_TW-Kai.ttf");
+  font-family: TW-Kai, PingFang TC, serif;
   font-size: 90px;
 }
 
-.pinyin {
-  font-size: 22px;
-  font-family: Palatino !important;
-}
-
-/* Tone colors */
-.tone1 {
-  color: #fc5d7c; /* Red - first tone */
-}
-
-.tone2 {
-  color: #9ed072; /* Green - second tone */
-}
-
-.tone3 {
-  color: #76cce0; /* Blue - third tone */
-}
-
-.tone4 {
-  color: #b39df3; /* Purple - fourth tone */
-}
-
-.tone5 {
-  color: #7f8490; /* Gray - neutral tone */
-}
-
-.english {
-  font-family: Didot;
+.meaning {
+  font-family: Embedded-Kai, Helvetica, sans-serif;
   font-size: 16px;
   white-space: pre-line;
   margin: 5px 0;
 }
 
-.english *:lang(zh-Hant) {
-  font-family: PingFang TC;
+.pinyin {
+  font-size: 22px;
+  font-family: Palatino, serif;
+}
+
+/* Tone colors */
+.tone1 {
+  color: #fc5d7c;
+}
+
+.tone2 {
+  color: #9ed072;
+}
+
+.tone3 {
+  color: #76cce0;
+}
+
+.tone4 {
+  color: #b39df3;
+}
+
+.tone5 {
+  color: #7f8490;
 }
