@@ -6,7 +6,7 @@ from typing import List
 import pandas as pd
 import re
 from pinyin_split import split
-from pypinyin.contrib.tone_convert import to_tone3
+from pypinyin.contrib.tone_convert import to_tone3, to_tone
 
 # Compile regex patterns once at module level
 LEVEL_STAR_PATTERN = re.compile(r"UC::TBCL-level-(\d+)-star")
@@ -45,15 +45,34 @@ def _sort_by_level_and_frequency(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def _convert_meaning_to_html_list(meaning: str) -> str:
-    """Convert meaning string list to HTML ordered list."""
+def _reformat_meaning(meaning: str) -> str:
+    """Convert meaning string list to HTML ordered list and apply some formatting."""
     # Safely evaluate string representation of list
     try:
         meanings = ast.literal_eval(meaning)
         if not meanings:  # Handle empty list
             raise ValueError
         # Create HTML ordered list
-        items = "".join(f"<li>{m}</li>" for m in meanings)
+
+        processed_meanings = []
+        for m in meanings:
+
+            def _replace_pinyin(match):
+                start_pos = match.start()
+                needs_space = start_pos > 0 and m[start_pos - 1] != " "
+
+                parts = re.findall(r"[^0-9]+[0-9]?", match.group(1))
+                converted = [
+                    _syllable_to_html(to_tone(part.replace("u:", "ü")))
+                    for part in parts
+                ]
+
+                return (" " if needs_space else "") + "[" + "".join(converted) + "]"
+
+            new_m = re.sub(r"\[(.*?)\]", _replace_pinyin, m)
+            processed_meanings.append(new_m)
+
+        items = "".join(f"<li>{m}</li>" for m in processed_meanings)
         return f"<ol>{items}</ol>"
     except (ValueError, SyntaxError) as e:
         print(f"ERROR: Received error: {e} while parsing {meaning}")
@@ -187,7 +206,7 @@ def build_tbcl_words(input: Path, output_dir: Path) -> None:
     df = _sort_by_level_and_frequency(df)
 
     # Convert meaning column to HTML ordered lists
-    df["meaning"] = df["meaning"].apply(_convert_meaning_to_html_list)
+    df["meaning"] = df["meaning"].apply(_reformat_meaning)
 
     # Write processed data to output CSV
     output_path = output_dir / "tbcl_words.csv"
