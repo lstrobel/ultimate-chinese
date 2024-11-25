@@ -1,4 +1,4 @@
-Usage of the Font TW-Kai is licensed under the [SIL Open Font License, Version 1.1.](https://openfontlicense.org/)
+Usage of the Font edukai is licensed from 中華民國教育部 under [CC-BY-SA 3.0 TW](https://creativecommons.org/licenses/by-nd/3.0/tw/)
 
 Code in this repository is licensed under the MIT License:
 

@@ -1,14 +1,16 @@
 @font-face {
-  font-family: TW-Kai;
-  src: url("_TW-Kai.ttf");
+  font-family: Edu-Kai;
+  src: url("_edukai.ttf") format("truetype");
+  font-weight: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: Embedded-Kai;
-  src: url("_TW-Kai.ttf");
+  src: url("_edukai.ttf") format("truetype");
   unicode-range: U+4E00-9FFF;
-  font-display: fallback;
+  font-weight: normal;
+  font-display: swap;
 }
 
 .card,
@@ -26,7 +28,7 @@
 }
 
 .hanzi {
-  font-family: TW-Kai, PingFang TC, serif;
+  font-family: Edu-Kai, serif;
   font-size: 90px;
 }
 
