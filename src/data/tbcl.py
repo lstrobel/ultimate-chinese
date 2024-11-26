@@ -146,8 +146,8 @@ def _syllable_to_html(syllable: str) -> str:
     if syllable.isspace():
         return syllable
 
-    as_tone3 = to_tone3(syllable, neutral_tone_with_five=True)
-    tone_num = as_tone3[-1] if as_tone3[-1].isdigit() else "5"
+    as_tone3 = to_tone3(syllable.lower(), neutral_tone_with_five=True)
+    tone_num = next((c for c in as_tone3 if c.isdigit()), "5")
     return f'<span class="tone{tone_num}">{syllable}</span>'
 
 
