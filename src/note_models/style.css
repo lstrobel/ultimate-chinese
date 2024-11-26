@@ -2,7 +2,7 @@
   font-family: Edu-Kai;
   src: url("_edukai.ttf") format("truetype");
   font-weight: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
