@@ -1,0 +1,12 @@
+<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts"
+    xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="zh-CN">
+    <voice name="zh-CN-YunyangNeural">
+        <s />
+        <mstts:express-as style="newscast-casual">
+            <prosody rate="-20.00%">
+                <phoneme alphabet="sapi" ph="{pinyin_sapi}"> p </phoneme>
+            </prosody>
+        </mstts:express-as>
+        <s />
+    </voice>
+</speak>

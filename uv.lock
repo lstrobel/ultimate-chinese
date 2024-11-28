@@ -2,6 +2,19 @@ version = 1
 requires-python = ">=3.13"
 
 [[package]]
+name = "azure-cognitiveservices-speech"
+version = "1.41.1"
+source = { registry = "https://pypi.org/simple" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/0a/d7/a543d16a2c8856327564f1d1698888f978e08646716cd6396f304562b2f8/azure_cognitiveservices_speech-1.41.1-py3-none-macosx_10_14_x86_64.whl", hash = "sha256:ea9d466f236598e37ea3dad1db203a2901ef91b407e435b59d9b22669324074d", size = 7419245 },
+    { url = "https://files.pythonhosted.org/packages/6d/78/79ef2ca832d35c090cc3f89bb74e5dcc67215d02a86d98a527a4001c77f6/azure_cognitiveservices_speech-1.41.1-py3-none-macosx_11_0_arm64.whl", hash = "sha256:0f52f7852965bb2f5cf9aed0d3c6ef58238867bb6f0287eba95e42e1a513dd74", size = 7275748 },
+    { url = "https://files.pythonhosted.org/packages/be/a4/3768fd51a1339c758cb1be5e445ec1571147d2f17f62ca4b96ce9e870296/azure_cognitiveservices_speech-1.41.1-py3-none-manylinux1_x86_64.whl", hash = "sha256:70030c6f1c875895eb985de3775f62349aa8687b6616afa9498466e281f178d3", size = 39712952 },
+    { url = "https://files.pythonhosted.org/packages/24/33/160a9f334b64cd255da953a7756bdefe4a55f5295447597de052c1601c25/azure_cognitiveservices_speech-1.41.1-py3-none-manylinux2014_aarch64.whl", hash = "sha256:94ddda0deb3a9fee58a0a781b09ab8ab95401c5daf9bfc9f84ce8134d3a77055", size = 39495162 },
+    { url = "https://files.pythonhosted.org/packages/9f/f4/e0c7311aedbfa2636a63a47dfb0d94ad142e2e72885e2526cb119b14b66d/azure_cognitiveservices_speech-1.41.1-py3-none-win32.whl", hash = "sha256:039eec52c0a549a30658fa24a06d42afc6366c47b03b961c0b6f730fd421293e", size = 2108337 },
+    { url = "https://files.pythonhosted.org/packages/eb/a8/b4ce0c253c43c1ba44d795bc97910b800e8ff9991216666eb79b728b35e4/azure_cognitiveservices_speech-1.41.1-py3-none-win_amd64.whl", hash = "sha256:13679949f52f89c263e8b1c6a2d0f384d663917c58b150772cf42b710a01321c", size = 2376756 },
+]
+
+[[package]]
 name = "brain-brew"
 version = "0.3.11"
 source = { registry = "https://pypi.org/simple" }
@@ -128,6 +141,15 @@ wheels = [
 ]
 
 [[package]]
+name = "python-dotenv"
+version = "1.0.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/bc/57/e84d88dfe0aec03b7a2d4327012c1627ab5f03652216c63d49846d7a6c58/python-dotenv-1.0.1.tar.gz", hash = "sha256:e324ee90a023d808f1959c46bcbc04446a10ced277783dc6ee09987c37ec10ca", size = 39115 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/6a/3e/b68c118422ec867fa7ab88444e1274aa40681c606d59ac27de5a5588f082/python_dotenv-1.0.1-py3-none-any.whl", hash = "sha256:f7b63ef50f1b690dddf550d03497b66d609393b40b564ed0d674909a68ebf16a", size = 19863 },
+]
+
+[[package]]
 name = "pytz"
 version = "2024.2"
 source = { registry = "https://pypi.org/simple" }
@@ -247,7 +269,9 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
+    { name = "azure-cognitiveservices-speech" },
     { name = "pyperclip" },
+    { name = "python-dotenv" },
     { name = "ruff" },
 ]
 
@@ -262,7 +286,9 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
+    { name = "azure-cognitiveservices-speech", specifier = ">=1.41.1" },
     { name = "pyperclip", specifier = ">=1.9.0" },
+    { name = "python-dotenv", specifier = ">=1.0.1" },
     { name = "ruff", specifier = ">=0.7.3" },
 ]
 

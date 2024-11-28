@@ -7,3 +7,10 @@ Currently focused on Taiwanese Mandarin, but the long-term plan is to support al
 If you have any suggestions or concerns, please leave an issue.
 
 TBCL data was originally sourced from: https://coct.naer.edu.tw/page.jsp?ID=41
+
+TODO: 
+    1. Put pinyin/chars/zhuyin in a list 
+    2. Move most of the pinyin logic to the source csv
+    3. Add chengyu
+    4. Add character
+    5. Add grammar/affixlist
