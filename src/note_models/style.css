@@ -18,14 +18,22 @@
 }
 
 .hanzi {
-  font-family: PingFang TC, sans-serif;
+  font-family: Edu-Kai, PingFang TC, sans-serif;
   font-size: 90px;
   transition: font-family 0.3s ease;
   cursor: pointer;
   user-select: none;
 }
 
-.hanzi.edu-kai {
+.mobile .hanzi {
+  font-family: PingFang TC, sans-serif;
+}
+
+.hanzi.alternate-font {
+  font-family: PingFang TC, sans-serif;
+}
+
+.mobile .hanzi.alternate-font {
   font-family: Edu-Kai, PingFang TC, sans-serif;
 }
 
