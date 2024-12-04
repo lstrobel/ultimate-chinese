@@ -185,9 +185,14 @@ def build_tbcl_words(input: Path, output_dir: Path) -> None:
         lambda row: _convert_pinyin_to_html(row["word"], row["pinyin"]), axis=1
     )
 
-    # Convert lists to string format with slashes
-    df["hanzi"] = df["word"].apply(lambda x: "/".join(ast.literal_eval(x)))
-    df["zhuyin"] = df["zhuyin"].apply(lambda x: "/".join(ast.literal_eval(x)))
+    # Convert lists to HTML spans for word variants
+    df["hanzi"] = df["word"].apply(
+        lambda x: "".join(
+            f'<span class="word-variant">{variant}</span>'
+            for variant in ast.literal_eval(x)
+        )
+    )
+    df["zhuyin"] = df["zhuyin"].apply(lambda x: " / ".join(ast.literal_eval(x)))
 
     # Drop the original word column since we've replaced it with hanzi
     df = df.drop("word", axis=1)
@@ -200,6 +205,10 @@ def build_tbcl_words(input: Path, output_dir: Path) -> None:
 
     # Convert meaning column to HTML ordered lists
     df["meaning"] = df["meaning"].apply(_reformat_meaning)
+
+    # Reorder columns to put id and hanzi first
+    cols = ["id", "hanzi"] + [col for col in df.columns if col not in ["id", "hanzi"]]
+    df = df[cols]
 
     # Write processed data to output CSV
     output_path = output_dir / "tbcl_words.csv"
