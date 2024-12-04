@@ -1,7 +1,6 @@
 import itertools
 from pathlib import Path
 import ast
-import hashlib
 from typing import List
 import pandas as pd
 import re
@@ -151,10 +150,11 @@ def _syllable_to_html(syllable: str) -> str:
     return f'<span class="tone{tone_num}">{syllable}</span>'
 
 
-def _convert_pinyin_to_html(word: str, pinyin: str) -> str:
+def _convert_pinyin_to_html(word_list: str, pinyin_list: str) -> str:
     """Convert pinyin to HTML with tone classes, using pypinyin for syllable detection."""
-    words = [w.strip() for w in word.split("/") if w]
-    pinyins = [p.strip() for p in pinyin.split("/") if p]
+    # Convert string representations of lists to actual lists
+    words = ast.literal_eval(word_list)
+    pinyins = ast.literal_eval(pinyin_list)
     as_html = []
 
     max_chars = max(len(w) for w in words)
@@ -164,18 +164,9 @@ def _convert_pinyin_to_html(word: str, pinyin: str) -> str:
             max_chars = len(word)
 
         split = _split_pinyin(word, pinyin, max_chars)
-        # print(f"{words}, {split}, {max_chars}")
         as_html.append("".join(map(lambda x: _syllable_to_html(x), split)))
 
     return " / ".join(as_html)
-
-
-def _generate_guid(word: str, pinyin: str) -> str:
-    """Generate a deterministic GUID from word and pinyin."""
-    # Combine word and pinyin, encode to bytes
-    combined = f"{word}:{pinyin}".encode("utf-8")
-    # Create SHA-256 hash and take first 32 chars
-    return hashlib.sha256(combined).hexdigest()[:32]
 
 
 def build_tbcl_words(input: Path, output_dir: Path) -> None:
@@ -189,18 +180,20 @@ def build_tbcl_words(input: Path, output_dir: Path) -> None:
     # Read the input CSV
     df = pd.read_csv(input)
 
-    # Generate GUIDs
-    df["guid"] = df.apply(
-        lambda row: _generate_guid(row["word"], row["pinyin"]), axis=1
-    )
-
     # Convert pinyin to HTML
     df["pinyin"] = df.apply(
         lambda row: _convert_pinyin_to_html(row["word"], row["pinyin"]), axis=1
     )
 
-    # Rename columns to match note model
-    df = df.rename(columns={"word": "hanzi", "definition": "meaning"})
+    # Convert lists to string format with slashes
+    df["hanzi"] = df["word"].apply(lambda x: "/".join(ast.literal_eval(x)))
+    df["zhuyin"] = df["zhuyin"].apply(lambda x: "/".join(ast.literal_eval(x)))
+
+    # Drop the original word column since we've replaced it with hanzi
+    df = df.drop("word", axis=1)
+
+    # Rename definition column to match note model
+    df = df.rename(columns={"definition": "meaning"})
 
     # Sort and reassign IDs
     df = _sort_by_level_and_frequency(df)
