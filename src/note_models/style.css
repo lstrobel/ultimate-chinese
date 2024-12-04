@@ -1,7 +1,7 @@
 @font-face {
   font-family: Edu-Kai;
   src: url("_edukai.ttf") format("truetype");
-  font-display: swap;
+  size-adjust: 140%;
 }
 
 .card,
@@ -19,7 +19,7 @@
 }
 
 .hanzi-container {
-  min-height: 7.5rem;
+  min-height: 8rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,32 +28,26 @@
 
 .hanzi {
   font-family: Edu-Kai, PingFang TC, sans-serif;
-  font-size: 5.625rem;
+  font-size: 5rem;
   cursor: pointer;
-  user-select: none;
-}
-
-.hanzi:focus {
-  outline: 2px solid #8fe6ff;
-  outline-offset: 2px;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .hanzi {
-    transition: font-family 0.3s ease;
-  }
+  letter-spacing: normal;
 }
 
 .mobile .hanzi {
   font-family: PingFang TC, sans-serif;
+  letter-spacing: 1rem;
+  margin-right: -1rem;
 }
 
 .hanzi.alternate-font {
   font-family: PingFang TC, sans-serif;
+  letter-spacing: 1rem;
+  margin-right: -1rem;
 }
 
 .mobile .hanzi.alternate-font {
   font-family: Edu-Kai, PingFang TC, sans-serif;
+  letter-spacing: normal;
 }
 
 .word-variant {
