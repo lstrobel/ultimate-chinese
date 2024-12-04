@@ -6,6 +6,8 @@ fields:
     font: Arial
   - name: Hanzi
     font: Arial
+  - name: HanziAudio
+    font: Arial
   - name: Pinyin
     font: Arial
   - name: Zhuyin

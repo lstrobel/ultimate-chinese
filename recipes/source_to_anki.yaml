@@ -23,6 +23,10 @@
         - part_id: fonts
           source: src/media/fonts
           recursive: true
+    - media_group_from_folder:
+        - part_id: audio
+          source: src/media/audio
+          recursive: true
 
 - generate_crowd_anki:
     folder: build/Ultimate_Chinese__TBCL_Words
@@ -33,4 +37,4 @@
         - part_id: Ultimate Chinese
     headers: tbcl_words_headers
     media:
-      parts: [fonts]
+      parts: [fonts, audio]

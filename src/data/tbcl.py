@@ -206,8 +206,17 @@ def build_tbcl_words(input: Path, output_dir: Path) -> None:
     # Convert meaning column to HTML ordered lists
     df["meaning"] = df["meaning"].apply(_reformat_meaning)
 
-    # Reorder columns to put id and hanzi first
-    cols = ["id", "hanzi"] + [col for col in df.columns if col not in ["id", "hanzi"]]
+    # Add sound tags to audio filenames and rename word_audio column to hanziaudio
+    if "word_audio" in df.columns:
+        df = df.rename(columns={"word_audio": "hanziaudio"})
+        df["hanziaudio"] = df["hanziaudio"].apply(
+            lambda x: f"[sound:{x}]" if pd.notna(x) else x
+        )
+
+    # Reorder columns to put id, hanzi first and hanziaudio last if it exists
+    cols = ["id", "hanzi"]
+    remaining_cols = [col for col in df.columns if col not in ["id", "hanzi"]]
+    cols.extend(remaining_cols)
     df = df[cols]
 
     # Write processed data to output CSV
