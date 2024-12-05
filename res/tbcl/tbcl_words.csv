@@ -124,7 +124,7 @@ word,written_freq,spoken_freq,zhuyin,pinyin,definition,tags,guid,word_audio
 ['太'],718,891,['ㄊㄞˋ'],['tài'],"['highest', 'greatest', 'too (much)', 'very', 'extremely']","UC::TBCL-level-1, UC::TBCL-basic, UC::TBCL-context-core",99c0a40580539278a379c9dc16e107ac,dangdai-B1L04-II-04.mp3
 ['太太'],276,131,['ㄊㄞˋ ˙ㄊㄞ'],['tàitai'],"['married woman', 'Mrs.', 'Madam', 'wife', 'CL: 個[ge4], 位[wei4]']","UC::TBCL-level-1, UC::TBCL-basic, UC::TBCL-context-core",8b7a600fe9166c136b56e3bc783f902b,dangdai-B1L10-II-07.mp3
 "['台灣', '臺灣']",522,1445,['ㄊㄞˊ ㄨㄢ'],['táiwān'],['Taiwan'],"UC::TBCL-level-1, UC::TBCL-basic, UC::TBCL-context-personal-info",def60516993ae5dba7c31b95b4413b85,
-"['臺灣人', '台灣人']",5,11,['ㄊㄞˊ ㄨㄢ  ㄖㄣˊ'],['táiwānrén'],['Taiwanese person'],"UC::TBCL-level-1, UC::TBCL-basic, UC::TBCL-context-personal-info",b8e46bb5fb9999fe5297f02d988aefd6,
+"['臺灣人', '台灣人']",5,11,['ㄊㄞˊ ㄨㄢ ㄖㄣˊ'],['táiwānrén'],['Taiwanese person'],"UC::TBCL-level-1, UC::TBCL-basic, UC::TBCL-context-personal-info",b8e46bb5fb9999fe5297f02d988aefd6,
 ['天'],1520,1616,['ㄊㄧㄢ'],['tiān'],"['day', 'sky', 'heaven']","UC::TBCL-level-1, UC::TBCL-basic, UC::TBCL-context-core",563250052d3536de18484cdfb7378847,dangdai-B1L07-II-12.mp3
 ['聽'],615,409,['ㄊㄧㄥ'],['tīng'],"['to listen to; to hear', 'to heed; to obey', 'a can (loanword from English ""tin"")', 'classifier for canned beverages', 'to let be; to allow (Taiwan pr. [ting4])', '(literary) to administer; to deal with (Taiwan pr. [ting4])']","UC::TBCL-level-1, UC::TBCL-basic, UC::TBCL-context-core",03bcb26c65cc8d1a3fa4936320b4b85d,dangdai-B1L03-I-02.mp3
 ['同學'],106,267,['ㄊㄨㄥˊ ㄒㄩㄝˊ'],['tóngxué'],"['to study at the same school', 'fellow student', 'classmate', 'CL: 位[wei4], 個[ge4]']","UC::TBCL-level-1, UC::TBCL-basic, UC::TBCL-context-core",6ae69d214756ec114867784dfbf612df,dangdai-B1L08-II-01.mp3
@@ -826,7 +826,7 @@ word,written_freq,spoken_freq,zhuyin,pinyin,definition,tags,guid,word_audio
 ['搭'],68,63,['ㄉㄚ'],['dā'],"['to put up', 'to build (scaffolding)', 'to hang (clothes on a pole)', 'to connect', 'to join', 'to arrange in pairs', 'to match', 'to add', 'to throw in (resources)', 'to take (boat, train)', 'variant of 褡[da1]']","UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-travel-transport",bbca618145f8bfaaa43b4c73e9b05134,dangdai-B2L02-II-16.mp3
 ['打工'],11,53,['ㄉㄚˇ ㄍㄨㄥ'],['dǎgōng'],"['to work a temporary or casual job', '(of students) to have a job outside of class time, or during vacation']","UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-work-career",58de8690b095f90a6e18607bfa644060,dangdai-B2L04-I-02.mp3
 ['打折'],3,2,['ㄉㄚˇ ㄓㄜˊ'],['dǎzhé'],['to give a discount'],"UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-shopping-retail",05ea92ad869df972b3f48e0ccdce7d41,dangdai-B3L02-I-16.mp3
-['大概'],159,761,['ㄉㄚˋ  ㄍㄞˋ'],['dàgài'],"['roughly', 'probably', 'rough', 'approximate', 'about', 'general idea']","UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-core",c6989a5d27e6757e0beebe07215aacc7,dangdai-B1L09-I-09.mp3
+['大概'],159,761,['ㄉㄚˋ ㄍㄞˋ'],['dàgài'],"['roughly', 'probably', 'rough', 'approximate', 'about', 'general idea']","UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-core",c6989a5d27e6757e0beebe07215aacc7,dangdai-B1L09-I-09.mp3
 ['大學生'],25,26,['ㄉㄚˋ ㄒㄩㄝˊ ㄕㄥ'],['dàxuéshēng'],"['university student', 'college student']","UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-personal-info",75fab68b8dcd966492e00f031393923f,
 ['到處'],87,90,['ㄉㄠˋ ㄔㄨˋ'],['dàochù'],['everywhere'],"UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-core",f36110b0f3e9a5e2b19c512ac3fde79d,dangdai-B2L02-II-09.mp3
 ['電影院'],9,6,['ㄉㄧㄢˋ ㄧㄥˇ ㄩㄢˋ'],['diànyǐngyuàn'],"['cinema; movie theater', 'CL: 家[jia1], 座[zuo4]']","UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-leisure-entertainment",cb1bd027f2c84032b92479f99c06c91f,dangdai-B4L01-I-22.mp3
@@ -862,7 +862,7 @@ word,written_freq,spoken_freq,zhuyin,pinyin,definition,tags,guid,word_audio
 ['海鮮'],5,2,['ㄏㄞˇ ㄒㄧㄢ'],['hǎixiān'],['seafood'],"UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-food-dining",3e1153590a042858a8ec8adef1e09401,dangdai-B3L03-I-16.mp3
 ['寒假'],4,4,['ㄏㄢˊ ㄐㄧㄚˋ'],['hánjià'],['winter vacation'],"UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-education-learning",d9c8c038b13ac1e45c0a6c15d5f259b1,
 ['漢字'],11,1,['ㄏㄢˋ ㄗˋ'],['hànzì'],['Chinese character(s)'],"UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-education-learning",189a14772eaa5acffdd904ca9067343c,dangdai-B2L03-I-09.mp3
-['好處'],69,62,['ㄏㄠˇ  ㄔㄨˋ'],['hǎochù'],"['benefit; advantage; merit', 'gain; profit']","UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-core",5caa334af70242572f8fb8755f0a7341,dangdai-B2L08-II-01.mp3
+['好處'],69,62,['ㄏㄠˇ ㄔㄨˋ'],['hǎochù'],"['benefit; advantage; merit', 'gain; profit']","UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-core",5caa334af70242572f8fb8755f0a7341,dangdai-B2L08-II-01.mp3
 ['黑板'],7,8,['ㄏㄟ ㄅㄢˇ'],['hēibǎn'],"['blackboard', 'CL: 塊[kuai4], 個[ge4]']","UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-education-learning",56efddd6795a92044093c2b840566608,
 ['花'],331,411,['ㄏㄨㄚ'],['huā'],"['flower', 'blossom', 'CL: 朵[duo3], 支[zhi1], 束[shu4], 把[ba3], 盆[pen2], 簇[cu4]', 'fancy pattern', 'florid', 'to spend (money, time)', '(coll.) lecherous', 'lustful']","UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-core",9372fe2573a468247489f39b516d79eb,dangdai-B4L10-I-05.mp3
 ['壞處'],6,4,['ㄏㄨㄞˋ ㄔㄨˋ'],['huàichù'],"['harm', 'troubles', 'CL: 個[ge4]']","UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-core",d5af6dbe24bbf1106a7317065e4be09b,
@@ -953,7 +953,7 @@ word,written_freq,spoken_freq,zhuyin,pinyin,definition,tags,guid,word_audio
 ['死'],459,149,['ㄙˇ'],['sǐ'],"['to die', 'impassable', 'uncrossable', 'inflexible', 'rigid', 'extremely', 'damned']","UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-core",17c3364f5aec1ce824841285009476eb,dangdai-B5L02-I-10.mp3
 ['速食'],4,3,['ㄙㄨˋ ㄕˊ'],['sùshí'],"['(of food) fast; instant', '(Tw) fast food']","UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-food-dining",e7d31249b6765f849cd8ff4b5a3425e7,dangdai-B2L12-I-04.mp3
 ['颱風'],14,280,['ㄊㄞˊ ㄈㄥ'],['táifēng'],['typhoon'],"UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-travel-transport",f5e9a43890232c34cc23abb4889ad566,dangdai-B1L14-II-03.mp3
-['太陽'],104,111,['ㄊㄞˋ  ㄧㄤˊ'],['tàiyáng'],"['sun', 'CL: 個[ge4]', 'abbr. for 太陽穴[tai4 yang2 xue2]']","UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-core",1337ff52da497f0af10a3297108d6ed2,
+['太陽'],104,111,['ㄊㄞˋ ㄧㄤˊ'],['tàiyáng'],"['sun', 'CL: 個[ge4]', 'abbr. for 太陽穴[tai4 yang2 xue2]']","UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-core",1337ff52da497f0af10a3297108d6ed2,
 "['台語', '臺語']",9,18,['ㄊㄞˊ ㄩˇ'],['táiyǔ'],"['Taiwanese Hokkien (aka Taiwanese Minnan, or simply Taiwanese)']","UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-education-learning",7625a11a343b8daf48273ab3e6229444,dangdai-B4L09-I-37.mp3
 ['糖果'],10,15,['ㄊㄤˊ ㄍㄨㄛˇ'],['tángguǒ'],"['candy', 'CL: 粒[li4]']","UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-food-dining",245699bb88ae5d5c324b5d0a711220b5,
 ['套'],157,100,['ㄊㄠˋ'],['tào'],"['to cover', 'to encase', 'cover', 'sheath', 'to overlap', 'to interleave', 'to model after', 'to copy', 'formula', 'harness', 'loop of rope', '(fig.) to fish for', 'to obtain slyly', 'classifier for sets, collections', 'bend (of a river or mountain range, in place names)', 'tau (Greek letter Ττ)']","UC::TBCL-level-3, UC::TBCL-basic, UC::TBCL-context-core",1d5fe737694420adbf83fcc8209c2d65,dangdai-B3L11-II-03.mp3
@@ -1054,7 +1054,7 @@ word,written_freq,spoken_freq,zhuyin,pinyin,definition,tags,guid,word_audio
 ['存'],36,49,['ㄘㄨㄣˊ'],['cún'],"['to exist', 'to deposit', 'to store', 'to keep', 'to survive']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-public-services",d98debd5139e5452aa91974add94698b,dangdai-B2L06-I-25.mp3
 ['答案'],124,98,['ㄉㄚˊ ㄢˋ'],['dáàn'],"['answer', 'solution', 'CL: 個[ge4]']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-education-learning",575a0edc0c044321c73dcaf7bed7b243,dangdai-B6L02-II-05.mp3
 ['帶來'],160,189,['ㄉㄞˋ ㄌㄞˊ'],['dàilái'],"['to bring', '(fig.) to bring about; to produce']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-core",f5fe153dd278684dd16c3d481570fd0d,
-['大陸'],91,152,['ㄉㄚˋ  ㄌㄨˋ'],['dàlù'],"['continent; mainland', 'CL: 個[ge4], 塊[kuai4]']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-personal-info",11e1e4adca30333a720d9fddd830093a,
+['大陸'],91,152,['ㄉㄚˋ ㄌㄨˋ'],['dàlù'],"['continent; mainland', 'CL: 個[ge4], 塊[kuai4]']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-personal-info",11e1e4adca30333a720d9fddd830093a,
 ['當時'],477,365,['ㄉㄤ ㄕˊ'],['dāngshí'],"['then', 'at that time', 'while']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-core",f0712f4af2ac4e1fb9fca65df2dfd093,dangdai-B2L14-II-01.mp3
 ['當中'],96,376,['ㄉㄤ ㄓㄨㄥ'],['dāngzhōng'],"['among', 'in the middle', 'in the center']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-core",47b1075312b45c1d8ed352a4cbbb3eaa,dangdai-B3L03-II-03.mp3
 ['擔心'],169,241,['ㄉㄢ ㄒㄧㄣ'],['dānxīn'],"['anxious', 'worried', 'uneasy', 'to worry', 'to be anxious']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-core",2c42c62926cc94ca6a9535b9693b36fd,dangdai-B3L01-II-13.mp3
@@ -1086,7 +1086,7 @@ word,written_freq,spoken_freq,zhuyin,pinyin,definition,tags,guid,word_audio
 ['工人'],48,28,['ㄍㄨㄥ\u3000 ㄖㄣˊ'],['gōngrén'],"['worker', 'CL: 個[ge4], 名[ming2]']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-work-career",ef8f2e46f1b170757cc4128296ecc365,
 ['光'],150,192,['ㄍㄨㄤ'],['guāng'],"['light; ray (CL: 道[dao4])', 'bright; shiny', 'only; merely', 'used up; finished', 'to leave (a part of the body) uncovered']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-core",f2850d6e2357d1ecab069be8f4264d33,dangdai-B4L04-I-29.mp3
 "['姑姑', '姑']",20,13,"['ㄍㄨ\u3000 ˙ㄍㄨ', 'ㄍㄨ']","['gūgu', 'gū']","['paternal aunt', 'CL: 個[ge4]']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-personal-info",ff4867f01235ca68d86a8d3a1b23c760,
-['姑媽'],6,1,['ㄍㄨ  ㄇㄚ'],['gūmā'],"[""(coll.) father's married sister"", 'paternal aunt']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-personal-info",9ec504318350ab1e051cff52143eaa74,dangdai-B6L09-I-03.mp3
+['姑媽'],6,1,['ㄍㄨ ㄇㄚ'],['gūmā'],"[""(coll.) father's married sister"", 'paternal aunt']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-personal-info",9ec504318350ab1e051cff52143eaa74,dangdai-B6L09-I-03.mp3
 "['櫃子', '櫃']",17,10,"['ㄍㄨㄟˋ\u3000˙ㄗ', 'ㄍㄨㄟˋ']","['guìzi', 'guì']","['cupboard', 'cabinet']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-core",c123094c5413ed2522b38adbadd805ed,dangdai-B4L06-II-31.mp3
 ['國小'],20,99,['ㄍㄨㄛˊ ㄒㄧㄠˇ'],['guóxiǎo'],"['elementary school (Tw)', 'abbr. for 國民小學[guo2 min2 xiao3 xue2]']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-personal-info",95f4db898a746e648960ba803350985a,
 ['害怕'],125,81,['ㄏㄞˋ ㄆㄚˋ'],['hàipà'],['to be afraid; to be scared'],"UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-core",15d6ca3f682db642af343a2f309fdbc5,dangdai-B5L06-I-24.mp3
@@ -1177,7 +1177,7 @@ word,written_freq,spoken_freq,zhuyin,pinyin,definition,tags,guid,word_audio
 ['鎖'],22,11,['ㄙㄨㄛˇ'],['suǒ'],"['to lock; to lock up', 'a lock (CL: 把[ba3])']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-daily-routines",2b36c67b8ca75ef016585c4d794cfba2,
 ['談'],181,217,['ㄊㄢˊ'],['tán'],"['to speak', 'to talk', 'to converse', 'to chat', 'to discuss']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-core",f93065012f39fb6f40d99ce47eab667f,dangdai-B2L13-II-14.mp3
 ['討論'],213,149,['ㄊㄠˇ ㄌㄨㄣˋ'],['tǎolùn'],['to discuss; to talk over'],"UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-education-learning",b9411a6998881ca81a521338d216c708,dangdai-B2L06-II-13.mp3
-['套餐'],1,3,['ㄊㄠˋ  ㄘㄢ'],['tàocān'],"['set meal', '(fig.) product or service package (e.g. for a cell phone subscription)']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-food-dining",86d972f1c7ab5cff39cf1ba6186141da,
+['套餐'],1,3,['ㄊㄠˋ ㄘㄢ'],['tàocān'],"['set meal', '(fig.) product or service package (e.g. for a cell phone subscription)']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-food-dining",86d972f1c7ab5cff39cf1ba6186141da,
 ['題'],16,62,['ㄊㄧˊ'],['tí'],"['topic', 'problem for discussion', 'exam question', 'subject', 'to inscribe', 'to mention', 'CL: 個[ge4], 道[dao4]']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-education-learning",b43f4ca2c80c7802974191169e060fe5,
 ['題目'],37,27,['ㄊㄧˊ ㄇㄨˋ'],['tímù'],"['subject; title; topic (CL: 個[ge4])', 'exercise or exam question (CL: 道[dao4])']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-education-learning",87bce6102fedfe0cbba2a830d0bfc98e,dangdai-B6L10-II-52.mp3
 ['廳'],9,4,['ㄊㄧㄥ'],['tīng'],"['(reception) hall', 'living room', 'office', 'provincial government department']","UC::TBCL-level-3-star, UC::TBCL-basic, UC::TBCL-context-daily-routines",2e87456e5d57466dcbd02bd81bdbcc8a,
@@ -2055,7 +2055,7 @@ word,written_freq,spoken_freq,zhuyin,pinyin,definition,tags,guid,word_audio
 ['地下室'],13,5,['ㄉㄧˋ ㄒㄧㄚˋ ㄕˋ'],['dì xià shì'],"['basement', 'cellar']","UC::TBCL-level-4-star, UC::TBCL-intermediate, UC::TBCL-context-daily-routines",46599392746586c84f64a187b6d81bf5,
 ['電器'],16,15,['ㄉㄧㄢˋ ㄑㄧˋ'],['diàn qì'],"['(electrical) appliance', 'device']","UC::TBCL-level-4-star, UC::TBCL-intermediate, UC::TBCL-context-daily-routines",36667330d7e99acbbb590bd6709b084d,
 ['電視劇'],6,2,['ㄉㄧㄢˋ ㄕˋ ㄐㄩˋ'],['diàn shì jù'],"['TV series', 'TV drama', 'CL: 部[bu4]']","UC::TBCL-level-4-star, UC::TBCL-intermediate, UC::TBCL-context-leisure-entertainment",3cf185ad5edbd6f1e59a3daa631080d2,
-"['電視台', '電視臺']",13,28,['ㄉㄧㄢˋ ㄕˋ ㄊㄞˊ'],['diàn shì tái'],"['television station', 'CL:  個｜个']","UC::TBCL-level-4-star, UC::TBCL-intermediate, UC::TBCL-context-leisure-entertainment",a7fe8ff4047bf9348e2866cf5a175ee0,
+"['電視台', '電視臺']",13,28,['ㄉㄧㄢˋ ㄕˋ ㄊㄞˊ'],['diàn shì tái'],"['television station', 'CL: 個｜个']","UC::TBCL-level-4-star, UC::TBCL-intermediate, UC::TBCL-context-leisure-entertainment",a7fe8ff4047bf9348e2866cf5a175ee0,
 ['點頭'],55,4,['ㄉㄧㄢˇ ㄊㄡˊ'],['diǎn tóu'],['to nod'],"UC::TBCL-level-4-star, UC::TBCL-intermediate, UC::TBCL-context-core",2452618140b5744385ceb1d33c3062b3,
 ['典型'],52,22,['ㄉㄧㄢˇ ㄒㄧㄥˊ'],['diǎn xíng'],"['model', 'typical case', 'archetype', 'typical', 'representative']","UC::TBCL-level-4-star, UC::TBCL-intermediate, UC::TBCL-context-core",39a9f88f153fb2a978774478de403138,
 ['調查'],99,164,['ㄉㄧㄠˋ ㄔㄚˊ'],['diào chá'],"['investigation', 'inquiry', 'to investigate', 'to survey', 'survey', '(opinion) poll', 'CL: 項[xiang4], 個[ge4]']","UC::TBCL-level-4-star, UC::TBCL-intermediate, UC::TBCL-context-education-learning",d7088e0f44170a38d3edcc630435bf8d,dangdai-B3L10-II-07.mp3
@@ -2229,7 +2229,7 @@ word,written_freq,spoken_freq,zhuyin,pinyin,definition,tags,guid,word_audio
 ['開花'],13,29,['ㄎㄞ ㄏㄨㄚ'],['kāi huā'],"['to bloom; to blossom; to flower', '(fig.) to burst; to split open', '(fig.) to burst with joy', '(fig.) to spring up everywhere; to flourish']","UC::TBCL-level-4-star, UC::TBCL-intermediate, UC::TBCL-context-core",e5a3200fefbdbef56b18558e2778e752,
 ['開水'],8,7,['ㄎㄞ ㄕㄨㄟˇ'],['kāi shuǐ'],"['boiled water', 'boiling water']","UC::TBCL-level-4-star, UC::TBCL-intermediate, UC::TBCL-context-food-dining",29ac5a86554c70932c39b052f3cca008,
 ['砍'],33,38,['ㄎㄢˇ'],['kǎn'],"['to chop', 'to cut down', 'to throw sth at sb']","UC::TBCL-level-4-star, UC::TBCL-intermediate, UC::TBCL-context-environment-nature",716dd9250b2329bda82681c8a070ced8,
-['看不起'],9,5,['ㄎㄢˋ  ㄅㄨˋ ㄑㄧˇ'],['kàn bù qǐ'],"['to look down upon', 'to despise']","UC::TBCL-level-4-star, UC::TBCL-intermediate, UC::TBCL-context-core",babcfeb07dc10425b8894c05ca6db327,
+['看不起'],9,5,['ㄎㄢˋ ㄅㄨˋ ㄑㄧˇ'],['kàn bù qǐ'],"['to look down upon', 'to despise']","UC::TBCL-level-4-star, UC::TBCL-intermediate, UC::TBCL-context-core",babcfeb07dc10425b8894c05ca6db327,
 ['看得起'],2,1,['ㄎㄢˋ ˙ㄉㄜ ㄑㄧˇ'],['kàn de qǐ'],"['to show respect for', 'to think highly of']","UC::TBCL-level-4-star, UC::TBCL-intermediate, UC::TBCL-context-core",455fbe27637b112c20d269ab00b505f3,
 ['看來'],88,44,['ㄎㄢˋ ㄌㄞˊ'],['kàn lái'],"['apparently', 'it seems that']","UC::TBCL-level-4-star, UC::TBCL-intermediate, UC::TBCL-context-core",4fa31ad63ebd7cbb663ac003ef193248,
 ['可'],1109,380,['ㄎㄜˇ'],['kě'],"['(prefix) can; may; able to; -able', 'to approve; to permit', 'to suit', '(particle used for emphasis) certainly; very']","UC::TBCL-level-4-star, UC::TBCL-intermediate, UC::TBCL-context-core",203065ed0eb4551354087572562e31b3,
@@ -3327,7 +3327,7 @@ word,written_freq,spoken_freq,zhuyin,pinyin,definition,tags,guid,word_audio
 ['孤兒'],24,14,['ㄍㄨ ㄦˊ'],['gū ér'],['orphan'],"UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-core",e3e73e4713d4a30bb12669237c7e00a0,dangdai-B5L06-I-39.mp3
 ['古怪'],20,1,['ㄍㄨˇ ㄍㄨㄞˋ'],['gǔ guài'],"['strange', 'weird', 'eccentric', 'bizarre']","UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-core",9ccb6e8ec3dad8f675a39593f831abf1,
 ['估計'],27,45,['ㄍㄨ ㄐㄧˋ'],['gū jì'],"['to estimate; to assess; to calculate', '(coll.) to reckon; to think (that ...)']","UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-travel-transport",09c680d7d23d41487d44d3d22617658f,dangdai-B6L02-I-13.mp3
-"['古跡', '古蹟']",7,26,['ㄍㄨˇ ㄐㄧ'],['gǔ jī'],"['places of historic interest', 'historical sites', 'CL:  個｜个']","UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-travel-transport",6f37385ce5f6e4f6e0760ad137039153,dangdai-B3L04-II-09.mp3
+"['古跡', '古蹟']",7,26,['ㄍㄨˇ ㄐㄧ'],['gǔ jī'],"['places of historic interest', 'historical sites', 'CL: 個｜个']","UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-travel-transport",6f37385ce5f6e4f6e0760ad137039153,dangdai-B3L04-II-09.mp3
 ['古老'],41,37,['ㄍㄨˇ ㄌㄠˇ'],['gǔ lǎo'],"['ancient', 'old', 'age-old']","UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-culture-arts",be3f0766b698010d85b84f70b419f242,dangdai-B3L04-II-08.mp3
 ['姑娘'],161,6,"['ㄍㄨ ㄋㄧㄤˊ', 'ㄍㄨ ˙ㄋㄧㄤ']","['gū niáng', 'gū niang']","['girl', 'young woman', 'young lady', 'daughter', 'paternal aunt (old)', 'CL: 個[ge4]']","UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-core",d1e4f4cdc4d0b68634ee9bd2a6fe172a,
 ['股票'],49,7,['ㄍㄨˇ ㄆㄧㄠˋ'],['gǔ piào'],"['share certificate', 'stock (finance)']","UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-society-community",941757ba9f05c4cf641197e6c681b01a,
@@ -4717,7 +4717,7 @@ word,written_freq,spoken_freq,zhuyin,pinyin,definition,tags,guid,word_audio
 ['相互'],69,34,['ㄒㄧㄤ ㄏㄨˋ'],['xiāng hù'],"['each other', 'mutual']","UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-social-relations",59cfcf3929c1b5f918a945af266ca540,dangdai-B4L11-I-36.mp3
 ['相近'],10,9,['ㄒㄧㄤ ㄐㄧㄣˋ'],['xiāng jìn'],"['close', 'similar to']","UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-core",7ff9c12378dc0e0457593b1cc8aaa286,
 ['向來'],29,18,['ㄒㄧㄤˋ ㄌㄞˊ'],['xiàng lái'],['always (previously)'],"UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-core",76d28e3d7fdbba432c69decc48ad1707,dangdai-B5L08-I-25.mp3
-['項鍊'],8,8,['ㄒㄧㄤˋ ㄌㄧㄢˋ'],['xiàng liàn'],"['necklace', 'CL:  條｜条']","UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-shopping-retail",b4935f3ded33bd91889409a59b64e72e,
+['項鍊'],8,8,['ㄒㄧㄤˋ ㄌㄧㄢˋ'],['xiàng liàn'],"['necklace', 'CL: 條｜条']","UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-shopping-retail",b4935f3ded33bd91889409a59b64e72e,
 ['項目'],40,25,['ㄒㄧㄤˋ ㄇㄨˋ'],['xiàng mù'],"['item', 'project', '(sports) event', 'CL: 個[ge4]']","UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-core",09127b2b8b3a94f6248d0d65338c698f,dangdai-B6L08-I-10.mp3
 ['香氣'],12,30,['ㄒㄧㄤ ㄑㄧˋ'],['xiāng qì'],"['fragrance', 'aroma', 'incense']","UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-food-dining",f0527c9e63d2a1baf811e55859c90670,
 ['相親'],3,2,['ㄒㄧㄤˋ ㄑㄧㄣ'],['xiàng qīn'],"['blind date', 'arranged interview to evaluate a proposed marriage partner (Taiwan pr. [xiang4 qin1])', 'to be deeply attached to each other']","UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-social-relations",a2bc9a095ce95c329edf80fd3b646776,
@@ -5272,7 +5272,7 @@ word,written_freq,spoken_freq,zhuyin,pinyin,definition,tags,guid,word_audio
 ['組織'],263,243,['ㄗㄨˇ ㄓ'],['zǔ zhī'],"['to organize', 'organization', '(biology) tissue', '(textiles) weave', 'CL: 個[ge4]']","UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-work-career",7a73e61bb6178f4a6740dcef3511cf08,dangdai-B4L05-II-08.mp3
 ['鑽'],13,17,['ㄗㄨㄢ'],['zuān'],"['to drill', 'to bore', 'to get into', ""to make one's way into"", 'to enter (a hole)', ""to thread one's way through"", 'to study intensively', 'to dig into', 'to curry favor for personal gain']","UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-core",56b9f2ed4c2b964d07172045987e0643,
 ['罪'],44,13,['ㄗㄨㄟˋ'],['zuì'],"['guilt', 'crime', 'fault', 'blame', 'sin']","UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-safety-security",8fc470feebd2fdf881e5ca02b430f3db,
-"['嘴脣', '嘴唇', '脣', '唇']",44,10,"['ㄗㄨㄟˇ ㄔㄨㄣˊ', 'ㄔㄨㄣˊ']","['zuǐ chún', 'chún', '']","['lip', 'CL:  片']","UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-health-medical",82554b9f8f7372b69ad72ba6d040d59e,
+"['嘴脣', '嘴唇', '脣', '唇']",44,10,"['ㄗㄨㄟˇ ㄔㄨㄣˊ', 'ㄔㄨㄣˊ']","['zuǐ chún', 'chún', '']","['lip', 'CL: 片']","UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-health-medical",82554b9f8f7372b69ad72ba6d040d59e,
 ['罪惡'],17,4,['ㄗㄨㄟˋ ㄜˋ'],['zuì è'],"['crime', 'evil', 'sin']","UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-safety-security",40c2973eda7487cc0fd3cf46b525ac0f,
 ['最終'],55,28,['ㄗㄨㄟˋ ㄓㄨㄥ'],['zuì zhōng'],['final; ultimate'],"UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-core",1e3d4b881dfc78252e577b4956e60cca,dangdai-B6L08-I-44.mp3
 ['尊敬'],34,28,['ㄗㄨㄣ ㄐㄧㄥˋ'],['zūn jìng'],"['to respect; to revere; to esteem', 'honorable; distinguished (used on formal occasions before a term of address)']","UC::TBCL-level-5, UC::TBCL-intermediate, UC::TBCL-context-social-relations",9ddb68121c44bf307de2ca8f175dd467,dangdai-B3L10-II-25.mp3
@@ -8829,8 +8829,8 @@ word,written_freq,spoken_freq,zhuyin,pinyin,definition,tags,guid,word_audio
 ['役'],22,1,['ㄧˋ'],['yì'],"['forced labor', 'corvée', 'obligatory task', 'military service', 'to use as servant', 'to enserf', 'servant (old)', 'war', 'campaign', 'battle']","UC::TBCL-level-6, UC::TBCL-advanced",f0c0b527cb6c356dc2d14da0a8d0a0ab,
 ['易'],56,19,['ㄧˋ'],['yì'],"['easy', 'amiable', 'to change', 'to exchange', 'prefix corresponding to the English adjective suffix ""-able"" or ""-ible""']","UC::TBCL-level-6, UC::TBCL-advanced",806ab82685cf4839ce7c9058ef63738e,
 ['乙'],29,8,['ㄧˇ'],['yǐ'],"['second of the ten Heavenly Stems 十天干[shi2 tian1 gan1]', 'second in order', 'letter ""B"" or Roman ""II"" in list ""A, B, C"", or ""I, II, III"" etc', 'second party (in legal contract, usually 乙方[yi3 fang1], as opposed to 甲方[jia3 fang1])', 'ethyl', 'bent', 'winding', 'radical in Chinese characters (Kangxi radical 5)', 'ancient Chinese compass point: 105°']","UC::TBCL-level-6, UC::TBCL-advanced",b0e3f50cd0aa6040ed1efe205aff2756,
-['一律'],16,5,['ㄧˊ ㄌㄩˋ'],['yí  lǜ'],"['same', 'uniformly', 'all', 'without exception']","UC::TBCL-level-6, UC::TBCL-advanced",0a23f2772cdbb9fabf731e94ef878813,
-['一路順風'],0,0,['ㄧˊㄌㄨˋ ㄕㄨㄣˋ ㄈㄥ'],['yí  lù shùn fēng'],['to have a pleasant journey (idiom)'],"UC::TBCL-level-6, UC::TBCL-advanced",1e1e06d5fda0190e6881af14272e65a7,
+['一律'],16,5,['ㄧˊ ㄌㄩˋ'],['yí lǜ'],"['same', 'uniformly', 'all', 'without exception']","UC::TBCL-level-6, UC::TBCL-advanced",0a23f2772cdbb9fabf731e94ef878813,
+['一路順風'],0,0,['ㄧˊㄌㄨˋ ㄕㄨㄣˋ ㄈㄥ'],['yí lù shùn fēng'],['to have a pleasant journey (idiom)'],"UC::TBCL-level-6, UC::TBCL-advanced",1e1e06d5fda0190e6881af14272e65a7,
 ['譯本'],14,1,['ㄧˋ ㄅㄣˇ'],['yì běn'],['translation (translated version of a text)'],"UC::TBCL-level-6, UC::TBCL-advanced",e8fe94e25aba92399846413bb92167e7,
 ['以便'],48,8,['ㄧˇ ㄅㄧㄢˋ'],['yǐ biàn'],"['so that', 'so as to', 'in order to']","UC::TBCL-level-6, UC::TBCL-advanced",cd3edc68253118a657f235a66ec76159,
 ['一併'],10,4,['ㄧˊ ㄅㄧㄥˋ'],['yí bìng'],['to lump together; to treat along with all the others'],"UC::TBCL-level-6, UC::TBCL-advanced",dbbc76dd1bd9bd65aa2de2a931772d76,
@@ -9662,7 +9662,7 @@ word,written_freq,spoken_freq,zhuyin,pinyin,definition,tags,guid,word_audio
 ['病危'],4,4,['ㄅㄧㄥˋ ㄨㄟˊ'],['bìng wéi'],"['to be critically ill', 'to be terminally ill']","UC::TBCL-level-7, UC::TBCL-advanced",c9a13f9b65b1f4439afcf2f88d8896ec,dangdai-B5L10-I-20.mp3
 ['屏息'],4,1,['ㄅㄧㄥˇ ㄒㄧˊ'],['bǐng xí'],"[""hold one's breath""]","UC::TBCL-level-7, UC::TBCL-advanced",b3941b95281be6d34adbf419f7cb7f42,
 ['並行'],3,1,['ㄅㄧㄥˋ ㄒㄧㄥˊ'],['bìng xíng'],"['to proceed in parallel', 'side by side (of two processes, developments, thoughts etc)']","UC::TBCL-level-7, UC::TBCL-advanced",231bc87fdf3b7a809b7629ee3d17b334,
-['並行不悖'],2,0,['ㄅㄧㄥˋ ㄒㄧㄥˊ ㄅㄨˊ ㄅㄟˋ'],['bìng xíng bú  bèi'],"['to run in parallel without hindrance', 'not mutually exclusive', 'two processes can be implemented without conflict']","UC::TBCL-level-7, UC::TBCL-advanced",c9c8674be8ae6b6a050d9e0d9003688b,
+['並行不悖'],2,0,['ㄅㄧㄥˋ ㄒㄧㄥˊ ㄅㄨˊ ㄅㄟˋ'],['bìng xíng bú bèi'],"['to run in parallel without hindrance', 'not mutually exclusive', 'two processes can be implemented without conflict']","UC::TBCL-level-7, UC::TBCL-advanced",c9c8674be8ae6b6a050d9e0d9003688b,
 ['博愛'],3,4,['ㄅㄛˊ ㄞˋ'],['bó ài'],"['universal fraternity (or brotherhood)', 'universal love']","UC::TBCL-level-7, UC::TBCL-advanced",1cd8d654b5c1a1b0a80a448f34b66327,
 ['駁斥'],5,1,['ㄅㄛˊ ㄔˋ'],['bó chì'],"['to refute', 'to debunk', 'to deny', 'to denounce']","UC::TBCL-level-7, UC::TBCL-advanced",9f050cc612b9458f68ddf1fc5e22f6a3,
 ['駁回'],3,1,['ㄅㄛˊ ㄏㄨㄟˊ'],['bó huí'],"['to reject', 'to turn down', 'to overrule']","UC::TBCL-level-7, UC::TBCL-advanced",7c0891fc386f4926d687ab4c42678ae6,
@@ -11482,7 +11482,7 @@ word,written_freq,spoken_freq,zhuyin,pinyin,definition,tags,guid,word_audio
 ['口頭禪'],3,1,['ㄎㄡˇ ㄊㄡˊ ㄔㄢˊ'],['kǒu tóu chán'],"['Zen saying repeated as cant', '(fig.) catchphrase; mantra; favorite expression; stock phrase']","UC::TBCL-level-7, UC::TBCL-advanced",084d9262c94c155e4a5c2f9897148455,
 ['酷愛'],3,1,['ㄎㄨˋ ㄞˋ'],['kù ài'],"['to be keen on', 'to have a passion for']","UC::TBCL-level-7, UC::TBCL-advanced",4e0cc6c94f4ba5846fa8788a88266815,
 ['苦不堪言'],3,3,['ㄎㄨˇ ㄅㄨˋ ㄎㄢ ㄧㄢˊ'],['kǔ bù kān yán'],"['to suffer unspeakable misery', 'indescribably painful', 'hellish']","UC::TBCL-level-7, UC::TBCL-advanced",38b3af1fc58d2447053e0b0c4c389d93,
-['苦差事'],2,1,['ㄎㄨˇ ㄔㄞ  ㄕˋ'],['kǔ chāi shì'],['see 苦差[ku3 chai1]'],"UC::TBCL-level-7, UC::TBCL-advanced",df4a4a25154bd9c034da978fd4d1fa34,
+['苦差事'],2,1,['ㄎㄨˇ ㄔㄞ ㄕˋ'],['kǔ chāi shì'],['see 苦差[ku3 chai1]'],"UC::TBCL-level-7, UC::TBCL-advanced",df4a4a25154bd9c034da978fd4d1fa34,
 ['苦楚'],3,1,['ㄎㄨˇ ㄔㄨˇ'],['kǔ chǔ'],"['suffering', 'misery', 'pain (esp. psychological)']","UC::TBCL-level-7, UC::TBCL-advanced",1cf874590a31564e582f63549f561381,
 ['苦讀'],4,3,['ㄎㄨˇ ㄉㄨˊ'],['kǔ dú'],['REPLACE_ME'],"UC::TBCL-level-7, UC::TBCL-advanced",c1f75f65bf70abdd5fb3eb5b03d7d244,
 ['苦幹'],3,1,['ㄎㄨˇ ㄍㄢˋ'],['kǔ gàn'],['to work hard'],"UC::TBCL-level-7, UC::TBCL-advanced",141fb12758fe03db54844fc853e0c06c,
@@ -12501,7 +12501,7 @@ word,written_freq,spoken_freq,zhuyin,pinyin,definition,tags,guid,word_audio
 ['少婦'],5,1,['ㄕㄠˋ ㄈㄨˋ'],['shào fù'],['young married woman'],"UC::TBCL-level-7, UC::TBCL-advanced",ae8a254b0fdabdcf03ac5c043fb78c67,
 ['燒毀'],7,6,['ㄕㄠ ㄏㄨㄟˇ'],['shāo huǐ'],['REPLACE_ME'],"UC::TBCL-level-7, UC::TBCL-advanced",0ab5a735dea742efe4a807c43ade451e,
 ['少校'],11,0,['ㄕㄠˋ ㄒㄧㄠˋ'],['shào xiào'],"['junior ranking officer in Chinese army', 'major', 'lieutenant commander']","UC::TBCL-level-7, UC::TBCL-advanced",2a4799b79b2ab8e590746ac91a9e05e6,
-['少之又少'],4,2,['ㄕㄠˇ ㄓ  ㄧㄡˋ ㄕㄠˇ'],['shǎo zhī yòu shǎo'],['very few; very little'],"UC::TBCL-level-7, UC::TBCL-advanced",2295fada909b9e43b174941f7343fb40,
+['少之又少'],4,2,['ㄕㄠˇ ㄓ ㄧㄡˋ ㄕㄠˇ'],['shǎo zhī yòu shǎo'],['very few; very little'],"UC::TBCL-level-7, UC::TBCL-advanced",2295fada909b9e43b174941f7343fb40,
 ['稍作'],2,1,['ㄕㄠ ㄗㄨㄛˋ'],['shāo zuò'],['REPLACE_ME'],"UC::TBCL-level-7, UC::TBCL-advanced",1ca26b1e0c42db108ffc543d1b2cad0d,
 ['設防'],3,1,['ㄕㄜˋ ㄈㄤˊ'],['shè fáng'],"['to set up defenses', 'to fortify']","UC::TBCL-level-7, UC::TBCL-advanced",fc04c14184fd2daaf1095dd4d3e54087,
 ['社稷'],5,1,['ㄕㄜˋ ㄐㄧˋ'],['shè jì'],"['state', 'country', 'the Gods of earth and grain']","UC::TBCL-level-7, UC::TBCL-advanced",d528c5cc397b768861c2edd68ed0b8ba,
@@ -13670,7 +13670,7 @@ word,written_freq,spoken_freq,zhuyin,pinyin,definition,tags,guid,word_audio
 ['矣'],83,5,['ㄧˇ'],['yǐ'],"['classical final particle, similar to modern 了[le5]']","UC::TBCL-level-7, UC::TBCL-advanced",984ba9e3ada55bbcf9152190f6a49a04,
 ['伊'],31,16,['ㄧ'],['yī'],"['(old) third person singular pronoun (""he"" or ""she"")', 'second person singular pronoun (""you"")', '(May 4th period) third person singular feminine pronoun (""she"")', '(Classical Chinese) introductory particle with no specific meaning', 'that (preceding a noun)']","UC::TBCL-level-7, UC::TBCL-advanced",f58a6eb910eac73551908f0690e53abf,
 ['壹'],4,2,['ㄧ'],['yī'],"[""one (banker's anti-fraud numeral)""]","UC::TBCL-level-7, UC::TBCL-advanced",30a8462b1a1b53cf4283be495b0184d4,
-['一頭霧水'],4,1,['ㄧˋ ㄊㄡˊ ㄨˋ ㄕㄨㄟˇ'],['yì  tóu wù shuǐ'],"['to be confused', 'to be baffled']","UC::TBCL-level-7, UC::TBCL-advanced",8ae1f46a7ed5f989926192f42a23dc01,
+['一頭霧水'],4,1,['ㄧˋ ㄊㄡˊ ㄨˋ ㄕㄨㄟˇ'],['yì tóu wù shuǐ'],"['to be confused', 'to be baffled']","UC::TBCL-level-7, UC::TBCL-advanced",8ae1f46a7ed5f989926192f42a23dc01,
 ['一敗塗地'],3,0,['ㄧˊ ㄅㄞˋ ㄊㄨˊ ㄉㄧˋ'],['yí bài tú dì'],"['lit. defeated, the ground blanketed with bodies (idiom)', 'fig. to suffer a crushing defeat']","UC::TBCL-level-7, UC::TBCL-advanced",d40c7e231df9d7bc09003a979597f02e,
 ['一本正經'],6,0,['ㄧˋ ㄅㄣˇ ㄓㄥˋ ㄐㄧㄥ'],['yì běn zhèng jīng'],['in deadly earnest; deadpan'],"UC::TBCL-level-7, UC::TBCL-advanced",46fb9b9747f3104e9dfb14dd77bc38ff,
 ['一臂之力'],3,2,['ㄧˊ ㄅㄧˋ ㄓ ㄌㄧˋ'],['yí bì zhī lì'],['REPLACE_ME'],"UC::TBCL-level-7, UC::TBCL-advanced",2fc9096424d9757d263273f64f209b76,
