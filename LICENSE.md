@@ -1,5 +1,7 @@
 Usage of the Font edukai is licensed from 中華民國教育部 under [CC-BY-SA 3.0 TW](https://creativecommons.org/licenses/by-nd/3.0/tw/)
 
+Audio files prefixed with "ntnu_" were taken from [A Course in Contemporary Chinese](https://mtc.ntnu.edu.tw/eng/book/A_Course_in_Contemporary_Chinese.html)
+
 Code in this repository is licensed under the MIT License:
 
 ---

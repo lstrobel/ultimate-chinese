@@ -1,7 +1,10 @@
 import ast
+import os
 from pathlib import Path
+import re
 import pandas as pd
 from utils import find_project_root
+import shutil
 
 
 def match_words(input_path: Path, tbcl_path: Path, output_path: Path) -> None:
@@ -16,44 +19,65 @@ def match_words(input_path: Path, tbcl_path: Path, output_path: Path) -> None:
     input_df = pd.read_csv(input_path)
     tbcl_df = pd.read_csv(tbcl_path)
 
-    # Ensure required columns exist
-    required_cols = ["traditional", "pinyin", "pos", "meaning", "audio"]
-    if not all(col in input_df.columns for col in required_cols):
-        raise ValueError(f"Input CSV must contain columns: {required_cols}")
+    # Create pinyin to audio mapping, handling multiple pinyin variants separated by '/'
+    pinyin_to_audio = {}
+    for pinyin, audio in zip(input_df["pinyin"], input_df["audio"]):
+        if pd.isna(pinyin) or pd.isna(audio):
+            continue
+        if "/" in pinyin:
+            # Split pinyin variants and map each to the same audio
+            variants = [p.strip() for p in pinyin.split("/")]
+            for variant in variants:
+                pinyin_to_audio[
+                    re.sub(r"\s", lambda m: "", variant.strip().lower())
+                    .replace("'", "")
+                    .replace("-", "")
+                ] = audio
+        else:
+            pinyin_to_audio[
+                re.sub(r"\s", lambda m: "", pinyin.strip().lower())
+                .replace("'", "")
+                .replace("-", "")
+            ] = audio
 
-    if "word" not in tbcl_df.columns:
-        raise ValueError("TBCL CSV must contain 'word' column")
-
-    # Create a set of TBCL words for faster lookup
-    tbcl_words = set()
-    for word_list in tbcl_df["word"]:
-        # TBCL words may be slash-separated
-        words = ast.literal_eval(word_list)
-        tbcl_words.update(word for word in words)
-
-    # Create a mapping of words to their audio files
-    word_to_audio = dict(zip(input_df["traditional"], input_df["word_audio"]))
+    print(pinyin_to_audio)
 
     # Create a copy of tbcl_df to modify
     output_df = tbcl_df.copy()
 
     # Add hanziaudio column if it doesn't exist
-    if "hanziaudio" not in output_df.columns:
-        output_df["hanziaudio"] = None
+    # if "word_audio" not in output_df.columns:
+    output_df["word_audio"] = None
+
+    root = find_project_root()
+    source_path = root / "build" / "zz.dangdai" / "media"
 
     # Update audio information for matching words
     for idx, row in output_df.iterrows():
-        words = ast.literal_eval(row["word"])
-        for word in words:
-            if word in word_to_audio:
-                output_df.at[idx, "hanziaudio"] = word_to_audio[word]
+        pinyin_options = ast.literal_eval(row["pinyin"])
+        for pinyin in pinyin_options:
+            normalized = (
+                re.sub(r"\s", lambda m: "", pinyin.strip().lower())
+                .replace("'", "")
+                .replace("-", "")
+            )
+            # Try exact match first
+            if normalized in pinyin_to_audio:
+                mp3_name = pinyin_to_audio[normalized][7:-1]
+                new_name = normalized + ".mp3"
+                shutil.copy(
+                    os.path.join(source_path, mp3_name),
+                    os.path.join(root, "src", "media", "audio", new_name),
+                )
+
+                output_df.at[idx, "word_audio"] = new_name
                 break  # Use the first matching word's audio
 
     # Write the updated DataFrame to CSV
     output_df.to_csv(output_path, index=False)
 
     # Print statistics
-    matched_count = output_df["hanziaudio"].notna().sum()
+    matched_count = output_df["word_audio"].notna().sum()
     print(f"Total input words: {len(input_df)}")
     print(f"TBCL entries with audio: {matched_count}")
 
