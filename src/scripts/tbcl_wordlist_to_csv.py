@@ -1,6 +1,7 @@
 """
 The script used to generate the first iteration of tbcl_words.csv
-Manual corrections were needed after running this script, so it was really only useful once.
+Manual corrections were needed after running this script,
+so it was really only useful once.
 """
 
 import csv
@@ -71,9 +72,12 @@ def normalize_pinyin(pinyin: str) -> str:
 
 
 def choose_entry(word: str, entries: list, expected_pinyin: str) -> str:
-    """Sometimes there might be multiple dictionary entries for a word that we need the definition of.
+    """
+    Sometimes there might be multiple dictionary entries for a word
+    that we need the definition of.
 
-    This method will choose one intelligently, and log to console if no choice could be made
+    This method will choose one intelligently, and log to console if no
+    choice could be made
     """
 
     # Fast-fail
@@ -91,8 +95,8 @@ def choose_entry(word: str, entries: list, expected_pinyin: str) -> str:
     elif matching_entries:
         entries = matching_entries
     else:
-        # Last-ditch effort: Someimes CEDICT differs in whether to put spaces between pinyin syllables.
-        # Try looking for matching entries by removing spaces.
+        # Last-ditch effort: Someimes CEDICT differs in whether to put spaces
+        # between pinyin syllables. Try looking for matching entries by removing spaces.
         no_spaces = [
             entry
             for entry in entries
@@ -110,7 +114,7 @@ def choose_entry(word: str, entries: list, expected_pinyin: str) -> str:
     for i, entry in enumerate(entries, 0):
         print(f"{i}. {entry.traditional} {entry.simplified} [{entry.pinyin}]")
         print(f"   Definitions: {'/ '.join(entry.definitions)}")
-    return ["REPLACE_ME"]
+    return "REPLACE_ME"
 
 
 def get_definition(word: str, pinyin: str) -> list:

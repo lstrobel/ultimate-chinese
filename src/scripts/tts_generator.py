@@ -3,7 +3,7 @@ import os
 from collections.abc import Callable
 from typing import TypeVar
 
-import azure.cognitiveservices.speech as speechsdk
+import azure.cognitiveservices.speech as speechsdk  # type: ignore
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -42,6 +42,8 @@ class AzureApiWrapper:
                 if attempt == self.max_tries - 1:
                     self.logger.error(f"All {self.max_tries} attempts failed")
                     return None
+        self.logger.error(f"All {self.max_tries} attempts failed")
+        return None
 
 
 class TTSGenerator:
