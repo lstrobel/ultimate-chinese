@@ -59,7 +59,7 @@
   content: "/";
   display: inline-block;
   margin: 0 0.15em;
-  opacity: 0.5;
+  color: #d4d4d4;
 }
 
 .meaning {
@@ -72,6 +72,7 @@
 .pinyin {
   font-size: 1.375rem;
   font-family: Palatino, serif;
+  color: #d4d4d4; /* For punctuation */
 }
 
 /* Tone colors */
