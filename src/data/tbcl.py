@@ -1,16 +1,16 @@
 import ast
-import itertools
 import re
 from pathlib import Path
 
 import pandas as pd
-from pinyin_split import split
+from py_pinyin_split import PinyinTokenizer
 from pypinyin.contrib.tone_convert import to_tone, to_tone3
 
 # Compile regex patterns once at module level
 LEVEL_STAR_PATTERN = re.compile(r"UC::TBCL-level-(\d+)-star")
 LEVEL_REGULAR_PATTERN = re.compile(r"UC::TBCL-level-(\d+)")
 INITIAL_VOWEL = re.compile(r"^[aeiouāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]", re.IGNORECASE)
+PINYIN_TOKENIZER = PinyinTokenizer(include_nonstandard=True)
 
 
 def _extract_level(tags: str) -> float:
@@ -51,24 +51,21 @@ def _reformat_meaning(meaning: str) -> str:
         meanings = ast.literal_eval(meaning)
         if not meanings:  # Handle empty list
             raise ValueError
-        # Create HTML ordered list
 
+        # Create HTML ordered list
         processed_meanings = []
         for m in meanings:
+            # Add space before brackets if not present
+            m = re.sub(r"(?<!\s)\[", " [", m)
 
-            def _replace_pinyin(match):
-                start_pos = match.start()
-                needs_space = start_pos > 0 and m[start_pos - 1] != " "
+            # Find bracketed pinyin sections and convert syllables
+            def process_bracketed_pinyin(match):
+                pinyin = match.group(1)
+                syllables = re.findall(r"[A-Za-z]+[0-9]", pinyin)
+                converted = [to_tone(s.replace("u:", "ü")) for s in syllables]
+                return "[" + _convert_pinyin_to_html([" ".join(converted)]) + "]"
 
-                parts = re.findall(r"[^0-9]+[0-9]?", match.group(1))
-                converted = [
-                    _syllable_to_html(to_tone(part.replace("u:", "ü")))
-                    for part in parts
-                ]
-
-                return (" " if needs_space else "") + "[" + "".join(converted) + "]"
-
-            new_m = re.sub(r"\[(.*?)\]", _replace_pinyin, m)
+            new_m = re.sub(r"\[((?:[A-Za-z]+[0-9]\s*)+)\]", process_bracketed_pinyin, m)
             processed_meanings.append(new_m)
 
         items = "".join(f"<li>{m}</li>" for m in processed_meanings)
@@ -78,71 +75,12 @@ def _reformat_meaning(meaning: str) -> str:
         return meaning  # Return original if parsing fails
 
 
-def _split_pinyin(word: str, pinyin: str, max_chars: int) -> list:
-    """Given a word and pinyin string from TBCL, return a list where entries are either a single pinyin syllable, or whitespace"""
-
-    grouped = ["".join(g) for _, g in itertools.groupby(pinyin, str.isspace)]
-    out = []
-
-    discovered_syllables = 0
-    for entry in grouped:
-        if entry.isspace():
-            out.append(entry)
-            continue
-
-        possible_splits = split(entry, include_erhua=True, include_nonstandard=True)
-
-        if len(possible_splits) == 0:
-            raise RuntimeError(f"No splits found for {word} {pinyin}!")
-
-        if len(possible_splits) == 1:
-            discovered_syllables += len(possible_splits[0])
-            out.extend(possible_splits[0])
-            continue
-
-        # Prefer splits where no syllable starts with a vowel over splits where that is the case.
-        no_initial_vowels = [
-            split
-            for split in possible_splits
-            if not any(INITIAL_VOWEL.match(syllable) for syllable in split)
-        ]
-        valid_splits = no_initial_vowels if no_initial_vowels else possible_splits
-        if len(valid_splits) == 1:
-            discovered_syllables += len(valid_splits[0])
-            out.extend(valid_splits[0])
-        else:
-            out.append(valid_splits)
-
-    if not any(isinstance(x, list) for x in out):
-        return out
-
-    # Resolve remaining possiblities greedily. This works fine for our usecase, even if it wouldnt be robust to all scenarios
-    def find_eligible(lst, remaining_length) -> list | None:
-        eligible = [
-            x for x in lst if isinstance(x, list) and len(x) <= remaining_length
-        ]
-        if len(eligible) > 1:
-            print(
-                f"Warning: Multiple eligible entries found for {lst}, {remaining_length}"
-            )
-        return eligible[0] if eligible else None
-
-    remaining_syllables = max_chars - discovered_syllables
-    reduced_out = []
-    for entry in out:
-        if isinstance(entry, list):
-            selected = find_eligible(entry, remaining_syllables)
-            if selected:
-                reduced_out.extend(selected)
-                remaining_syllables -= len(selected)
-        else:
-            reduced_out.append(entry)
-    return reduced_out
-
-
 def _syllable_to_html(syllable: str) -> str:
-    """Process a single pinyin syllable and return its HTML representation. If the passed syllable is whitespace, just returns whitespace"""
-    if syllable.isspace():
+    """
+    Process a single pinyin syllable and return its HTML representation.
+    If the passed syllable is whitespace, just returns whitespace
+    """
+    if not syllable.isalpha():
         return syllable
 
     as_tone3 = to_tone3(syllable.lower(), neutral_tone_with_five=True)
@@ -150,21 +88,29 @@ def _syllable_to_html(syllable: str) -> str:
     return f'<span class="tone{tone_num}">{syllable}</span>'
 
 
-def _convert_pinyin_to_html(word_list: str, pinyin_list: str) -> str:
-    """Convert pinyin to HTML with tone classes, using pypinyin for syllable detection."""
+def _convert_pinyin_to_html(pinyin_list: list[str]) -> str:
+    """
+    Convert pinyin to HTML with tone classes, using pypinyin for syllable detection.
+    """
     # Convert string representations of lists to actual lists
-    words = ast.literal_eval(word_list)
-    pinyins = ast.literal_eval(pinyin_list)
     as_html = []
 
-    max_chars = max(len(w) for w in words)
+    for pinyin in pinyin_list:
+        spans = PINYIN_TOKENIZER.span_tokenize(pinyin)
+        converted = []
+        current_pos = 0
 
-    for word, pinyin in zip(words, pinyins, strict=False):
-        if len(words) == len(pinyins):
-            max_chars = len(word)
+        # Process each span
+        for start, end in spans:
+            # Add text before span
+            converted.append(pinyin[current_pos:start])
+            # Add transformed span text
+            converted.append(_syllable_to_html(pinyin[start:end]))
+            current_pos = end
 
-        split = _split_pinyin(word, pinyin, max_chars)
-        as_html.append("".join(map(lambda x: _syllable_to_html(x), split)))
+        # Add remaining text after last span
+        converted.append(pinyin[current_pos:])
+        as_html.append("".join(converted))
 
     return " / ".join(as_html)
 
@@ -182,7 +128,7 @@ def build_tbcl_words(input: Path, output_dir: Path) -> None:
 
     # Convert pinyin to HTML
     df["pinyin"] = df.apply(
-        lambda row: _convert_pinyin_to_html(row["word"], row["pinyin"]), axis=1
+        lambda row: _convert_pinyin_to_html(ast.literal_eval(row["pinyin"])), axis=1
     )
 
     # Convert lists to HTML spans for word variants

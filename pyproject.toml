@@ -6,7 +6,7 @@ requires-python = ">=3.13"
 dependencies = [
     "brain-brew>=0.3.11",
     "pandas>=2.2.3",
-    "py-pinyin-split>=1.2.0",
+    "py-pinyin-split>=5.0.0",
     "tqdm>=4.67.0",
     "pypinyin>=0.53.0",
 ]

@@ -1,18 +1,22 @@
-import shutil
+import argparse
+import os
 import subprocess
+from datetime import datetime
 from pathlib import Path
 
 from src.data import tbcl
 
 
-def main() -> None:
+def main(debug: bool = False) -> None:
     # Create build directory structure
     build_dir = Path("build")
     output_dir = build_dir / "data"
 
-    # Clear existing data directory if it exists
-    if output_dir.exists():
-        shutil.rmtree(output_dir)
+    # Create timestamped backup of existing data directory only in debug mode
+    if debug and output_dir.exists():
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        backup_dir = build_dir / f"data_backup_{timestamp}"
+        os.rename(output_dir, backup_dir)
 
     # Create fresh directory
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -26,4 +30,10 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--debug", action="store_true", help="Create backup of existing data directory"
+    )
+    args = parser.parse_args()
+
+    main(debug=args.debug)
