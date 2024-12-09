@@ -61,9 +61,14 @@ def _reformat_meaning(meaning: str) -> str:
             # Find bracketed pinyin sections and convert syllables
             def process_bracketed_pinyin(match):
                 pinyin = match.group(1)
-                syllables = re.findall(r"[A-Za-z]+[0-9]", pinyin)
-                converted = [to_tone(s.replace("u:", "ü")) for s in syllables]
-                return "[" + _convert_pinyin_to_html([" ".join(converted)]) + "]"
+                # Preserve original spacing by splitting on existing spaces
+                pinyin_groups = pinyin.split()
+                converted_groups = []
+                for group in pinyin_groups:
+                    syllables = re.findall(r"[A-Za-z]+[0-9]", group)
+                    converted = [to_tone(s.replace("u:", "ü")) for s in syllables]
+                    converted_groups.append("".join(converted))
+                return "[" + _convert_pinyin_to_html([" ".join(converted_groups)]) + "]"
 
             new_m = re.sub(r"\[((?:[A-Za-z]+[0-9]\s*)+)\]", process_bracketed_pinyin, m)
             processed_meanings.append(new_m)
