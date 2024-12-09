@@ -17,4 +17,22 @@ dev = [
     "pyperclip>=1.9.0",
     "azure-cognitiveservices-speech>=1.41.1",
     "python-dotenv>=1.0.1",
+    "mypy>=1.13.0",
+    "pandas-stubs>=2.2.3.241126",
+]
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
 ]

@@ -1,6 +1,8 @@
-import os
 import logging
-from typing import Callable, Optional, TypeVar
+import os
+from collections.abc import Callable
+from typing import TypeVar
+
 import azure.cognitiveservices.speech as speechsdk
 
 logging.basicConfig(level=logging.INFO)
@@ -19,8 +21,8 @@ class AzureApiWrapper:
     def execute_with_retry(
         self,
         operation: Callable[[], T],
-        error_callback: Optional[Callable[[Exception, int], None]] = None,
-    ) -> Optional[T]:
+        error_callback: Callable[[Exception, int], None] | None = None,
+    ) -> T | None:
         """
         Execute an operation with retry logic
 
@@ -77,7 +79,7 @@ class TTSGenerator:
         )
 
         # Load and format SSML template
-        with open(self.ssml_template_path, "r", encoding="utf-8") as f:
+        with open(self.ssml_template_path, encoding="utf-8") as f:
             ssml_string = f.read().format(pinyin_sapi=pinyin_sapi)
 
         def synthesis_operation():

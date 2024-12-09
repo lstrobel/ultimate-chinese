@@ -6,11 +6,11 @@ Manual corrections were needed after running this script, so it was really only 
 import csv
 import os
 import re
-import pandas as pd
-from pypinyin.contrib.tone_convert import to_tone
 
-from utils import find_project_root
+import pandas as pd
 from cedict import search_dict
+from pypinyin.contrib.tone_convert import to_tone
+from utils import find_project_root
 
 
 def context_to_tag(context: str) -> str:

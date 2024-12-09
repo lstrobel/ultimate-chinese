@@ -1,11 +1,11 @@
-import itertools
-from pathlib import Path
 import ast
-from typing import List
-import pandas as pd
+import itertools
 import re
+from pathlib import Path
+
+import pandas as pd
 from pinyin_split import split
-from pypinyin.contrib.tone_convert import to_tone3, to_tone
+from pypinyin.contrib.tone_convert import to_tone, to_tone3
 
 # Compile regex patterns once at module level
 LEVEL_STAR_PATTERN = re.compile(r"UC::TBCL-level-(\d+)-star")
@@ -78,7 +78,7 @@ def _reformat_meaning(meaning: str) -> str:
         return meaning  # Return original if parsing fails
 
 
-def _split_pinyin(word: str, pinyin: str, max_chars: int) -> List:
+def _split_pinyin(word: str, pinyin: str, max_chars: int) -> list:
     """Given a word and pinyin string from TBCL, return a list where entries are either a single pinyin syllable, or whitespace"""
 
     grouped = ["".join(g) for _, g in itertools.groupby(pinyin, str.isspace)]
@@ -117,7 +117,7 @@ def _split_pinyin(word: str, pinyin: str, max_chars: int) -> List:
         return out
 
     # Resolve remaining possiblities greedily. This works fine for our usecase, even if it wouldnt be robust to all scenarios
-    def find_eligible(lst, remaining_length) -> List | None:
+    def find_eligible(lst, remaining_length) -> list | None:
         eligible = [
             x for x in lst if isinstance(x, list) and len(x) <= remaining_length
         ]
@@ -159,7 +159,7 @@ def _convert_pinyin_to_html(word_list: str, pinyin_list: str) -> str:
 
     max_chars = max(len(w) for w in words)
 
-    for word, pinyin in zip(words, pinyins):
+    for word, pinyin in zip(words, pinyins, strict=False):
         if len(words) == len(pinyins):
             max_chars = len(word)
 

@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
+import itertools
 import os
 import re
-import pandas as pd
 from pathlib import Path
-from typing import List
-import itertools
+
+import pandas as pd
+from dotenv import load_dotenv
 from pypinyin.contrib.tone_convert import to_tone3
 from tts_generator import TTSGenerator
-from dotenv import load_dotenv
 
 # Regex patterns for pinyin processing
 INITIAL_VOWEL = re.compile(r"^[aeiouāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]", re.IGNORECASE)
 
 
-def _split_pinyin(word: str, pinyin: str, max_chars: int) -> List:
+def _split_pinyin(word: str, pinyin: str, max_chars: int) -> list:
     """Given a word and pinyin string from TBCL, return a list where entries are either a single pinyin syllable, or whitespace"""
     from pinyin_split import split
 
@@ -53,7 +53,7 @@ def _split_pinyin(word: str, pinyin: str, max_chars: int) -> List:
         return out
 
     # Resolve remaining possibilities greedily
-    def find_eligible(lst, remaining_length) -> List | None:
+    def find_eligible(lst, remaining_length) -> list | None:
         eligible = [
             x for x in lst if isinstance(x, list) and len(x) <= remaining_length
         ]
@@ -72,7 +72,7 @@ def _split_pinyin(word: str, pinyin: str, max_chars: int) -> List:
     return reduced_out
 
 
-def convert_to_numbered_pinyin(word: str, pinyin: str) -> List:
+def convert_to_numbered_pinyin(word: str, pinyin: str) -> list:
     """Convert pinyin to numbered format with spaces between syllables"""
     words = [w.strip() for w in word.split("/") if w]
     pinyins = [p.strip() for p in pinyin.split("/") if p]
@@ -80,7 +80,7 @@ def convert_to_numbered_pinyin(word: str, pinyin: str) -> List:
 
     max_chars = max(len(w) for w in words)
 
-    for word, pinyin in zip(words, pinyins):
+    for word, pinyin in zip(words, pinyins, strict=False):
         if len(words) == len(pinyins):
             max_chars = len(word)
 
