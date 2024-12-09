@@ -446,7 +446,7 @@ word,written_freq,spoken_freq,zhuyin,pinyin,definition,tags,guid,word_audio
 ['更'],1457,1320,['ㄍㄥˋ'],['gèng'],"['more', 'even more', 'further', 'still', 'still more']","UC::TBCL-level-2, UC::TBCL-basic, UC::TBCL-context-core",37b5f36b2acfe87d6293662d6a71b3f6,ntnu_gèng.mp3
 ['公司'],680,169,['ㄍㄨㄥ ㄙ'],['gōngsī'],"['company; firm; corporation', 'CL: 家[jia1]']","UC::TBCL-level-2, UC::TBCL-basic, UC::TBCL-context-work-career",4039d6200e270f41d337e27ed3da9e84,ntnu_gōngsī.mp3
 ['狗'],184,80,['ㄍㄡˇ'],['gǒu'],"['dog', 'CL: 隻[zhi1], 條[tiao2]']","UC::TBCL-level-2, UC::TBCL-basic, UC::TBCL-context-personal-info",64c6c23ed0873c8b715a1e33ab6cc52b,ntnu_gǒu.mp3
-['故事'],404,338,['ㄍㄨˋ ㄕˋ'],['gùshì'],['old practice'],"UC::TBCL-level-2, UC::TBCL-basic, UC::TBCL-context-leisure-entertainment",1e82d1f0a7a4751903cdfd4868b0cfdb,ntnu_gùshì.mp3
+['故事'],404,338,['ㄍㄨˋ ㄕˋ'],['gùshì'],['narrative; story; tale'],"UC::TBCL-level-2, UC::TBCL-basic, UC::TBCL-context-leisure-entertainment",1e82d1f0a7a4751903cdfd4868b0cfdb,ntnu_gùshì.mp3
 ['海'],108,237,['ㄏㄞˇ'],['hǎi'],"['ocean', 'sea', 'CL: 個[ge4], 片[pian4]', 'great number of people or things', '(dialect) numerous']","UC::TBCL-level-2, UC::TBCL-basic, UC::TBCL-context-core",f07739724db384a036eca155f0a1d5ed,ntnu_hǎi.mp3
 ['行'],226,190,['ㄏㄤˊ'],['háng'],"['row', 'line', 'commercial firm', 'line of business', 'profession', ""to rank (first, second etc) among one's siblings (by age)"", '(in data tables) row', '(Tw) column']","UC::TBCL-level-2, UC::TBCL-basic, UC::TBCL-context-education-learning",9913b567be3e248571065a4c975980a2,
 ['好像'],259,660,['ㄏㄠˇ ㄒㄧㄤˋ'],['hǎoxiàng'],"['as if', 'to seem like']","UC::TBCL-level-2, UC::TBCL-basic, UC::TBCL-context-core",12e1a68df786133dd18b9063a4b3cd43,ntnu_hǎoxiàng.mp3
@@ -552,7 +552,7 @@ word,written_freq,spoken_freq,zhuyin,pinyin,definition,tags,guid,word_audio
 ['相信'],338,201,['ㄒㄧㄤ ㄒㄧㄣˋ'],['xiāngxìn'],['to believe; to be convinced; to accept as true'],"UC::TBCL-level-2, UC::TBCL-basic, UC::TBCL-context-core",fb1814129139c4de8a01c570f57699ee,ntnu_xiāngxìn.mp3
 ['小時候'],55,138,['ㄒㄧㄠˇ ㄕˊ ㄏㄡˋ'],['xiǎoshíhòu'],"[""in one's childhood""]","UC::TBCL-level-2, UC::TBCL-basic, UC::TBCL-context-core",404290a18ffe726ec76ed7a3d9cec9e9,ntnu_xiǎoshíhòu.mp3
 ['小心'],97,149,['ㄒㄧㄠˇ ㄒㄧㄣ'],['xiǎoxīn'],"['to be careful', 'to take care']","UC::TBCL-level-2, UC::TBCL-basic, UC::TBCL-context-core",ccf4ac6821d9f304a9e6c6d30af7992d,ntnu_xiǎoxīn.mp3
-['小朋友'],35,459,['ㄒㄧㄠˇ ㄆㄥˊ ㄧㄡˇ'],['xiǎpéngyǒu'],"[""child; kid (used to refer to a child, or by an adult to address a child, or, in Taiwan, to refer to sb's own child)"", 'CL: 個[ge4]']","UC::TBCL-level-2, UC::TBCL-basic, UC::TBCL-context-core",e6e7d4b1f608c878db455c49db3dc77a,
+['小朋友'],35,459,['ㄒㄧㄠˇ ㄆㄥˊ ㄧㄡˇ'],['xiǎopéngyǒu'],"[""child; kid (used to refer to a child, or by an adult to address a child, or, in Taiwan, to refer to sb's own child)"", 'CL: 個[ge4]']","UC::TBCL-level-2, UC::TBCL-basic, UC::TBCL-context-core",e6e7d4b1f608c878db455c49db3dc77a,
 ['笑'],251,105,['ㄒㄧㄠˋ'],['xiào'],"['to laugh; to smile', 'to laugh at']","UC::TBCL-level-2, UC::TBCL-basic, UC::TBCL-context-core",01cb60ee5e0f58c0b8856763789df7a3,ntnu_xiào.mp3
 "['夏天', '夏']",98,167,"['ㄒㄧㄚˋ ㄊㄧㄢ', 'ㄒㄧㄚˋ']","['xiàtiān', 'xià']","['summer', 'CL: 個[ge4]']","UC::TBCL-level-2, UC::TBCL-basic, UC::TBCL-context-core",690684e20bd30cfa702fcab872509432,ntnu_xiàtiān.mp3
 ['習慣'],183,215,['ㄒㄧˊ ㄍㄨㄢˋ'],['xíguàn'],"['habit', 'custom', 'usual practice', 'to be used to', 'CL: 個[ge4]']","UC::TBCL-level-2, UC::TBCL-basic, UC::TBCL-context-core",c2fd182383da0dd021a8b424fa6363d7,ntnu_xíguàn.mp3
