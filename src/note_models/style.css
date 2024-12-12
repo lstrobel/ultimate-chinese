@@ -27,26 +27,26 @@
 }
 
 .hanzi {
-  font-family: Edu-Kai, PingFang TC, sans-serif;
+  font-family: Edu-Kai, "Noto Sans TC", sans-serif;
   font-size: 5rem;
   cursor: pointer;
   letter-spacing: normal;
 }
 
 .mobile .hanzi {
-  font-family: PingFang TC, sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
   letter-spacing: 1rem;
   margin-right: -1rem;
 }
 
 .hanzi.alternate-font {
-  font-family: PingFang TC, sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
   letter-spacing: 1rem;
   margin-right: -1rem;
 }
 
 .mobile .hanzi.alternate-font {
-  font-family: Edu-Kai, PingFang TC, sans-serif;
+  font-family: Edu-Kai, "Noto Sans TC", sans-serif;
   letter-spacing: normal;
 }
 
