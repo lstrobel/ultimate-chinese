@@ -4,7 +4,7 @@ import subprocess
 from datetime import datetime
 from pathlib import Path
 
-from src.data import tbcl
+from src import tbcl
 
 
 def main(debug: bool = False) -> None:
