@@ -1,28 +1,37 @@
-@font-face {
-  font-family: Edu-Kai;
-  src: url("_edukai.ttf") format("truetype");
-  size-adjust: 140%;
-}
-
+// Colors
 $background-color: #262626;
 $text-color: #f5f5f5;
 $separator-color: #d4d4d4;
+
+// Tone Colors
 $tone1-color: #fc5d7c;
 $tone2-color: #9ed072;
 $tone3-color: #76cce0;
 $tone4-color: #b39df3;
 $tone5-color: #a3a3a3;
 
+// Fonts
+$primary-font: "Noto Sans TC", sans-serif;
+$secondary-font: Edu-Kai, $primary-font; // Edu-Kai is used for a more traditional look
+
+// Sizes
+$base-padding: 1.25rem;
+$hanzi-font-size: 5rem;
+$meaning-font-size: 1rem;
+$pinyin-font-size: 1.375rem;
+
+// Base Card Styles
 .card {
   background-color: $background-color;
   color: $text-color;
-  padding: 1.25rem;
+  padding: $base-padding;
 
   &.nightMode {
-    background-color: $background-color;
+    background-color: $background-color; // Same as .card in this case
   }
 }
 
+// Content Container
 .content-container {
   display: flex;
   flex-direction: column;
@@ -30,42 +39,45 @@ $tone5-color: #a3a3a3;
   text-align: center;
 }
 
+// Hanzi Container
 .hanzi-container {
   min-height: 8rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 1.25rem;
+  padding-bottom: $base-padding;
 }
 
+// Hanzi Styles
 .hanzi {
-  font-family: Edu-Kai, "Noto Sans TC", sans-serif;
-  font-size: 5rem;
+  font-family: $secondary-font;
+  font-size: $hanzi-font-size;
   cursor: pointer;
   letter-spacing: normal;
 
   &.alternate-font {
-    font-family: "Noto Sans TC", sans-serif;
+    font-family: $primary-font;
     letter-spacing: 1rem;
     margin-right: -1rem;
   }
 }
 
+// Mobile-Specific Hanzi Styles
 .mobile {
   .hanzi {
-    font-family: "Noto Sans TC", sans-serif;
+    font-family: $primary-font;
     letter-spacing: 1rem;
     margin-right: -1rem;
 
     &.alternate-font {
-      font-family: Edu-Kai, "Noto Sans TC", sans-serif;
+      font-family: $secondary-font;
       letter-spacing: normal;
     }
   }
 }
 
+// Word Variant Styles
 .word-variant {
-  white-space: nowrap;
   position: relative;
 
   &:not(:last-child)::after {
@@ -76,20 +88,22 @@ $tone5-color: #a3a3a3;
   }
 }
 
+// Meaning Styles
 .meaning {
   font-family: system-ui, sans-serif;
-  font-size: 1rem;
+  font-size: $meaning-font-size;
   white-space: pre-line;
   margin: 0.3125rem 0;
 }
 
+// Pinyin Styles
 .pinyin {
-  font-size: 1.375rem;
+  font-size: $pinyin-font-size;
   font-family: Palatino, serif;
   color: $separator-color; /* For punctuation */
 }
 
-/* Tone colors */
+// Tone Colors
 .tone1 {
   color: $tone1-color;
 }
@@ -108,4 +122,13 @@ $tone5-color: #a3a3a3;
 
 .tone5 {
   color: $tone5-color;
+}
+
+// Font Face Definition
+@font-face {
+  font-family: Edu-Kai;
+  src: url("_edukai.ttf") format("truetype");
+  size-adjust: 140%;
+  font-style: normal;
+  font-weight: normal;
 }
