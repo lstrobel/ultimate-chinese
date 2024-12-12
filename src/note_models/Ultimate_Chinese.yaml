@@ -1,6 +1,6 @@
 name: Ultimate Chinese
 id: 251f7f46-c2d4-49fe-8810-34dd2a7a4d01
-css_file: src/note_models/style.css
+css_file: build/intermediate/style.css
 fields:
   - name: Id
     font: Arial
@@ -16,4 +16,4 @@ fields:
     font: Arial
 templates:
   - name: Vocab Review
-    html_file: src/note_models/templates/Vocab Review.html
+    html_file: src/note_models/Vocab_Review.html

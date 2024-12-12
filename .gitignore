@@ -6,3 +6,5 @@ __pycache__/
 .env
 .venv
 .ruff_cache
+apicache/
+.mypy_cache

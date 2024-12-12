@@ -13,7 +13,7 @@
     - notes_from_csvs:
         part_id: tbcl_words_notes
         file_mappings:
-          - file: build/data/tbcl_words.csv
+          - file: build/intermediate/tbcl_words.csv
             note_model: Ultimate Chinese
         note_model_mappings:
           - note_models:
@@ -21,11 +21,11 @@
 
     - media_group_from_folder:
         - part_id: fonts
-          source: src/media/fonts
+          source: res/media/fonts
           recursive: true
     - media_group_from_folder:
         - part_id: audio
-          source: src/media/audio
+          source: res/media/audio
           recursive: true
 
 - generate_crowd_anki:
