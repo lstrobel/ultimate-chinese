@@ -127,7 +127,7 @@ $pinyin-font-size: 1.375rem;
 // Font Face Definition
 @font-face {
   font-family: Edu-Kai;
-  src: url("_edukai.ttf") format("truetype");
+  src: local("TW-MOE-Std-Kai"), url("_edukai.ttf") format("truetype");
   size-adjust: 140%;
   font-style: normal;
   font-weight: normal;
