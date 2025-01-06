@@ -13,7 +13,7 @@
     - notes_from_csvs:
         part_id: tbcl_words_notes
         file_mappings:
-          - file: build/intermediate/tbcl_words.csv
+          - file: res/generated/tbcl_words.csv
             note_model: Ultimate Chinese
         note_model_mappings:
           - note_models:

@@ -1,6 +1,6 @@
 name: Ultimate Chinese
 id: 251f7f46-c2d4-49fe-8810-34dd2a7a4d01
-css_file: build/intermediate/style.css
+css_file: res/generated/style.css
 fields:
   - name: Id
     font: Arial

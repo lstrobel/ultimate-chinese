@@ -1,22 +1,12 @@
 import argparse
-import os
 import subprocess
-from datetime import datetime
 from pathlib import Path
 
 from src import tbcl
 
 
 def main(debug: bool = False) -> None:
-    # Create build directory structure
-    build_dir = Path("build")
-    output_dir = build_dir / "intermediate"
-
-    # Create timestamped backup of existing intermediate directory only in debug mode
-    if debug and output_dir.exists():
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        backup_dir = build_dir / f"backup_{timestamp}"
-        os.rename(output_dir, backup_dir)
+    output_dir = Path("res/generated")
 
     # Create fresh directory
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -36,9 +26,7 @@ def main(debug: bool = False) -> None:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--debug", action="store_true", help="Create backup of existing data directory"
-    )
+    parser.add_argument("--debug", action="store_true")
     args = parser.parse_args()
 
     main(debug=args.debug)
