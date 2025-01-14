@@ -10,9 +10,9 @@ fields:
     font: Arial
   - name: Pinyin
     font: Arial
-  - name: Zhuyin
+  - name: SimpleDefinition
     font: Arial
-  - name: Meaning
+  - name: Definitions
     font: Arial
 templates:
   - name: Vocab Review

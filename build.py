@@ -6,18 +6,23 @@ from src import tbcl
 
 
 def main(debug: bool = False) -> None:
-    output_dir = Path("res/generated")
+    res_dir = Path("res")
+    output_dir = res_dir / "generated"
 
-    # Create fresh directory
+    # Ensure output directory exists
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Generate data files
-    tbcl_words = Path("res/tbcl/tbcl_words.csv")
-    tbcl.build_tbcl_words(tbcl_words, output_dir)
+    tbcl.build_tbcl_words(res_dir, output_dir)
 
     # Generate css
     subprocess.run(
-        ["sass", "src/note_models/style.scss", str(output_dir) + "/style.css"]
+        [
+            "sass",
+            "--no-source-map",
+            "src/note_models/style.scss",
+            str(output_dir) + "/style.css",
+        ]
     )
 
     # Run brainbrew

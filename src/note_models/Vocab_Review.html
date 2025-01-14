@@ -1,6 +1,6 @@
-<div class="content-container">
-  <div class="hanzi-container">
-    <div class="hanzi" onclick="this.classList.toggle('alternate-font')">
+<div id="my-content">
+  <div class="my-content-block">
+    <div id="hanzi" onclick="this.classList.toggle('alternate-font')">
       {{Hanzi}}
     </div>
   </div>
@@ -8,12 +8,16 @@
 
 --
 
-<div class="content-container">
-  <div class="hanzi-container">
-    <div class="hanzi" onclick="this.classList.toggle('alternate-font')">
+<div id="my-content">
+  <div class="my-content-block">
+    <div id="hanzi" onclick="this.classList.toggle('alternate-font')">
       {{Hanzi}}
     </div>
+    <hr />
+    <div id="pinyin">{{Pinyin}}{{HanziAudio}}</div>
+    {{#SimpleDefinition}}
+    <div id="simple-definition">{{SimpleDefinition}}</div>
+    {{/SimpleDefinition}}
+    <div id="definitions">{{Definitions}}</div>
   </div>
-  <div class="pinyin">{{Pinyin}}{{HanziAudio}}</div>
-  <div class="meaning">{{Meaning}}</div>
 </div>
