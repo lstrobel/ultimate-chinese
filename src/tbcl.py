@@ -105,10 +105,12 @@ def build_tbcl_words(res_dir: Path, output_dir: Path) -> None:
                 "definitions": note.definitions,
                 "tags": note.tags,
                 "guid": note.guid,
-                "hanziaudio": set(
-                    word.pronuncations[0].audio_file if word.pronuncations else None
+                "hanziaudio": [
+                    p.audio_file
                     for word in note.words
-                ),
+                    for p in word.pronuncations
+                    if p.audio_file
+                ],
                 "simpledefinition": note.simple_definition,
             }
             for note in notes
@@ -128,11 +130,11 @@ def build_tbcl_words(res_dir: Path, output_dir: Path) -> None:
     # Convert definitions column to HTML ordered lists
     df["definitions"] = df["definitions"].apply(_reformat_meaning)
 
-    # Drop any None from hanziaudio sets
-    df["hanziaudio"] = df["hanziaudio"].apply(lambda x: {a for a in x if a})
+    # Drop any None from hanziaudio lists
+    df["hanziaudio"] = df["hanziaudio"].apply(lambda x: x if x else [])
     # Add sound tags to audio filenames and rename word_audio column to hanziaudio
     df["hanziaudio"] = df["hanziaudio"].apply(
-        lambda x: f"[sound:{list(x)[0]}]" if len(x) > 0 else ""
+        lambda x: f"[sound:{x[0]}]" if len(x) > 0 else ""
     )
 
     # Append "UC::" to every tag
