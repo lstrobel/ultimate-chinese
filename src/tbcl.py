@@ -100,10 +100,8 @@ def build_tbcl_words(res_dir: Path, output_dir: Path) -> None:
         [
             {
                 "id": note.sort,
-                "hanzi": set(word.hanzi for word in note.words),
-                "pinyin": set(
-                    p.pinyin for word in note.words for p in word.pronuncations
-                ),
+                "hanzi": [word.hanzi for word in note.words],
+                "pinyin": [p.pinyin for word in note.words for p in word.pronuncations],
                 "definitions": note.definitions,
                 "tags": note.tags,
                 "guid": note.guid,
@@ -118,14 +116,12 @@ def build_tbcl_words(res_dir: Path, output_dir: Path) -> None:
     )
 
     # Convert pinyin to HTML
-    df["pinyin"] = df.apply(
-        lambda row: _convert_pinyin_to_html(list(row["pinyin"])), axis=1
-    )
+    df["pinyin"] = df.apply(lambda row: _convert_pinyin_to_html(row["pinyin"]), axis=1)
 
     # Convert lists to HTML spans for word variants
     df["hanzi"] = df["hanzi"].apply(
         lambda x: "".join(
-            f'<span class="word-variant">{variant}</span>' for variant in list(x)
+            f'<span class="word-variant">{variant}</span>' for variant in x
         )
     )
 
