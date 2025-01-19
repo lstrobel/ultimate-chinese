@@ -12,7 +12,7 @@ def main(debug: bool = False) -> None:
     # Ensure output directory exists
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    # Generate data files
+    # Generate notes.csv
     words.build_notes(res_dir, output_dir)
 
     # Generate css

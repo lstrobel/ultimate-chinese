@@ -24,6 +24,10 @@ $pinyin-font-size: 1.5rem;
   // Standardize box-sizing
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
+}
+
+.mac {
+  // Looks better on retina displays
   -webkit-font-smoothing: antialiased;
 }
 
