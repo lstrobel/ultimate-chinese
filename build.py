@@ -2,7 +2,7 @@ import argparse
 import subprocess
 from pathlib import Path
 
-from src import tbcl
+from src import words
 
 
 def main(debug: bool = False) -> None:
@@ -13,7 +13,7 @@ def main(debug: bool = False) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Generate data files
-    tbcl.build_tbcl_words(res_dir, output_dir)
+    words.build_notes(res_dir, output_dir)
 
     # Generate css
     subprocess.run(
@@ -34,4 +34,5 @@ if __name__ == "__main__":
     parser.add_argument("--debug", action="store_true")
     args = parser.parse_args()
 
+    # Debug currently unused
     main(debug=args.debug)

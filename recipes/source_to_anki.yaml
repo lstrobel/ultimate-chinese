@@ -4,16 +4,16 @@
         file: src/note_models/Ultimate_Chinese.yaml
 
     - headers_from_yaml_part:
-        - part_id: tbcl_words_headers
+        - part_id: headers
           file: src/headers/default.yaml
           override:
-            name: Ultimate Chinese::TBCL Words
+            name: Ultimate Chinese
             deck_description_html_file: src/headers/desc.html
 
     - notes_from_csvs:
-        part_id: tbcl_words_notes
+        part_id: notes
         file_mappings:
-          - file: res/generated/tbcl_words.csv
+          - file: res/generated/notes.csv
             note_model: Ultimate Chinese
         note_model_mappings:
           - note_models:
@@ -29,12 +29,12 @@
           recursive: true
 
 - generate_crowd_anki:
-    folder: build/Ultimate_Chinese__TBCL_Words
+    folder: build/Ultimate_Chinese
     notes:
-      part_id: tbcl_words_notes
+      part_id: notes
     note_models:
       parts:
         - part_id: Ultimate Chinese
-    headers: tbcl_words_headers
+    headers: headers
     media:
       parts: [fonts, audio]
