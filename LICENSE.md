@@ -1,14 +1,19 @@
-Usage of the Font edukai is licensed from 中華民國教育部 under [CC-BY-SA 3.0 TW](https://creativecommons.org/licenses/by-nd/3.0/tw/)
+Usage of the Font "TW-Kai is licensed under the [SIL Open Font License](https://opensource.org/license/OFL-1.1) as well as the [Open Government Data License](https://data.gov.tw/license)
+a. Taiwan(R.O.C.)'s Ministry of Digital Affairs [2022] [全字庫]
+b. The Open Data is made available to the public under the Open Government Data License, User can make use of it when complying to the condition and obligation of its terms.
+c. Open Government Data License: https://data.gov.tw/license
 
-Audio files prefixed with "ntnu_" were taken from [A Course in Contemporary Chinese](https://mtc.ntnu.edu.tw/eng/book/A_Course_in_Contemporary_Chinese.html)
+Audio files prefixed with "ntnu\_" were taken from [A Course in Contemporary Chinese](https://mtc.ntnu.edu.tw/eng/book/A_Course_in_Contemporary_Chinese.html)
 
-Code in this repository is licensed under the MIT License:
+Audio files prefixed with "wiktionary\_" were taken from [Wiktionary](https://en.wiktionary.org/wiki/Wiktionary:Main_Page) and were available under a variety of CC licenses. The specific license and attribution for each file is included in the file's metadata.
+
+Code in this repository is released under the MIT License:
 
 ---
 
 MIT License
 
-Copyright (c) 2024 Lukas Strobel
+Copyright (c) 2025 Lukas Strobel
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -30,4 +35,4 @@ SOFTWARE.
 
 ---
 
-Deck content, data, documentation, and all other materials are licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/)
+Deck content, data, documentation, and all other non-code materials in this repository are released under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/)

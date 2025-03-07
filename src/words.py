@@ -3,17 +3,53 @@ import re
 from pathlib import Path
 
 import pandas as pd
+from airium import Airium
 from py_pinyin_split import PinyinTokenizer
 from pypinyin.contrib.tone_convert import to_tone, to_tone3
 
-from src.words_pydantic_models import Note
+from src.words_pydantic_models import Note, Pronunciation
 
 # Compile regex patterns once at module level
 INITIAL_VOWEL = re.compile(r"^[aeiouāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]", re.IGNORECASE)
 PINYIN_TOKENIZER = PinyinTokenizer(include_nonstandard=True)
 
 
-def _reformat_meaning(meanings: list[str]) -> str:
+def _syllable_to_html(syllable: str) -> str:
+    """
+    Process a single pinyin syllable and return its HTML representation.
+    If the passed syllable is whitespace, just returns whitespace
+    """
+    if not syllable.isalpha():
+        return syllable
+
+    as_tone3 = to_tone3(syllable.lower(), neutral_tone_with_five=True)
+    tone_num = next((c for c in as_tone3 if c.isdigit()), "5")
+    return f'<span class="tone{tone_num}">{syllable}</span>'
+
+
+def _convert_pinyin_to_html(pinyin: str) -> str:
+    """
+    Convert pinyin to HTML with tone classes, using pypinyin for syllable detection.
+    """
+    spans = PINYIN_TOKENIZER.span_tokenize(pinyin)
+    converted = []
+    current_pos = 0
+
+    # Process each span
+    for start, end in spans:
+        # Add text before span
+        converted.append(pinyin[current_pos:start])
+        # Add transformed span text
+        converted.append(_syllable_to_html(pinyin[start:end]))
+        current_pos = end
+
+    # Add remaining text after last span
+    converted.append(pinyin[current_pos:])
+
+    return "".join(converted)
+
+
+def _reformat_definitions(meanings: list[str]) -> str:
     """Convert meaning string list to HTML ordered list and apply some formatting."""
     if not meanings:  # Handle empty list
         raise ValueError
@@ -34,7 +70,11 @@ def _reformat_meaning(meanings: list[str]) -> str:
                 syllables = re.findall(r"[A-Za-z]+[0-9]", group)
                 converted = [to_tone(s.replace("u:", "ü")) for s in syllables]
                 converted_groups.append("".join(converted))
-            return "[" + _convert_pinyin_to_html([" ".join(converted_groups)]) + "]"
+            converted_groups_as_html = [
+                _convert_pinyin_to_html(group) for group in converted_groups
+            ]
+
+            return "[" + " ".join(converted_groups_as_html) + "]"
 
         new_m = re.sub(r"\[((?:[A-Za-z]+[0-9]\s*)+)\]", process_bracketed_pinyin, m)
         processed_meanings.append(new_m)
@@ -43,44 +83,37 @@ def _reformat_meaning(meanings: list[str]) -> str:
     return f"<ol>{items}</ol>"
 
 
-def _syllable_to_html(syllable: str) -> str:
-    """
-    Process a single pinyin syllable and return its HTML representation.
-    If the passed syllable is whitespace, just returns whitespace
-    """
-    if not syllable.isalpha():
-        return syllable
+def _reformat_pronunciations(pronunciations: list[list[Pronunciation]]) -> str:
+    a = Airium(source_minify=True)
 
-    as_tone3 = to_tone3(syllable.lower(), neutral_tone_with_five=True)
-    tone_num = next((c for c in as_tone3 if c.isdigit()), "5")
-    return f'<span class="tone{tone_num}">{syllable}</span>'
+    for i, sublist in enumerate(pronunciations):
+        for pron in sublist:
+            try:
+                tags = sorted(pron.tags) if pron.tags else []
+                if "erhua" in tags:
+                    continue  # Skip erhua pronunciations
+                with a.div(class_="pronunciation-row"):
+                    with a.div(class_="pinyin-entry"):
+                        with a.div():
+                            as_html = _convert_pinyin_to_html(pron.pinyin)
+                            if i == 0:
+                                a(as_html)
+                            else:
+                                a(f"({as_html})")
+                        if pron.audio_file:
+                            a(f" [sound:{pron.audio_file}]")
+                    with a.div(class_="pinyin-tags"):
+                        for t in tags:
+                            if not t.startswith("meta:"):  # Skip meta tags
+                                with a.div(class_="pinyin-tag"):
+                                    a(t)
+                            if t == "meta:fix_me":
+                                a("⚠️")
+            except ValueError as e:
+                print(f"Error processing pronunciation {pron}: {e}")
+                raise e
 
-
-def _convert_pinyin_to_html(pinyin_list: list[str]) -> str:
-    """
-    Convert pinyin to HTML with tone classes, using pypinyin for syllable detection.
-    """
-    # Convert string representations of lists to actual lists
-    as_html = []
-
-    for pinyin in pinyin_list:
-        spans = PINYIN_TOKENIZER.span_tokenize(pinyin)
-        converted = []
-        current_pos = 0
-
-        # Process each span
-        for start, end in spans:
-            # Add text before span
-            converted.append(pinyin[current_pos:start])
-            # Add transformed span text
-            converted.append(_syllable_to_html(pinyin[start:end]))
-            current_pos = end
-
-        # Add remaining text after last span
-        converted.append(pinyin[current_pos:])
-        as_html.append("".join(converted))
-
-    return " / ".join(as_html)
+    return str(a)
 
 
 def build_notes(res_dir: Path, output_dir: Path) -> None:
@@ -99,47 +132,35 @@ def build_notes(res_dir: Path, output_dir: Path) -> None:
     df = pd.DataFrame(
         [
             {
-                "id": note.sort,
-                "hanzi": [word.hanzi for word in note.words],
-                "pinyin": [p.pinyin for word in note.words for p in word.pronuncations],
-                "definitions": note.definitions,
-                "tags": note.tags,
+                "SortPosition": note.sort,
+                "MainHanzi": note.words[0].hanzi,
+                "AltHanzi": [word.hanzi for word in note.words[1:]],
+                "PronunciationSection": [
+                    [p for p in word.pronunciations] for word in note.words
+                ],  # To be formatted
+                "FocusSection": note.simple_definition,
+                "DefinitionSection": note.definitions,  # To be formatted
+                "tags": sorted(note.tags),
                 "guid": note.guid,
-                "hanziaudio": [
-                    p.audio_file
-                    for word in note.words
-                    for p in word.pronuncations
-                    if p.audio_file
-                ],
-                "simpledefinition": note.simple_definition,
             }
             for note in notes
         ]
     )
 
-    # Convert pinyin to HTML
-    df["pinyin"] = df.apply(lambda row: _convert_pinyin_to_html(row["pinyin"]), axis=1)
+    # Convert AltHanzi to a comma-separated string
+    df["AltHanzi"] = df["AltHanzi"].apply(lambda x: ", ".join(x))
 
-    # Convert lists to HTML spans for word variants
-    df["hanzi"] = df["hanzi"].apply(
-        lambda x: "".join(
-            f'<span class="word-variant">{variant}</span>' for variant in x
-        )
+    # Convert PronunciationSection to HTML
+    df["PronunciationSection"] = df["PronunciationSection"].apply(
+        _reformat_pronunciations
     )
 
-    # Convert definitions column to HTML ordered lists
-    df["definitions"] = df["definitions"].apply(_reformat_meaning)
-
-    # Drop any None from hanziaudio lists
-    df["hanziaudio"] = df["hanziaudio"].apply(lambda x: x if x else [])
-    # Add sound tags to audio filenames and rename word_audio column to hanziaudio
-    df["hanziaudio"] = df["hanziaudio"].apply(
-        lambda x: f"[sound:{x[0]}]" if len(x) > 0 else ""
-    )
+    # Convert definitions to an HTML ordered list
+    df["DefinitionSection"] = df["DefinitionSection"].apply(_reformat_definitions)
 
     # Append "UC::" to every tag
     df["tags"] = df["tags"].apply(lambda x: [f"UC::{tag}" for tag in x])
-    # Convert tags to simple comma-separated string
+    # Convert tags to simple comma-separated string for CrowdAnki
     df["tags"] = df["tags"].apply(lambda x: ", ".join(x))
 
     # Write processed data to output CSV

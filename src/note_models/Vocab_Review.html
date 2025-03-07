@@ -1,23 +1,86 @@
-<div id="my-content">
-  <div class="my-content-block">
-    <div id="hanzi" onclick="this.classList.toggle('alternate-font')">
-      {{Hanzi}}
-    </div>
-  </div>
+<div id="hanzi-section" onclick="this.classList.toggle('alternate-font')">
+  <span id="main-hanzi">{{MainHanzi}}</span>
+  {{#AltHanzi}}
+  <span id="alt-hanzi">({{AltHanzi}})</span>
+  {{/AltHanzi}}
 </div>
 
 --
 
-<div id="my-content">
-  <div class="my-content-block">
-    <div id="hanzi" onclick="this.classList.toggle('alternate-font')">
-      {{Hanzi}}
-    </div>
-    <hr />
-    <div id="pinyin">{{Pinyin}}{{HanziAudio}}</div>
-    {{#SimpleDefinition}}
-    <div id="simple-definition">{{SimpleDefinition}}</div>
-    {{/SimpleDefinition}}
-    <div id="definitions">{{Definitions}}</div>
+<script>
+  // Replaces the replay button SVG
+  var onShownHook, onUpdateHook;
+  (function () {
+    function update() {
+      const replayButtons = document.getElementsByClassName("replay-button");
+      if (!replayButtons.length) return;
+
+      const storedSvg =
+        typeof localStorage !== "undefined"
+          ? localStorage.getItem("_play_button_svg")
+          : null;
+
+      const getSvg = storedSvg
+        ? Promise.resolve(storedSvg)
+        : fetch("_play_button.svg")
+            .then((r) => (r.ok ? r.text() : Promise.reject("SVG not found")))
+            .then((svg) => {
+              if (typeof localStorage !== "undefined") {
+                try {
+                  localStorage.setItem("_play_button_svg", svg);
+                } catch (e) {}
+              }
+              return svg;
+            })
+            .catch((e) => {});
+
+      getSvg.then((svg) => {
+        if (svg) {
+          Array.from(replayButtons).forEach((btn) => {
+            btn.innerHTML = svg;
+          });
+        }
+      });
+    }
+
+    // Hook into any available event
+    if (typeof onShownHook !== "undefined") {
+      onShownHook.push(update);
+    } else if (typeof onUpdateHook !== "undefined") {
+      onUpdateHook.push(update);
+    } else {
+      setTimeout(update, 15);
+    }
+
+    // Backup for quicker update on mobile
+    document.addEventListener("DOMContentLoaded", update);
+  })();
+</script>
+
+<div id="hanzi-section" onclick="this.classList.toggle('alternate-font')">
+  <div id="answer"></div>
+  <span id="main-hanzi">{{MainHanzi}}</span>
+  {{#AltHanzi}}
+  <span id="alt-hanzi">({{AltHanzi}})</span>
+  {{/AltHanzi}}
+</div>
+
+<hr />
+
+<div class="flex-grid">
+  <div id="pronunciation-section" class="flex-col">
+    {{PronunciationSection}}
   </div>
+  <div id="focus-section" class="flex-col">{{FocusSection}}</div>
+</div>
+
+<div id="definition-section">{{DefinitionSection}}</div>
+
+<div id="dictionary-links">
+  <a href="plecoapi://x-callback-url/s?q={{text:MainHanzi}}">
+    <img src="_pleco_logo.png" alt="Pleco" />
+  </a>
+  <a href="https://en.wiktionary.org/wiki/{{text:MainHanzi}}">
+    <img src="_wiktionary_favicon.svg" alt="Wiktionary" />
+  </a>
 </div>

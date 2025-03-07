@@ -2,17 +2,17 @@ name: Ultimate Chinese
 id: 251f7f46-c2d4-49fe-8810-34dd2a7a4d01
 css_file: res/generated/style.css
 fields:
-  - name: Id
+  - name: SortPosition
     font: Arial
-  - name: Hanzi
+  - name: MainHanzi
     font: Arial
-  - name: HanziAudio
+  - name: AltHanzi
     font: Arial
-  - name: Pinyin
+  - name: PronunciationSection
     font: Arial
-  - name: SimpleDefinition
+  - name: FocusSection
     font: Arial
-  - name: Definitions
+  - name: DefinitionSection
     font: Arial
 templates:
   - name: Vocab Review

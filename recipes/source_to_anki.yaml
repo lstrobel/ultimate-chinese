@@ -20,8 +20,8 @@
               - Ultimate Chinese
 
     - media_group_from_folder:
-        - part_id: fonts
-          source: res/media/fonts
+        - part_id: styling
+          source: res/media/styling
           recursive: true
     - media_group_from_folder:
         - part_id: audio
@@ -37,4 +37,4 @@
         - part_id: Ultimate Chinese
     headers: headers
     media:
-      parts: [fonts, audio]
+      parts: [styling, audio]

@@ -1,27 +1,44 @@
 @charset "UTF-8";
 
-// Variables
-$card-width: 700px;
-$card-margin: 2rem;
-
-$primary-hanzi-font: "Noto Sans TC", sans-serif;
-$secondary-hanzi-font: Edu-Kai, $primary-hanzi-font;
-
-$hanzi-font-size: 5rem;
-$meaning-font-size: 1.2rem;
-$pinyin-font-size: 1.5rem;
-
-// Mixins
-@mixin text-base {
-  font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
-    Arial, sans-serif;
-  font-weight: normal;
-  font-size: 1.2rem;
-  line-height: 1.4;
+@function spacing($multiplier) {
+  @return calc(var(--spacing) * #{$multiplier});
 }
 
-* {
-  // Standardize box-sizing
+// Variables
+$card-width: 700px;
+$border-radius: 6px;
+
+$hanzi-font-size: 4.299rem;
+$pinyin-font-size: 1.66rem;
+$meaning-font-size: 1.2rem;
+
+$primary-hanzi-font: "Noto Sans TC", "Noto Sans", sans-serif;
+$secondary-hanzi-font: TW-Kai, $primary-hanzi-font;
+$font-family:
+  // Cross-platform generic font family (default user interface font)
+  system-ui,
+  // Safari for macOS and iOS (San Francisco)
+  -apple-system,
+  // Windows
+  "Segoe UI",
+  // Android
+  Roboto,
+  // older macOS and iOS
+  "Helvetica Neue",
+  // Linux
+  "Noto Sans",
+  "Liberation Sans",
+  // Basic web fallback
+  Arial,
+  // Sans serif fallback
+  sans-serif,
+  // Emoji fonts
+  "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+*,
+::before,
+::after {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
@@ -31,197 +48,276 @@ $pinyin-font-size: 1.5rem;
   -webkit-font-smoothing: antialiased;
 }
 
-#qa,
-#content {
-  // Styling on mobile can get in the way
-  all: unset;
-}
-
 .card {
-  --text-color: #262626;
-  --content-color: #fafafa;
-  --bg-color: #e5e5e5;
-  --separator-color: #737373;
-  // Pleco colors
-  --tone1-color: rgb(227, 0, 0);
-  --tone2-color: rgb(2, 179, 28);
-  --tone3-color: rgb(21, 16, 240);
-  --tone4-color: rgb(137, 0, 191);
-  --tone5-color: rgb(119, 119, 119);
+  --spacing: 0.25rem;
+
+  // Own grayscale/neutral colors
+  --color-gray-50: oklch(0.991 0 0);
+  --color-gray-100: oklch(0.955 0 0);
+  --color-gray-200: oklch(0.876 0 0);
+  --color-gray-300: oklch(0.789 0 0);
+  --color-gray-400: oklch(0.709 0 0);
+  --color-gray-500: oklch(0.623 0 0);
+  --color-gray-600: oklch(0.528 0 0);
+  --color-gray-700: oklch(0.439 0 0);
+  --color-gray-800: oklch(0.333 0 0);
+  --color-gray-900: oklch(0.226 0 0);
+  --color-gray-950: oklch(0.159 0 0);
+
+  // Actual card theming
+  --color-fg: var(--color-gray-950);
+  --color-muted: var(--color-gray-500);
+  --color-card: var(--color-gray-50);
+  --color-bg: var(--color-gray-100);
+  --color-tag: var(--color-gray-300);
+
+  // Pleco-ish colors from Tailwind
+  --tone1-color: oklch(0.577 0.245 27.325); // From --color-red-600
+  --tone2-color: oklch(0.627 0.194 149.214); // From --color-green-600
+  --tone3-color: oklch(0.546 0.245 262.881); // From --color-blue-600
+  --tone4-color: oklch(0.558 0.288 302.321); // From --color-purple-600
+  --tone5-color: oklch(0.528 0 0); // From --color-gray-600
 }
 
 .card.nightMode {
-  --text-color: #fafafa;
-  --content-color: #404040;
-  --bg-color: #262626;
-  --separator-color: #d4d4d4;
-  // Custom based on Pleco's colors
-  --tone1-color: #fc5d7c;
-  --tone2-color: #9ed072;
-  --tone3-color: #76cce0;
-  --tone4-color: #b39df3;
-  --tone5-color: #a3a3a3;
+  --color-fg: var(--color-gray-50);
+  --color-muted: var(--color-gray-300);
+  --color-card: var(--color-gray-800);
+  --color-bg: var(--color-gray-900);
+  --color-tag: var(--color-gray-700);
+
+  // Monokai
+  --tone1-color: oklch(0.706 0.194 8.454);
+  --tone2-color: oklch(0.836 0.142 130.71);
+  --tone3-color: oklch(0.838 0.095 205.66);
+  --tone4-color: oklch(0.741 0.122 290.68);
+  --tone5-color: oklch(0.789 0.003 106.45);
 }
 
-// Card styling
-.card {
-  @include text-base;
-  color: var(--text-color) !important;
-  background-color: var(--bg-color) !important;
-  width: 100vw; // Full width minus margins
-  margin: 0;
-  padding: 0 $card-margin;
+#content,
+body {
+  margin: 0 !important;
+  background-color: var(--color-bg) !important;
+
+  min-height: 100vh;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#my-content {
-  width: $card-width;
-  margin-top: $card-margin;
-  margin-inline: auto;
-  padding: 0.5rem 1rem;
-  background-color: var(--content-color);
-  border-radius: 5px;
-}
+#qa {
+  font-family: $font-family;
+  font-weight: normal;
+  font-size: 1.2rem;
+  line-height: 1.4;
 
-@media (max-width: calc($card-width + 2 * $card-margin)) {
-  #my-content {
-    // Center the card
-    transform: translateX(calc((100vw - ($card-width + 2 * $card-margin)) / 2));
-  }
-}
+  color: var(--color-fg);
+  background-color: var(--color-card);
 
-@media (max-width: $card-width) {
-  #my-content {
-    // Full width on small screens
-    width: 100vw;
-    margin-left: (-$card-margin);
-    transform: unset;
-    border-radius: 0;
-  }
-}
+  max-width: min($card-width, 100vw - 2rem);
+  width: 100vw;
 
-.my-content-block {
-  padding: 1rem;
+  margin: 50px 0; // Inline margin automatic from width
+
+  padding: 1.5rem 2rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  border-radius: 0.75rem;
 }
 
 hr {
   all: unset;
+
   display: block;
   height: 1px;
-  background: var(--text-color);
-  margin: $card-margin 0;
+  background: var(--color-fg);
+  margin: 1.5rem 0 1rem;
 }
 
-.replay-button svg {
-  width: 2.6rem;
-  height: 2.6rem;
-  margin-top: -0.3rem; // Center vertically
-
-  path {
-    fill: var(--text-color);
-  }
-
-  circle {
-    fill: var(--bg-color);
-    stroke: var(--text-color);
-  }
-}
-
-// Hanzi Styles
-#hanzi {
-  min-height: calc($hanzi-font-size + 1rem);
-  font-size: $hanzi-font-size;
+// --- Hanzi ---
+#hanzi-section {
   cursor: pointer;
-  text-align: center;
-
   font-family: $secondary-hanzi-font;
-  letter-spacing: normal;
-
   &.alternate-font {
     font-family: $primary-hanzi-font;
-    letter-spacing: 1rem;
-    margin-right: -1rem;
   }
+
+  word-break: keep-all; // CJK hack I guess
+  margin-bottom: 0.3rem; // Fonts are not perfectly aligned
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 1.4rem;
 }
 
-// Mobile-Specific Hanzi Styles
 .mobile {
-  #hanzi {
+  #hanzi-section {
     font-family: $primary-hanzi-font;
-    letter-spacing: 1rem;
-    margin-right: -1rem;
 
     &.alternate-font {
       font-family: $secondary-hanzi-font;
-      letter-spacing: normal;
     }
   }
 }
 
-// Word Variant Styles
-.word-variant {
-  position: relative;
-  display: inline-block;
-  white-space: nowrap;
+#main-hanzi {
+  font-size: 4.299rem;
+}
 
-  &:not(:first-child)::before {
-    content: "/";
-    display: inline-block;
-    margin: 0 0.15em;
-    color: var(--separator-color);
+#alt-hanzi {
+  font-size: 2.48rem;
+  color: var(--color-muted);
+}
+
+// --- Pronunciation Style ---
+@for $i from 1 through 5 {
+  // Tone colors
+  .tone#{$i} {
+    color: var(--tone#{$i}-color);
   }
 }
 
-// Pinyin Style
-#pinyin {
+.flex-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; // space-around? space-between?
+  gap: spacing(4);
+}
+
+@media (max-width: 500px) {
+  .flex-grid {
+    display: block;
+  }
+
+  .flex-col:not(:last-child) {
+    margin-bottom: spacing(4);
+  }
+}
+
+.flex-col {
+  flex: 1;
+}
+
+#pronunciation-section {
+  color: var(--color-muted);
+
+  display: flex;
+  flex-direction: column;
+  gap: spacing(2);
+}
+
+.pronunciation-row {
+  border: 1px solid var(--color-gray-700);
+  border-radius: $border-radius;
+  padding: spacing(2) spacing(4);
+}
+
+.pinyin-entry {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
   font-size: $pinyin-font-size;
-  font-family: "Bitstream Charter", Palatino, "Palatino Linotype",
-    "Palatino LT STD", "Book Antiqua", Georgia, serif;
-  color: var(--separator-color);
+  font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+}
+
+.pinyin-tags {
+  display: flex;
+  gap: spacing(2);
+  flex-wrap: wrap;
   text-align: center;
-  padding-bottom: 1rem;
-}
-.tone1 {
-  color: var(--tone1-color);
 }
 
-.tone2 {
-  color: var(--tone2-color);
+.pinyin-tag {
+  font-size: 0.8em;
+  color: var(--color-fg);
+  background-color: var(--color-tag);
+  width: fit-content;
+
+  border-radius: $border-radius;
+  padding-inline: spacing(2.5);
 }
 
-.tone3 {
-  color: var(--tone3-color);
+.replay-button {
+  width: 2rem;
+  height: 2rem;
+
+  border: 1px solid var(--color-muted);
+  border-radius: $border-radius;
+
+  margin: 0;
+  margin-left: spacing(3.5);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    border-color: var(--color-fg);
+  }
+
+  svg {
+    width: 1.4rem;
+    height: 1.4rem;
+    stroke: var(--color-fg);
+    fill: none !important;
+  }
 }
 
-.tone4 {
-  color: var(--tone4-color);
-}
-
-.tone5 {
-  color: var(--tone5-color);
-}
-
-#simple-definition {
+// --- Focus Section ---
+#focus-section {
   font-size: $pinyin-font-size;
-  border: 1px solid var(--separator-color);
-  border-radius: 5px;
   text-align: center;
-  padding: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid var(--color-muted);
+  border-radius: $border-radius;
+
+  padding: spacing(2);
+  flex: 2;
 }
 
-// Definition list styling
-#definitions {
+// --- Definition Section ---
+#definition-section {
   font-size: $meaning-font-size;
+  line-height: 1.6;
 }
 
 li:not(:last-child) {
   margin-bottom: 0.2rem;
 }
 
-// Font Face Definition
+// --- Footer ---
+#dictionary-links {
+  img {
+    width: 2.6rem;
+    height: 2.6rem;
+    margin: 0.4rem;
+    border: 1px solid var(--color-muted);
+    border-radius: $border-radius;
+    background-color: white;
+  }
+
+  // Remove blue highlight on mobile
+  a {
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+// Proper Kai font
 @font-face {
-  font-family: Edu-Kai;
-  src: local("TW-MOE-Std-Kai"), url("_edukai.ttf") format("truetype");
-  size-adjust: 140%;
+  font-family: TW-Kai;
+  src: local("TW-Kai"), url("_tw_kai.ttf") format("truetype");
+  size-adjust: 130%;
   font-style: normal;
   font-weight: normal;
+  unicode-range: U+4E00-9FFF; // CJK Unified Ideographs
 }
