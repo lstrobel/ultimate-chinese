@@ -1,7 +1,9 @@
 import argparse
 import json
 import logging
+import os
 import subprocess
+import zipfile
 from pathlib import Path
 
 from src import words
@@ -49,6 +51,21 @@ def main(debug: bool = False) -> None:
     # Run brainbrew
     logger.info("Running brainbrew...")
     subprocess.run(["brainbrew", "run", "recipes/source_to_anki.yaml"])
+
+    # Zip the output deck for distribution
+    logger.info("Packaging build deck...")
+
+    build_dir = Path("build") / "Ultimate_Chinese"
+    output_path = Path("build") / "Ultimate_Chinese.zip"
+
+    with zipfile.ZipFile(output_path, "w") as zipf:
+        for root, _, files in os.walk(build_dir):
+            for file in files:
+                file_path = os.path.join(root, file)
+                archive_name = os.path.relpath(file_path, build_dir)
+                zipf.write(file_path, arcname=archive_name)
+
+    logger.info(f"Zip file created at {output_path}")
 
 
 if __name__ == "__main__":
