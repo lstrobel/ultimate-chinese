@@ -13,7 +13,7 @@
     - notes_from_csvs:
         part_id: notes
         file_mappings:
-          - file: res/generated/notes.csv
+          - file: build/notes.csv # Generated from words.json during build
             note_model: Ultimate Chinese
         note_model_mappings:
           - note_models:

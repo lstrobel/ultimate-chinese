@@ -16,8 +16,17 @@ jobs:
       - name: Install latest uv
         uses: astral-sh/setup-uv@v5
 
-      - name: Build the deck
-        run: uv run build.py
+      - name: Generate notes.csv from words.json
+        run: uv run src/build_words.py --input res/words.json --output build/notes.csv
+
+      - name: Generate CSS from style.scss
+        uses: gha-utilities/sass-build@v0.6.0
+        with:
+          source: src/note_models/style.scss
+          destination: build/style.css
+
+      - name: Run brainbrew
+        run: uv run brainbrew run recipes/source_to_anki.yaml
 
       - name: Create release
         uses: softprops/action-gh-release@v2
