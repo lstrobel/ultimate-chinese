@@ -16,6 +16,9 @@ jobs:
       - name: Install latest uv
         uses: astral-sh/setup-uv@v5
 
+      - name: Create build directory
+        run: mkdir -p build
+
       - name: Generate notes.csv from words.json
         run: uv run src/build_words.py --input res/words.json --output build/notes.csv
 
