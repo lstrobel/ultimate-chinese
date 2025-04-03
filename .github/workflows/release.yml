@@ -31,6 +31,11 @@ jobs:
       - name: Run brainbrew
         run: uv run brainbrew run recipes/source_to_anki.yaml
 
+      - name: Create zip file
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -r build/Ultimate_Chinese.zip build/Ultimate_Chinese
+
       - name: Create release
         uses: softprops/action-gh-release@v2
         with:
