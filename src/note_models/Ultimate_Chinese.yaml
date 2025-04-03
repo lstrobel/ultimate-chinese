@@ -12,6 +12,8 @@ fields:
     font: Arial
   - name: FocusSection
     font: Arial
+  - name: Note
+    font: Arial
   - name: DefinitionSection
     font: Arial
 templates:

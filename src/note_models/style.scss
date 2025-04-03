@@ -8,10 +8,6 @@
 $card-width: 700px;
 $border-radius: 6px;
 
-$hanzi-font-size: 4.299rem;
-$pinyin-font-size: 1.66rem;
-$meaning-font-size: 1.2rem;
-
 $primary-hanzi-font: "Noto Sans TC", "Noto Sans", sans-serif;
 $secondary-hanzi-font: TW-Kai, $primary-hanzi-font;
 $font-family:
@@ -51,40 +47,68 @@ $font-family:
 .card {
   --spacing: 0.25rem;
 
-  // Own grayscale/neutral colors
-  --color-gray-50: oklch(0.991 0 0);
-  --color-gray-100: oklch(0.955 0 0);
-  --color-gray-200: oklch(0.876 0 0);
-  --color-gray-300: oklch(0.789 0 0);
-  --color-gray-400: oklch(0.709 0 0);
-  --color-gray-500: oklch(0.623 0 0);
-  --color-gray-600: oklch(0.528 0 0);
-  --color-gray-700: oklch(0.439 0 0);
-  --color-gray-800: oklch(0.333 0 0);
-  --color-gray-900: oklch(0.226 0 0);
-  --color-gray-950: oklch(0.159 0 0);
+  // Typography
+  --text-base: 1rem;
+  --text-base--line-height: calc(1.5 / 1);
+  --text-lg: 1.125rem;
+  --text-lg--line-height: calc(1.75 / 1.125);
+  --text-xl: 1.25rem;
+  --text-xl--line-height: calc(1.75 / 1.25);
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: calc(2 / 1.5);
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: calc(2.25 / 1.875);
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: calc(2.5 / 2.25);
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1;
+  --text-7xl: 4.5rem;
+  --text-7xl--line-height: 1;
+  --text-8xl: 6rem;
+  --text-8xl--line-height: 1;
+  --text-9xl: 8rem;
+  --text-9xl--line-height: 1;
 
-  // Actual card theming
-  --color-fg: var(--color-gray-950);
-  --color-muted: var(--color-gray-500);
-  --color-card: var(--color-gray-50);
-  --color-bg: var(--color-gray-100);
-  --color-tag: var(--color-gray-300);
+  // Neutrals
+  --neutral-50: oklch(0.991 0 0);
+  --neutral-100: oklch(0.955 0 0);
+  --neutral-200: oklch(0.876 0 0);
+  --neutral-300: oklch(0.789 0 0);
+  --neutral-400: oklch(0.709 0 0);
+  --neutral-500: oklch(0.623 0 0);
+  --neutral-600: oklch(0.528 0 0);
+  --neutral-700: oklch(0.439 0 0);
+  --neutral-800: oklch(0.333 0 0);
+  --neutral-900: oklch(0.226 0 0);
+  --neutral-950: oklch(0.159 0 0);
+
+  --card-color: var(--neutral-50);
 
   // Pleco-ish colors from Tailwind
-  --tone1-color: oklch(0.577 0.245 27.325); // From --color-red-600
-  --tone2-color: oklch(0.627 0.194 149.214); // From --color-green-600
-  --tone3-color: oklch(0.546 0.245 262.881); // From --color-blue-600
-  --tone4-color: oklch(0.558 0.288 302.321); // From --color-purple-600
-  --tone5-color: oklch(0.528 0 0); // From --color-gray-600
+  --tone1-color: oklch(0.577 0.245 27.325); // From tailwind red-600
+  --tone2-color: oklch(0.627 0.194 149.214); // From tailwind green-600
+  --tone3-color: oklch(0.546 0.245 262.881); // From tailwind blue-600
+  --tone4-color: oklch(0.558 0.288 302.321); // From tailwind purple-600
+  --tone5-color: oklch(0.528 0 0); // From tailwind gray-600
 }
 
 .card.nightMode {
-  --color-fg: var(--color-gray-50);
-  --color-muted: var(--color-gray-300);
-  --color-card: var(--color-gray-800);
-  --color-bg: var(--color-gray-900);
-  --color-tag: var(--color-gray-700);
+  // Neutrals
+  --neutral-50: oklch(0.159 0 0);
+  --neutral-100: oklch(0.226 0 0);
+  --neutral-200: oklch(0.333 0 0);
+  --neutral-300: oklch(0.439 0 0);
+  --neutral-400: oklch(0.528 0 0);
+  --neutral-500: oklch(0.623 0 0);
+  --neutral-600: oklch(0.709 0 0);
+  --neutral-700: oklch(0.789 0 0);
+  --neutral-800: oklch(0.876 0 0);
+  --neutral-900: oklch(0.955 0 0);
+  --neutral-950: oklch(0.991 0 0);
+
+  --card-color: var(--neutral-200);
 
   // Monokai
   --tone1-color: oklch(0.706 0.194 8.454);
@@ -97,7 +121,7 @@ $font-family:
 #content,
 body {
   margin: 0 !important;
-  background-color: var(--color-bg) !important;
+  background-color: var(--neutral-100) !important;
 
   min-height: 100vh;
   overflow-y: auto;
@@ -110,11 +134,11 @@ body {
 #qa {
   font-family: $font-family;
   font-weight: normal;
-  font-size: 1.2rem;
-  line-height: 1.4;
+  font-size: var(--text-base);
+  line-height: var(--text-base--line-height);
 
-  color: var(--color-fg);
-  background-color: var(--color-card);
+  color: var(--neutral-950);
+  background-color: var(--card-color);
 
   max-width: min($card-width, 100vw - 2rem);
   width: 100vw;
@@ -131,16 +155,16 @@ hr {
 
   display: block;
   height: 1px;
-  background: var(--color-fg);
+  background: var(--neutral-950);
   margin: 1.5rem 0 1rem;
 }
 
 // --- Hanzi ---
 #hanzi-section {
   cursor: pointer;
-  font-family: $secondary-hanzi-font;
+  font-family: $primary-hanzi-font;
   &.alternate-font {
-    font-family: $primary-hanzi-font;
+    font-family: $secondary-hanzi-font;
   }
 
   word-break: keep-all; // CJK hack I guess
@@ -154,23 +178,21 @@ hr {
   gap: 0 1.4rem;
 }
 
-.mobile {
-  #hanzi-section {
-    font-family: $primary-hanzi-font;
-
-    &.alternate-font {
-      font-family: $secondary-hanzi-font;
-    }
-  }
-}
-
 #main-hanzi {
-  font-size: 4.299rem;
+  font-size: var(--text-7xl);
+  line-height: var(--text-7xl--line-height);
 }
 
 #alt-hanzi {
-  font-size: 2.48rem;
-  color: var(--color-muted);
+  font-size: var(--text-5xl);
+  line-height: var(--text-5xl--line-height);
+  color: var(--neutral-500);
+
+  margin-top: spacing(4);
+
+  &:empty {
+    display: none;
+  }
 }
 
 // --- Pronunciation Style ---
@@ -203,15 +225,13 @@ hr {
 }
 
 #pronunciation-section {
-  color: var(--color-muted);
-
   display: flex;
   flex-direction: column;
   gap: spacing(2);
 }
 
 .pronunciation-row {
-  border: 1px solid var(--color-gray-700);
+  border: 1px solid var(--neutral-500);
   border-radius: $border-radius;
   padding: spacing(2) spacing(4);
 }
@@ -221,7 +241,9 @@ hr {
   align-items: center;
   white-space: nowrap;
 
-  font-size: $pinyin-font-size;
+  font-size: var(--text-3xl);
+  line-height: var(--text-3xl--line-height);
+
   font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
 }
 
@@ -230,15 +252,23 @@ hr {
   gap: spacing(2);
   flex-wrap: wrap;
   text-align: center;
+  margin-top: spacing(1);
+
+  &:empty {
+    display: none;
+    margin: 0;
+  }
 }
 
 .pinyin-tag {
-  font-size: 0.8em;
-  color: var(--color-fg);
-  background-color: var(--color-tag);
+  font-size: var(--text-base);
+  line-height: var(--text-base--line-height);
+
+  background-color: color-mix(in oklch, var(--neutral-950) 15%, transparent);
+
   width: fit-content;
 
-  border-radius: $border-radius;
+  border-radius: calc(infinity * 1px);
   padding-inline: spacing(2.5);
 }
 
@@ -246,7 +276,7 @@ hr {
   width: 2rem;
   height: 2rem;
 
-  border: 1px solid var(--color-muted);
+  border: 1px solid var(--neutral-500);
   border-radius: $border-radius;
 
   margin: 0;
@@ -257,41 +287,113 @@ hr {
   justify-content: center;
 
   &:hover {
-    border-color: var(--color-fg);
+    border-color: var(--neutral-950);
   }
 
   svg {
     width: 1.4rem;
     height: 1.4rem;
-    stroke: var(--color-fg);
+    stroke: var(--neutral-950);
     fill: none !important;
+
+    path {
+      fill: none !important;
+    }
   }
 }
 
 // --- Focus Section ---
 #focus-section {
-  font-size: $pinyin-font-size;
-  text-align: center;
-
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
 
-  border: 1px solid var(--color-muted);
+  border: 1px solid var(--neutral-500);
   border-radius: $border-radius;
 
-  padding: spacing(2);
+  padding: spacing(4);
   flex: 2;
+}
+
+.focus-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: spacing(
+    6
+  ); // Increased spacing between entries for better separation
+  position: relative;
+
+  &:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: calc(-1 * spacing(3));
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--neutral-300);
+    opacity: 0.5;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.focus-part-of-speech {
+  color: var(--neutral-600);
+
+  font-weight: bold;
+  font-style: italic;
+  font-size: var(--text-xl);
+  line-height: var(--text-xl--line-height);
+  text-transform: uppercase;
+}
+
+.focus-tags {
+  font-size: var(--text-base);
+  line-height: var(--text-base--line-height);
+  color: var(--neutral-600);
+
+  margin-bottom: spacing(1);
+}
+
+.focus-meaning {
+  font-size: var(--text-2xl);
+  line-height: var(--text-2xl--line-height);
+
+  flex: 1;
+}
+
+// -- Notes Section --
+#note {
+  border: 1px solid var(--neutral-500);
+  border-radius: $border-radius;
+  padding: spacing(2);
+
+  font-size: var(--text-xl);
+  line-height: var(--text-xl--line-height);
+
+  margin-block: spacing(4);
 }
 
 // --- Definition Section ---
 #definition-section {
-  font-size: $meaning-font-size;
-  line-height: 1.6;
-}
+  border: 1px solid var(--neutral-300);
+  border-radius: $border-radius;
+  padding: spacing(2);
 
-li:not(:last-child) {
-  margin-bottom: 0.2rem;
+  font-size: var(--text-xl);
+  line-height: var(--text-xl--line-height);
+
+  margin-block: spacing(4);
+
+  ol {
+    margin: 0;
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 0.2rem;
+  }
 }
 
 // --- Footer ---
@@ -300,7 +402,7 @@ li:not(:last-child) {
     width: 2.6rem;
     height: 2.6rem;
     margin: 0.4rem;
-    border: 1px solid var(--color-muted);
+    border: 1px solid var(--neutral-500);
     border-radius: $border-radius;
     background-color: white;
   }

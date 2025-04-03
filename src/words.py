@@ -1,13 +1,15 @@
-import json
 import re
-from pathlib import Path
 
 import pandas as pd
 from airium import Airium
 from py_pinyin_split import PinyinTokenizer
 from pypinyin.contrib.tone_convert import to_tone, to_tone3
 
-from src.words_pydantic_models import Note, Pronunciation
+# Try relative import first, then fall back to direct import
+try:
+    from .words_pydantic_models import Note, Pronunciation, SimpleDefinition
+except ImportError:
+    from words_pydantic_models import Note, Pronunciation, SimpleDefinition
 
 # Compile regex patterns once at module level
 INITIAL_VOWEL = re.compile(r"^[aeiouāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]", re.IGNORECASE)
@@ -83,13 +85,38 @@ def _reformat_definitions(meanings: list[str]) -> str:
     return f"<ol>{items}</ol>"
 
 
+def _reformat_focus(focus: str | list[SimpleDefinition]) -> str:
+    if not focus:
+        return ""
+    elif type(focus) is str:
+        return (
+            f'<div class="focus-row"><span class="focus-meaning">{focus}</span></div>'
+        )
+    else:
+        assert type(focus) is list
+        # Convert list of SimpleDefinition objects to HTML
+        a = Airium(source_minify=True)
+        for sd in focus:
+            with a.div(class_="focus-row"):
+                with a.span(class_="focus-part-of-speech"):
+                    a(sd.part_of_speech.value + ": ")
+                with a.span(class_="focus-tags"):
+                    if sd.tags:
+                        a(f"{', '.join(sd.tags)}")
+                with a.span(class_="focus-meaning"):
+                    a(sd.meaning)
+                    if sd.classifiers:
+                        a(f" ({', '.join(sd.classifiers)})")
+        return str(a)
+
+
 def _reformat_pronunciations(pronunciations: list[list[Pronunciation]]) -> str:
     a = Airium(source_minify=True)
 
     for i, sublist in enumerate(pronunciations):
         for pron in sublist:
             try:
-                tags = sorted(pron.tags) if pron.tags else []
+                tags = pron.tags if pron.tags else []
                 if "erhua" in tags:
                     continue  # Skip erhua pronunciations
                 with a.div(class_="pronunciation-row"):
@@ -116,19 +143,17 @@ def _reformat_pronunciations(pronunciations: list[list[Pronunciation]]) -> str:
     return str(a)
 
 
-def build_notes(res_dir: Path, output_dir: Path) -> None:
-    """Build CrowdAnki notes CSV file from JSON data.
+def format_notes(notes: list[Note]) -> pd.DataFrame:
+    """Build formatted CrowdAnki notes out of a list of Note objects.
 
     Args:
-        input: Path to the input CSV file
-        output_dir: Directory where the generated files will be written
+        notes (list[Note]): List of notes to be formatted.
+
+    Returns:
+        pd.DataFrame: DataFrame containing formatted notes. CrowdAnki wants a CSV, which
+        can be generated from this DataFrame.
     """
 
-    # Read data
-    with open(res_dir / "words.json") as p:
-        notes = [Note.model_validate(obj) for obj in json.loads(p.read())]
-
-    # convert to flat dataframe
     df = pd.DataFrame(
         [
             {
@@ -139,8 +164,9 @@ def build_notes(res_dir: Path, output_dir: Path) -> None:
                     [p for p in word.pronunciations] for word in note.words
                 ],  # To be formatted
                 "FocusSection": note.simple_definition,
+                "Note": note.note,
                 "DefinitionSection": note.definitions,  # To be formatted
-                "tags": sorted(note.tags),
+                "tags": note.tags,
                 "guid": note.guid,
             }
             for note in notes
@@ -155,6 +181,9 @@ def build_notes(res_dir: Path, output_dir: Path) -> None:
         _reformat_pronunciations
     )
 
+    # Convert FocusSection to HTML
+    df["FocusSection"] = df["FocusSection"].apply(_reformat_focus)
+
     # Convert definitions to an HTML ordered list
     df["DefinitionSection"] = df["DefinitionSection"].apply(_reformat_definitions)
 
@@ -163,7 +192,4 @@ def build_notes(res_dir: Path, output_dir: Path) -> None:
     # Convert tags to simple comma-separated string for CrowdAnki
     df["tags"] = df["tags"].apply(lambda x: ", ".join(x))
 
-    # Write processed data to output CSV
-    output_path = output_dir / "notes.csv"
-    print(output_path)
-    df.to_csv(output_path, index=False)
+    return df

@@ -44,15 +44,67 @@ There are also `meta:` prefixed tags which are temporary and used for organizati
 
 In general, pinyin should contain no spaces and be all lowercase. However, there are some exceptions:
 
-- Seperable verbs
-- Adjective-noun compounds
-- Verb-noun compounds
+- Seperable verbs/adjectives (which are actually a type of verb)
+- Verb-Object compounds
 
 This is a pretty loose guideline.
 
 ### Tone Sandhi
 
 Do not include tone sandhi in the pinyin, but do add a `has sandhi` tag if the word is subject to tone sandhi.
+
+## Simple Definition Guidelines
+
+Simple definitions aim to provide concise, learner-focused meanings for words. Each word can have multiple simple definitions to cover different parts of speech or core meanings. The system used for categorizing parts of speech is a custom mix of the parts of speech from the [ABC Chinese-English Comprehensive Dictionary](https://android.pleco.com/manual/240/abc.html#pos) and [An A to Z Grammar for Chinese Language Learners](https://chino.hol.es/mod/book/tool/print/index.php?id=218&chapterid=17286).
+
+A simple definition consists of:
+
+1.  A **`part_of_speech`**: The grammatical role of the word for this specific meaning:
+
+    - `Noun`: General nouns, including people, places, things, and abstract concepts.
+    - `Pronoun`
+    - `Adverb`: Modifies verbs, adjectives, or other adverbs (e.g., 很, 都, 不). Many adjectives can also be used adverbially, but you should always add a separate definition for the adjectival use.
+    - `Verb`: An umbrella term for all verbs. Use tags to specify more specific types, like those specified in the A to Z Grammar.
+    - `Adjective`: While most "adjectives" are actually a subtype of stative verbs in Chinese, we use this category for ease of understanding. Learners will be aware of the quirks of Chinese adjectives.
+    - `Conjunction`
+    - `Preposition`: Often called coverbs.
+    - `Measure Word`: Also known as classifiers.
+    - `Interjection`: Exclamations or other short expressions.
+    - `Determiner`: Specifies nouns (e.g., 這, 那, 每).
+    - `Particle`: Other grammatical function words (e.g., 的, 了, 嗎).
+    - `Phrase`: Multi-word expressions functioning as a unit. See ABC's description of "Set expressions that allow for little if any freedom to substitute different words."
+
+2.  **`tags`** (Optional): Add specificity and context to the part of speech. Multiple tags can be used. Available tags and their descriptions:
+
+    - `place-word`: (Noun) Inherently denotes location, does not need a preposition.
+    - `time-word`: (Noun) Denotes time. Can function adverbially.
+    - `transitive`: (Verb) Takes a direct object.
+    - `intransitive`: (Verb) Does not take a direct object.
+    - `separable`: (Verb) Verb with internal V+O structure that can be split (e.g., 唱歌 -> 唱(了)歌).
+    - `auxiliary`: (Verb) Helping verb. Precedes main verb; negation is before it (e.g., 能, 會, 可以).
+    - `process`: (Verb) Denotes an instantaneous change of state. Often uses 沒 for past negation (e.g., 死, 忘).
+    - `stative`: (Verb) Denotes a non-time-sensitive state. Often uses 不 for negation. Adjectives are a subclass of these.
+    - `mainly-attributive`: (Adjective) Normally only modifies nouns (e.g., 公共), not used as a predicate (\*很公共 is incorrrect).
+    - `mainly-predicative`: (Adjective) Normally only used as a predicate (e.g., 夠), not attributive (\*夠時間 is incorrect).
+    - `idiom`: (Phrase) Meaning is not literal. This is not the right tag for Chengyu.
+    - `sentence-adv`: (Phrase) Functions like an adverb modifying the whole sentence.
+
+3.  **`meaning`**: A concise definition in English.
+
+    - For Verbs, use "to" (e.g., "to eat").
+    - For Adjectives (Stative Verbs), omit "to be" (e.g., use "good" instead of "to be good").
+    - For Measure Words, surround the measure word in parentheses (e.g., "(for people)").
+    - Use parentheses to denote optional clarifying examples (e.g., "to do (something)") or usage contexts (e.g., "(finance) profit").
+    - Use square brackets to denote other non-gloss meanings (e.g. [indicating motion away from the speaker]).
+
+4.  **`classifiers`** (Optional, for Nouns only): A list of applicable measure words (classifiers) for this noun definition.
+
+### Choosing Simple Definitions
+
+- Ensure that each simple definition is clear and concise, focusing on the most relevant meaning for learners.
+- Not every meaning of a word needs to be included! Focus on the most common or important meanings.
+- Many adjectives can be used adverbially, but you should always add a separate definition for the adjectival use.
+- Many classifiers/measure words are also nouns, but you should always add a separate definition for the classifier use.
 
 ## Releasing
 
@@ -71,7 +123,9 @@ Pronunciation vaidations to be done:
 - First pronunciations that arent Taiwan or Standard (what gives?)
 - erhua variants as official pronunciations
 - Make sure usage of "Standard" and other tags is consistent
+  - Refactor tag system to account for official vs colloquial pronunciations while still allowing for regional variants
 - Go back and be consistent for 那/這 na/nei zhe/zhei
+- Add notes for variants - when are they used?
 
 1. Add wiktionary TTS Audio for pronunciations
 2. Add simple definitions for all words
