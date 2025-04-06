@@ -42,10 +42,7 @@ There are also `meta:` prefixed tags which are temporary and used for organizati
 
 ### Formatting pronunciations
 
-In general, pinyin should contain no spaces and be all lowercase. However, there are some exceptions:
-
-- Seperable verbs/adjectives (which are actually a type of verb)
-- Verb-Object compounds
+In general, pinyin should contain no spaces and be all lowercase. The only exception is for seperable verbs/adjectives (which are actually a type of verb) which should be separated by a space.
 
 This is a pretty loose guideline.
 
