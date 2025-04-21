@@ -6,7 +6,7 @@ Currently focused on Taiwanese Mandarin, but I do plan to expand to support lear
 
 If you have any suggestions or concerns, please leave an issue.
 
-TBCL data was originally sourced from: https://coct.naer.edu.tw/page.jsp?ID=41
+TBCL data was originally sourced from: <https://coct.naer.edu.tw/page.jsp?ID=41>
 
 ## Getting Started
 
