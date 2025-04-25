@@ -52,6 +52,7 @@ This deck is made for Chinese learners. It is not a dictionary, nor is it compre
 
 ### When to split notes or add a new note
 
+> [!IMPORTANT]
 > Anki makes a distinction between "notes" and "cards". A note is a single entry in the database, while a card is a specific way of displaying that note. For example, a single note can be displayed as a question or an answer, or in multiple different ways. This deck uses a single card type for all notes, so for us, a note is a card.
 
 This deck was originally created by creating one note for each word in the Taiwanese Ministry of Education's [TOCFL](https://coct.naer.edu.tw/page.jsp?ID=41) word list. The Taiwanese MOE split some words into multiple notes, and that distinction may still exist in the deck. However, most notes should follow this criteria:
@@ -75,7 +76,7 @@ We aim to provide a narrow view of pronunciation. When at all possible, and agre
 
 We do not include pronunciations that:
 
-- Exist in other topolects (e.g., Cantonese, Hakka, etc.)
+- Exist in other 方言/topolects (e.g., Cantonese, Hakka, etc.)
 - Exist in colloquial Mandarin from other regions (e.g., Singapore, Malaysia, etc.)
 - Are rare, archaic, historical, or literary
 - Are variants of the standard pronunciation that are not commonly used
@@ -105,90 +106,45 @@ There are also `meta:` prefixed tags which are temporary and undocumented.
 
 #### Formatting pronunciations
 
-In general, pinyin should contain no spaces and be all lowercase. The exception is for separable verbs/adjectives (a type of verb), where adding a space aids memorization of this feature. For example, "唱歌" (to sing) could be formatted as "chàng gē".
+In general, pinyin should contain no spaces and be all lowercase. The exception is for separable verb-object compounds, where adding a space aids memorization of this feature. For example, "唱歌" (to sing) could be formatted as "chàng gē".
 
 This is a pretty loose guideline.
 
-### Focus Definition Guidelines
+### Focus Section Guidelines
+
+The focus section is the portion of the note that contains those definitions/meanings that learners should try to remember and grade themselves on when reviewing a note. It is not necessary for the focus section on a card to contain every sense of a character or word. The entries should be clear and concise, and should be those meanings that a speaker would most likely think of when they see the word.
+
+The focus section consists of a list of rows, each corresponding roughly to a single definition. Right now, each row has the following fields:
+
+1. **`part_of_speech`**: A free-text field that describes the part of speech of the word. See below for more details.
+2. **`tags`**: A list of tags that add specificity and context to the part of speech field. This is an optional field, but it can be useful for learners to understand how the word is used. See below for more details.
+3. **`meaning`**: A concise definition in English. See below for more details.
+4. **`classifiers`** (Optional, for Nouns only): A list of applicable measure words (classifiers) for this noun definition.
+
+Focus sections for words later in the list can be more comprehensive.
+
+#### Part of Speech Field
+
+The `part_of_speech` field is a free-text field that describes the part of speech of the word. This is not a strict part of speech, but rather a way to categorize the usage of the word. The goal is to help learners understand how to use the word in context. Our focus is less on linguistic categories, and more on helping learners recall the grammar rules and usage of words in that context.
+
+When possible, try to stay consistent with the categories already present in the deck.
+
+#### Adjectives
+
+Adjectives are a subclass of stative verbs in Chinese. They are not strictly adjectives, but rather a type of verb that describes a state. However, we use the term "adjective" for ease of understanding. Learners should be aware of the quirks of Chinese adjectives.
+
+Adjectives can also sometimes be used as adverbs. For this, add a separate definition for the adjectival use.
+
+**Tagging**: Some adjectives are only used in an attributive position, while others are only used in a predicative position. We use the tags `mainly-attributive` and `mainly-predicative` to indicate this.
+
+**Style**: When adding meanings for adjectives, omit the "to be" in the definition.
+
+#### Verbs
 
 WIP
 
-<!-- 
-The focus definitions are the definitions/meanings that learners should try to remember and grade themselves on when reviewing a note. It is not necessary for the focus definitions on a card to contain every sense of a character or word. The entries should be clear and concise, and should be those meanings that a speaker would most likely think of when they see the word.
-
-In `words.json`, the focus definitions are stored in the following schema:
-
-```python
-{
-    "part_of_speech": str,
-    "tags": Optional[List[str]],
-    "meaning": str,
-    "classifiers": Optional[List[str]]
-}
-```
-
-The fields are as follows:
-
-#### Part of Speech
-
- This field is a bit of a misnomer. While Chinese does have parts of speech, our focus is less on linguistic categores, and more on helping learners categorize the usage of words. This is a free-text field.
-
- You might find parts of speeches as defined in the [ABC Chinese-English Comprehensive Dictionary](https://android.pleco.com/manual/240/abc.html#pos) and [An A to Z Grammar for Chinese Language Learners](https://chino.hol.es/mod/book/tool/print/index.php?id=218&chapterid=17286):
-
-- `Noun`
-- `Pronoun`
-- `Adverb`: Note: While many adjectives can also be used adverbially, you should add a separate definition for the adjectival use.
-- `Verb`: An umbrella term for all verbs. The default is a transitive action verb. Use tags to specify more specific usage.
-- `Adjective`: While most "adjectives" are actually a subtype of stative verbs in Chinese, we use this category for ease of understanding. Learners should be aware of the quirks of Chinese adjectives.
-- `Conjunction`/`Preposition`/`Determiner`
-- `Measure Word`
-- `Particle`
-- `Complement`
-  
-But you might also find other categories that are not strictly parts of speech, but are useful for learners to categorize words:
-
-- `Phrase`: Multi-word expressions functioning as a unit. See ABC's description of "Set expressions that allow for little if any freedom to substitute different words."
-- `Bound Form`: A lot of single characters in Chinese are used as bound forms, meaning they are often not used alone, but instead add meaning to a multi-character word.
-- `Construction`: A multi-character word that is most commonly used in grammatical structures.
-
-We play it a bit fast and loose with the definitions of these categories, but we try to keep them consistent. The most important thing is that the part of speech should be clear and concise, and should help learners understand how to use the word.
-
-#### Tags
-
-ALKSJD:LKAJS:LDKJA:SLKDHA TODO: HOW To address verb-complement structures?
-
-Tags add specificity and context to the part of speech field in a familiar and concise way. Again, you can write you own tags, but you might find the following tags useful:
-
-- `place-word`: (Noun) Inherently denotes location, does not need a preposition.
-- `time-word`: (Noun) Denotes time. Can function adverbially.
-- `transitive`: (Verb) Takes a direct object.
-- `intransitive`: (Verb) Does not take a direct object.
-- `separable`: (Verb) Verb with internal V+O structure that can be split (e.g., 唱歌 -> 唱(了)歌).
-- `auxiliary`: (Verb) Helping verb. Precedes main verb; negation is before it (e.g., 能, 會, 可以).
-- `process`: (Verb) Denotes an instantaneous change of state. Often uses 沒 for past negation (e.g., 死, 忘).
-- `stative`: (Verb) Denotes a non-time-sensitive state. Often uses 不 for negation. Adjectives are a subclass of these.
-- `mainly-attributive`: (Adjective) Normally only modifies nouns (e.g., 公共), not used as a predicate (\*很公共 is incorrrect).
-- `mainly-predicative`: (Adjective) Normally only used as a predicate (e.g., 夠), not attributive (\*夠時間 is incorrect).
-- `idiom`: (Phrase) Meaning is not literal. This is not the right tag for Chengyu.
-- `sentence-adv`: (Phrase) Functions like an adverb modifying the whole sentence.
-
-2. **`meaning`**: A concise definition in English.
-
-    - For Verbs, use "to" (e.g., "to eat").
-    - For Adjectives (Stative Verbs), omit "to be" (e.g., use "good" instead of "to be good").
-    - For Measure Words, surround the measure word in parentheses (e.g., "(for people)").
-    - Use parentheses to denote optional clarifying examples (e.g., "to do (something)") or usage contexts (e.g., "(finance) profit").
-    - Use square brackets to denote other non-gloss meanings (e.g. [indicating motion away from the speaker]).
-
-3. **`classifiers`** (Optional, for Nouns only): A list of applicable measure words (classifiers) for this noun definition.
-
-#### Choosing Simple Definitions
-
-- Ensure that each simple definition is clear and concise, focusing on the most relevant meaning for learners.
-- Not every meaning of a word needs to be included! Focus on the most common or important meanings.
-- Many adjectives can be used adverbially, but you should always add a separate definition for the adjectival use.
-- Many classifiers/measure words are also nouns, but you should always add a separate definition for the classifier use. 
--->
+- Address verb-complement structures
+- Address types of verbs
 
 ## Releasing
 
