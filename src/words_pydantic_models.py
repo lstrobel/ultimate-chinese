@@ -1,5 +1,3 @@
-from enum import Enum
-
 import pydantic
 from pydantic import BaseModel, field_serializer, field_validator
 
@@ -35,47 +33,8 @@ class Word(BaseModel):
     pronunciations: list[Pronunciation] = pydantic.Field(min_length=1)
 
 
-class PartOfSpeech(Enum):
-    NOUN = "Noun"
-    PRONOUN = "Pronoun"
-
-    ADVERB = "Adverb"
-    VERB = "Verb"
-    ADJECTIVE = "Adjective"  # A subclass/subtype of stative verbs
-
-    CONJUNCTION = "Conjunction"
-    PREPOSITION = "Preposition"
-    MEASURE_WORD = "Measure Word"
-    INTERJECTION = "Interjection"
-    DETERMINER = "Determiner"
-    PARTICLE = "Particle"
-
-    PHRASE = "Phrase"
-
-
-# Descriptions for common POS tags
-POS_TAG_DESCRIPTIONS = {
-    # Noun Tags
-    "place-word": "Inherently denotes location, does not need a preposition.",
-    "time-word": "Denotes time. Can function adverbially.",
-    # Verb Tags
-    "transitive": "Takes a direct object.",
-    "intransitive": "Does not take a direct object.",
-    "separable": "Verb with internal V+O structure that can be split.",
-    "auxiliary": "Helping verb. Precedes main verb; negation is before it.",
-    "process": "Denotes an instantaneous change of one state to another. Often uses 沒 for past negation.",
-    "stative": "Denotes a non-time-sensitive state. Often uses 不 for negation.",
-    # Adjective Tags
-    "mainly-attributive": "Normally can only modify nouns (e.g., 公共), not function as a predicate (*很公共).",
-    "mainly-predicative": "Normally only as a predicate (e.g., 夠), not attributive modification (*夠時間).",
-    # Phrase/Expression Tags
-    "idiom": "Meaning is not literal.",
-    "sentence-adv": "Functions like an adverb modifying the whole sentence.",
-}
-
-
 class SimpleDefinition(BaseModel):
-    part_of_speech: PartOfSpeech
+    part_of_speech: str
     tags: list[str] | None = (
         None  # Tags to add specificity and context to the part of speech
     )
