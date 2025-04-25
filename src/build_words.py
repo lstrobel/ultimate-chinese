@@ -97,7 +97,7 @@ def _reformat_focus(focus: str | list[SimpleDefinition]) -> str:
         for sd in focus:
             with a.div(class_="focus-row"):
                 with a.span(class_="focus-part-of-speech"):
-                    a(sd.part_of_speech.value + ": ")
+                    a(sd.part_of_speech + ": ")
                 with a.span(class_="focus-tags"):
                     if sd.tags:
                         a(f"{', '.join(sd.tags)}")
