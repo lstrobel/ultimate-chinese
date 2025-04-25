@@ -91,9 +91,10 @@ class Note(BaseModel):
     # Word + variants. The first word is the canonical word, the rest are variants
     words: list[Word] = pydantic.Field(min_length=1)
     tags: list[str]
-    # The definition to focus on. `str` is legacy formatting
-    simple_definition: str | list[SimpleDefinition] | None = None
-    note: str | None = None  # Note to display on card
+    focus_entries: str | list[SimpleDefinition] | None = (
+        None  # str is legacy formatting
+    )
+    note: str | None = None
     # TODO: Replace with more complex definition model? Support examples, etc.
     definitions: list[str]
 

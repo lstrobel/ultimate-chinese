@@ -161,7 +161,7 @@ def format_notes(notes: list[Note]) -> pd.DataFrame:
                 "PronunciationSection": [
                     [p for p in word.pronunciations] for word in note.words
                 ],  # To be formatted
-                "FocusSection": note.simple_definition,
+                "FocusSection": note.focus_entries,  # To be formatted
                 "Note": note.note,
                 "DefinitionSection": note.definitions,  # To be formatted
                 "tags": note.tags,
