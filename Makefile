@@ -1,4 +1,4 @@
-.PHONY: build release
+.PHONY: build release format
 build:
 	@echo "📂 Creating output directory..."
 	@mkdir -p res/generated
@@ -15,3 +15,7 @@ release: build
 	@mkdir -p build
 	@zip -r build/Ultimate_Chinese.zip build/Ultimate_Chinese
 	@echo "✅ Release completed."
+
+format:
+	@uv run ruff format
+	@uv run src/format_json.py --file res/words.json
