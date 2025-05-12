@@ -49,10 +49,10 @@ def _convert_pinyin_to_html(pinyin: str) -> str:
     return "".join(converted)
 
 
-def _reformat_definitions(meanings: list[str]) -> str:
+def _reformat_definitions(meanings: list[str]) -> str | None:
     """Convert meaning string list to HTML ordered list and apply some formatting."""
     if not meanings:  # Handle empty list
-        raise ValueError
+        return None
 
     # Create HTML ordered list
     processed_meanings = []

@@ -55,7 +55,7 @@ class Note(BaseModel):
     )
     note: str | None = None
     # TODO: Replace with more complex definition model? Support examples, etc.
-    definitions: list[str]
+    definitions: list[str] | None = None
 
     @field_validator("tags", mode="before")
     def dedupe_tags(cls, v):
