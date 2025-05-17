@@ -25,7 +25,7 @@ class Pronunciation(BaseModel):
                 return (4, tag)
             return (3, tag)
 
-        return sorted(tags, key=custom_sort) if tags is not None else None
+        return sorted(tags, key=custom_sort) if tags is not None else []
 
 
 class Word(BaseModel):
