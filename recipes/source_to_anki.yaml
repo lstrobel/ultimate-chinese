@@ -1,29 +1,44 @@
 - build_parts:
     - note_models_from_yaml_part:
-        part_id: Ultimate Chinese
+        part_id: default_note_model
         file: src/note_models/Ultimate_Chinese.yaml
 
     - headers_from_yaml_part:
-        - part_id: headers
+        - part_id: default_header
           file: src/headers/default.yaml
           override:
             name: Ultimate Chinese
             deck_description_html_file: src/headers/desc.html
+    - headers_from_yaml_part:
+        - part_id: extras_header
+          file: src/headers/default.yaml
+          override:
+            name: Ultimate Chinese Extra
+            crowdanki_uuid: bbb4ea59-ae78-4d95-9ecf-a6a993ef1961
+            deck_description_html_file: src/headers/desc.html # Using the same description for now
 
     - notes_from_csvs:
-        part_id: notes
+        part_id: words_notes
         file_mappings:
-          - file: build/notes.csv # Generated from words.json during build
-            note_model: Ultimate Chinese
+          - file: build/words.csv # Generated from words.json during build
+            note_model: default_note_model
         note_model_mappings:
           - note_models:
-              - Ultimate Chinese
+              - default_note_model
+    - notes_from_csvs:
+        part_id: extras_notes
+        file_mappings:
+          - file: build/extras.csv
+            note_model: default_note_model
+        note_model_mappings:
+          - note_models:
+              - default_note_model
 
     - media_group_from_folder:
         - part_id: styling
           source: res/media/styling
           recursive: true
-    - media_group_from_folder:
+    - media_group_from_folder: # Just generating audio for the main words deck
         - part_id: audio
           source: res/media/audio
           recursive: true
@@ -31,10 +46,21 @@
 - generate_crowd_anki:
     folder: build/Ultimate_Chinese
     notes:
-      part_id: notes
+      part_id: words_notes
     note_models:
       parts:
-        - part_id: Ultimate Chinese
-    headers: headers
+        - part_id: default_note_model
+    headers: default_header
     media:
       parts: [styling, audio]
+
+- generate_crowd_anki:
+    folder: build/Ultimate_Chinese_Extra
+    notes:
+      part_id: extras_notes
+    note_models:
+      parts:
+        - part_id: default_note_model
+    headers: extras_header
+    media:
+      parts: [styling] # No audio for extras deck
