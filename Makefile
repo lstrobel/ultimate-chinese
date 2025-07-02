@@ -5,8 +5,6 @@ build:
 
 	@echo "📝 Generating words.csv from words.json..."
 	@uv run src/build_words.py --input res/words.json --output build/words.csv
-	@echo "📝 Generating extras.csv from extras.json..."
-	@uv run src/build_words.py --input res/extras.json --output build/extras.csv
 
 	@echo "🎨 Generating CSS from style.scss..."
 	@sass --no-source-map src/note_models/style.scss build/style.css
@@ -24,4 +22,3 @@ release: build
 format:
 	@uv run ruff format
 	@uv run src/format_json.py --file res/words.json
-	@uv run src/format_json.py --file res/extras.json
