@@ -18,4 +18,4 @@ fields:
     font: Arial
 templates:
   - name: Vocab Review
-    html_file: src/note_models/Vocab_Review.html
+    html_file: src/brainbrew/note_models/Vocab_Review.html

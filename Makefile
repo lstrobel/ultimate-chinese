@@ -7,10 +7,10 @@ build:
 	@uv run src/build_words.py --input res/words.json --output build/words.csv
 
 	@echo "🎨 Generating CSS from style.scss..."
-	@sass --no-source-map src/note_models/style.scss build/style.css
+	@sass --no-source-map src/brainbrew/note_models/style.scss build/style.css
 	
 	@echo "🧠 Running brainbrew..."
-	@uv run brainbrew run recipes/source_to_anki.yaml
+	@uv run brainbrew run src/brainbrew/recipes/source_to_anki.yaml
 	@echo "✅ Build completed."
 
 release: build

@@ -1,14 +1,14 @@
 - build_parts:
     - note_models_from_yaml_part:
         part_id: default_note_model
-        file: src/note_models/Ultimate_Chinese.yaml
+        file: src/brainbrew/note_models/Ultimate_Chinese.yaml
 
     - headers_from_yaml_part:
         - part_id: default_header
-          file: src/headers/default.yaml
+          file: src/brainbrew/headers/default.yaml
           override:
             name: Ultimate Chinese
-            deck_description_html_file: src/headers/desc.html
+            deck_description_html_file: src/brainbrew/headers/desc.html
 
     - notes_from_csvs:
         part_id: words_notes
