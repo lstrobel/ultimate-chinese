@@ -1,12 +1,10 @@
 # Anki: Ultimate Chinese
 
-An attempt to make a complete and comprehensive Chinese study deck for Anki, inspired by [Ultimate Geography](https://github.com/anki-geo/ultimate-geography).
+An attempt to make a complete and comprehensive Mandarin Chinese study deck for Anki, inspired by [Ultimate Geography](https://github.com/anki-geo/ultimate-geography).
 
 Currently focused on Taiwanese Mandarin, but I do plan to expand to support learners focused on Mainland Mandarin as well.
 
 If you have any suggestions or concerns, please leave an issue.
-
-TBCL data was originally sourced from: <https://coct.naer.edu.tw/page.jsp?ID=41>
 
 ## Getting Started
 
