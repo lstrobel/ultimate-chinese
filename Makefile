@@ -1,7 +1,7 @@
 .PHONY: build release format
 build:
 	@echo "📂 Creating output directory..."
-	@mkdir -p res/generated
+	@mkdir -p build
 
 	@echo "📝 Generating words.csv from words.json..."
 	@uv run src/build_words.py --input res/words.json --output build/words.csv
