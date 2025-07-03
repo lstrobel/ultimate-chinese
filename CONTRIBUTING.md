@@ -38,10 +38,10 @@ The project is structured as follows:
 - `res/` - Resources (word definitions, media, styling)
   - `words.json` - The main source of truth for the notes in the deck
   - `media/` - audio/fonts/icons
-- `src/` - Build scripts and Brain Brew source
-  - `words_pydantic_models.py` - The schema for `words.json`
+- `src/` - Build scripts
+  - `brainbrew/` - Brainbrew specific source: note and deck models
+  - `schema.py` - The schema for `words.json`
   - `build_words.py` - The script that builds the csv file from `words.json`
-  - `headers/` and `note_models/` - Brain Brew deck and card models
 - `recipes/` - Brain Brew recipe(s)
 
 ## Adding or modifying card content

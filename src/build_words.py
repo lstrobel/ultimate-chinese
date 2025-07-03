@@ -7,7 +7,7 @@ from airium import Airium
 from py_pinyin_split import PinyinTokenizer
 from pypinyin.contrib.tone_convert import to_tone, to_tone3
 
-from words_pydantic_models import Note, Pronunciation, SimpleDefinition
+from schema import Note, Pronunciation, SimpleDefinition
 
 # Compile regex patterns once at module level
 INITIAL_VOWEL = re.compile(r"^[aeiouāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]", re.IGNORECASE)
