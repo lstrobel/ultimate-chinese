@@ -2,11 +2,7 @@ build/
 __pycache__/
 
 .DS_Store
-.aider*
-.env
+
 .venv
 .ruff_cache
-apicache/
 .mypy_cache
-throttle.ctrl
-data/
