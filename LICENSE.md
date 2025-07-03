@@ -1,7 +1,9 @@
+# License Information
+
 Usage of the Font "TW-Kai is licensed under the [SIL Open Font License](https://opensource.org/license/OFL-1.1) as well as the [Open Government Data License](https://data.gov.tw/license)
 a. Taiwan(R.O.C.)'s Ministry of Digital Affairs [2022] [全字庫]
 b. The Open Data is made available to the public under the Open Government Data License, User can make use of it when complying to the condition and obligation of its terms.
-c. Open Government Data License: https://data.gov.tw/license
+c. Open Government Data License: <https://data.gov.tw/license>
 
 Audio files prefixed with "ntnu\_" were taken from [A Course in Contemporary Chinese](https://mtc.ntnu.edu.tw/eng/book/A_Course_in_Contemporary_Chinese.html)
 
