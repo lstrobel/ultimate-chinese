@@ -95,13 +95,13 @@ def _reformat_focus(focus: str | list[SimpleDefinition]) -> str:
         # Convert list of SimpleDefinition objects to HTML
         a = Airium(source_minify=True)
         for sd in focus:
-            with a.div(class_="focus-row"):
-                with a.span(class_="focus-part-of-speech"):
+            with a.div(class_="focus-row"):  # type: ignore[call-arg]
+                with a.span(class_="focus-part-of-speech"):  # type: ignore[call-arg]
                     a(sd.part_of_speech + ": ")
-                with a.span(class_="focus-tags"):
+                with a.span(class_="focus-tags"):  # type: ignore[call-arg]
                     if sd.tags:
                         a(f"{', '.join(sd.tags)}")
-                with a.span(class_="focus-meaning"):
+                with a.span(class_="focus-meaning"):  # type: ignore[call-arg]
                     a(sd.meaning)
                     if sd.classifiers:
                         a(f" ({', '.join(sd.classifiers)})")
@@ -117,9 +117,9 @@ def _reformat_pronunciations(pronunciations: list[list[Pronunciation]]) -> str:
                 tags = pron.tags if pron.tags else []
                 if "erhua" in tags:
                     continue  # Skip erhua pronunciations
-                with a.div(class_="pronunciation-row"):
-                    with a.div(class_="pinyin-entry"):
-                        with a.div():
+                with a.div(class_="pronunciation-row"):  # type: ignore[call-arg]
+                    with a.div(class_="pinyin-entry"):  # type: ignore[call-arg]
+                        with a.div():  # type: ignore[call-arg]
                             as_html = _convert_pinyin_to_html(pron.pinyin)
                             if i == 0:
                                 a(as_html)
@@ -127,10 +127,10 @@ def _reformat_pronunciations(pronunciations: list[list[Pronunciation]]) -> str:
                                 a(f"({as_html})")
                         if pron.audio_file:
                             a(f" [sound:{pron.audio_file}]")
-                    with a.div(class_="pinyin-tags"):
+                    with a.div(class_="pinyin-tags"):  # type: ignore[call-arg]
                         for t in tags:
                             if not t.startswith("meta:"):  # Skip meta tags
-                                with a.div(class_="pinyin-tag"):
+                                with a.div(class_="pinyin-tag"):  # type: ignore[call-arg]
                                     a(t)
                             if t == "meta:fix_me":
                                 a("⚠️")
