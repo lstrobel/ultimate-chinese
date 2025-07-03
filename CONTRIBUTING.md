@@ -53,7 +53,7 @@ This deck is made for Chinese learners. It is not a dictionary, nor is it compre
 ### When to split notes or add a new note
 
 > [!IMPORTANT]
-> Anki makes a distinction between "notes" and "cards". A note is a single entry in the database, while a card is a specific way of displaying that note. For example, a single note can be displayed as a question or an answer, or in multiple different ways. This deck uses a single card type for all notes, so for us, a note is a card.
+> Anki makes a distinction between "notes" and "cards". A note is a single entry in the database, while a card is a specific way of displaying that note. For example, a single note can be displayed as a question or an answer, or in multiple different ways. This deck currently uses a single card type for all notes, so for us, a note is a card.
 
 This deck was originally created by creating one note for each word in the Taiwanese Ministry of Education's [TOCFL](https://coct.naer.edu.tw/page.jsp?ID=41) word list. The Taiwanese MOE split some words into multiple notes, and that distinction may still exist in the deck. However, most notes should follow this criteria:
 
@@ -72,14 +72,14 @@ Here are some concrete examples of this:
 
 There are a lot of different ways to pronounce Chinese words, differing across dialects, regions, context, and even individual speakers. Our pronunciations are all romanized using [Hanyu Pinyin](https://en.wikipedia.org/wiki/Pinyin).
 
-We aim to provide a narrow view of pronunciation. When at all possible, and agreed to across the strait, we display the Modern Standard Mandarin pronunciation. When it exists, we can instead add a distinction between the difference in colloquial pronunciation between Taiwan and standard Mainland Chinese. Due to its presence in proficiency tests, we also document erhua pronunciations. Finally, if a word has a nearly ubiquitous colloquial pronunciation that is not standard, we include that as well.
+We aim to provide a narrow view of pronunciation. When at all possible, and agreed to across the strait, we display the Modern Standard Mandarin pronunciation. When it exists, we can instead add a distinction between the difference in colloquial pronunciation between Taiwan and standard Mainland Chinese. Due to its presence in proficiency tests, we also document erhua pronunciations. Finally, if a word has a *nearly ubiquitous* colloquial pronunciation that is not standard, we include that as well.
 
-We do not include pronunciations that:
+We currently do not include pronunciations that:
 
 - Exist in other 方言/topolects (e.g., Cantonese, Hakka, etc.)
 - Exist in colloquial Mandarin from other regions (e.g., Singapore, Malaysia, etc.)
 - Are rare, archaic, historical, or literary
-- Are variants of the standard pronunciation that are not commonly used
+- Are uncommon variants of the standard pronunciation
 
 A rough guideline for choosing what pronunciations to include is: "would a Chinese teacher from (Taiwan/Mainland) accept this pronunciation as correct?" If the answer is yes, include it. If the answer is no, don't include it.
 
@@ -129,6 +129,14 @@ The `part_of_speech` field is a free-text field that describes the part of speec
 
 When possible, try to stay consistent with the categories already present in the deck.
 
+#### Nouns
+
+WIP
+
+Don't include articles or determiners in the definition. For example, "a cat" should be "cat".
+
+You don't need to add the classfier if the only classifier is 個. Do add 個 if it is a valid classifier, but the word also has other classifiers.
+
 #### Adjectives
 
 Adjectives are a subclass of stative verbs in Chinese. They are not strictly adjectives, but rather a type of verb that describes a state. However, we use the term "adjective" for ease of understanding. Learners should be aware of the quirks of Chinese adjectives.
@@ -146,13 +154,13 @@ WIP
 - Address verb-complement structures
 - Address types of verbs
 
-## Releasing
+## Versioning
 
 We use a modified version of [Semantic Versioning](https://semver.org/):
 
-- `MAJOR`: Changes to the deck that require special attention from users, such as changes to the card structure.
+- `MAJOR`: Changes to the deck that require special attention or manual work from users, such as changes to the card structure.
 - `MINOR`: Changes to the deck that would change the response of a user to already existing cards, such as changes to the simple definition or first pronunciation.
-- `PATCH`: Changes to the deck that would not change the response of a user to already existing cards, like styling changes, new cards, or edits to existing cards that don't change the simple definition or first pronunciation.
+- `PATCH`: Changes to the deck that would not change the response of a user to already existing cards, like styling changes, new cards, or minor edits to existing cards.
 
 ## Roadmap
 
