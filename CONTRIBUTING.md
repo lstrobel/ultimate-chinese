@@ -2,7 +2,7 @@
 
 Thank you for your interest in contributing!
 
-If your interest is in adding new vocabulary or modifying existing cards, please read [How to add words](docs/HOW_TO_ADD_WORDS.md) and the [card content guidelines](docs/CARD_CONTENT_GUIDELINES.md).
+If your interest is in adding new vocabulary or modifying existing cards, please read [how to add words](docs/HOW_TO_ADD_WORDS.md) and the [card content guidelines](docs/CARD_CONTENT_GUIDELINES.md).
 
 ## Project Structure
 

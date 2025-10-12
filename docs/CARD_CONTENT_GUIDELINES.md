@@ -73,13 +73,13 @@ There are also `meta:` prefixed tags which are temporary and undocumented.
 
 ### Formatting pronunciations
 
-In general, pinyin should contain no spaces and be all lowercase. The exception is for separable verb-object compounds, where adding a space aids memorization of this feature. For example, "唱歌" (to sing) could be formatted as "chàng gē".
+In general, pinyin should contain no spaces and be all lowercase. The exception is separable verb-object compounds, where adding a space aids memorization of this feature. For example, "唱歌" (to sing) could be formatted as "chàng gē".
 
 This is a pretty loose guideline.
 
 ## Focus Section Guidelines
 
-The focus section is the portion of the note that contains those definitions/meanings that learners should try to remember and grade themselves on when reviewing a note. It is not necessary for the focus section on a card to contain every sense of a character or word. The entries should be clear and concise, and should be those meanings that a speaker would most likely think of when they see the word.
+The focus section is the part of the note that lists the definitions and meanings learners should remember and use to self-assess when reviewing. It doesn’t need to include every sense of a character or word. Entries should be clear and concise, reflecting the meanings a speaker is most likely to think of upon seeing the word.
 
 The focus section consists of a list of rows, each corresponding roughly to a single definition. Right now, each row has the following fields:
 
