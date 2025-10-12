@@ -12,7 +12,7 @@ This deck is made for Chinese learners. It is not a dictionary, nor is it compre
     - [Tagging Pronunciations](#tagging-pronunciations)
     - [Formatting pronunciations](#formatting-pronunciations)
   - [Focus Section Guidelines](#focus-section-guidelines)
-    - [Part of Speech Field](#part-of-speech-field)
+    - [Part of Speech](#part-of-speech)
     - [Nouns](#nouns)
     - [Adjectives](#adjectives)
     - [Verbs](#verbs)
@@ -90,29 +90,27 @@ The focus section consists of a list of rows, each corresponding roughly to a si
 
 Focus sections for words later in the list can be more comprehensive.
 
-### Part of Speech Field
+### Part of Speech
 
 The `part_of_speech` field is a free-text field that describes the part of speech of the word. This is not a strict part of speech, but rather a way to categorize the usage of the word. The goal is to help learners understand how to use the word in context. Our focus is less on linguistic categories, and more on helping learners recall the grammar rules and usage of words in that context.
 
 When possible, try to stay consistent with the categories already present in the deck.
 
+TODO - Add a list of common parts of speech used in the deck.
+
 ### Nouns
 
-WIP
+Don't include articles or determiners in definitions. For example, "a cat" should be "cat".
 
-Don't include articles or determiners in the definition. For example, "a cat" should be "cat".
-
-You don't need to add the classfier if the only classifier is 個. Do add 個 if it is a valid classifier, but the word also has other classifiers.
+You don't need to add the classifier if the only classifier is 個. Do add 個 if it is a valid classifier and the word also has other classifiers.
 
 ### Adjectives
 
-Adjectives are a subclass of stative verbs in Chinese. They are not strictly adjectives, but rather a type of verb that describes a state. However, we use the term "adjective" for ease of understanding. Learners should be aware of the quirks of Chinese adjectives.
+In Chinese, adjectives are a subclass of stative verbs: they are verbs that describe states. However, we use the term "adjective" for ease of understanding. Adjectives can therefore sometimes function as adverbs. When this occurs, add a separate definition for the adverbial use.
 
-Adjectives can also sometimes be used as adverbs. For this, add a separate definition for the adjectival use.
+**Tagging**: Some adjectives are used only in attributive position, while others are used only in predicative position. We use the tags `mainly-attributive` and `mainly-predicative` to indicate this.
 
-**Tagging**: Some adjectives are only used in an attributive position, while others are only used in a predicative position. We use the tags `mainly-attributive` and `mainly-predicative` to indicate this.
-
-**Style**: When adding meanings for adjectives, omit the "to be" in the definition.
+**Style**: When adding meanings for adjectives, omit "to be" in the definition.
 
 ### Verbs
 
