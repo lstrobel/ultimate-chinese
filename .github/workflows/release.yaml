@@ -1,0 +1,28 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build:
+    name: Release Deck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install latest uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install sass
+        run: npm install -g sass
+
+      - name: Build deck
+        run: make release
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/Ultimate_Chinese.zip
