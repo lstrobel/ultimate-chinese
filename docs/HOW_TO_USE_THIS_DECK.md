@@ -9,7 +9,7 @@ This deck is designed to be flexible, whether you're a complete beginner or an e
 
 If you are new to Chinese, the easiest way to start is to go through the cards in the default order.
 
-The cards are sorted to loosely follow the TOCFL and HSK vocabulary levels, providing a logical progression from more common and fundamental words to more advanced ones. This allows you to build a solid vocabulary base from the ground up.
+The cards are sorted to loosely follow the TBCL vocabulary levels, providing a logical progression from more common and fundamental words to more advanced ones. This allows you to build a solid vocabulary base from the ground up.
 
 ### Workflow 2: For Self-Directed Learners
 
@@ -20,7 +20,7 @@ If you are following a specific textbook, curriculum, or are learning through im
 
 You can find words to unsuspend in a few ways:
 
-- **Using Tags:** The deck is tagged by TOCFL and HSK levels (e.g., `UC::TOCFL-1`). You can use the Anki browser to find and unsuspend all cards for a specific level.
+- **Using Tags:** The deck is tagged by TBCL and TOCFL levels (e.g., `TBCL::level-1`). You can use the Anki browser to find and unsuspend all cards for a specific level. (HSK tags are planned for a future release.)
 - **Searching:** As you encounter new words in your lessons or in the wild, search for them in the Anki browser and unsuspend them individually.
 
 This approach allows you to tailor the deck to your personal learning journey.
