@@ -1,6 +1,18 @@
 
 # How to use this deck
 
+- [How to use this deck](#how-to-use-this-deck)
+  - [How to study with this deck](#how-to-study-with-this-deck)
+    - [Workflow 1: For Beginners](#workflow-1-for-beginners)
+    - [Workflow 2: For Self-Directed Learners](#workflow-2-for-self-directed-learners)
+    - [A Note on Sentence Mining](#a-note-on-sentence-mining)
+    - [Contributing to the Deck](#contributing-to-the-deck)
+  - [Recommendations on how to answer cards in Anki](#recommendations-on-how-to-answer-cards-in-anki)
+    - [What to grade yourself on](#what-to-grade-yourself-on)
+    - [How to grade yourself](#how-to-grade-yourself)
+  - [Study tips in general](#study-tips-in-general)
+  - [Tags](#tags)
+
 ## How to study with this deck
 
 This deck is designed to be flexible, whether you're a complete beginner or an experienced learner. Below are two recommended workflows for studying with this deck.
@@ -58,3 +70,7 @@ This section is for people completely new to language learning. Hopefully, I can
 2. The most effective way to learn a language is widely accepted to be immersion: spending time with the language in such a way that you are forced to use it. People argue about the best forms of immersion and what kind to do first, etc. But the reality is simpler: the more time you spend doing *anything* in the language, the better. So pick something you like and do it a lot.
 3. In my experience, if everything else in your routine falls away, flashcards can still keep you moving forward. Rather than giving up on your deck, try reducing your daily reviews to a small, tolerable, amount and never stop.
 4. For Chinese specifically, you cannot neglect learning tones. Some people say you do not need them; that is false. More ambiguous is the necessity of learning to read and write characters. I think it is possible to get by without learning to write, as you can often get away with a pinyin keyboard, but you should learn to read.
+
+## Tags
+
+Most of the cards are tagged with their corresponding level in the TBCL and TOCFL wordlists. Note that for TOCFL levels, the TOCFL wordlist lists characters several times, as different meanings are introduced at different levels. Many cards in the deck are therefore tagged with multiple TOCFL levels.
