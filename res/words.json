@@ -38663,7 +38663,21 @@
       "TOCFL::context::教育",
       "TOCFL::level-2"
     ],
-    "focus_entries": "above",
+    "focus_entries": [
+      {
+        "part_of_speech": "Noun",
+        "meaning": "above; more than; over"
+      },
+      {
+        "part_of_speech": "Noun",
+        "meaning": "greater than or equal to"
+      },
+      {
+        "part_of_speech": "Noun",
+        "meaning": "above-mentioned; above"
+      }
+    ],
+    "note": "Can refer to either an exclusive or inclusive interval, depending on context; but most-commonly inclusive.",
     "definitions": [
       "that level or higher",
       "that amount or more",
@@ -42976,7 +42990,19 @@
       "TOCFL::context::旅行",
       "TOCFL::level-2"
     ],
-    "focus_entries": "continent, mainland; Mainland China",
+    "focus_entries": [
+      {
+        "part_of_speech": "Noun",
+        "tags": [
+          "place-word"
+        ],
+        "meaning": "continent; mainland"
+      },
+      {
+        "part_of_speech": "Noun",
+        "meaning": "mainland China"
+      }
+    ],
     "definitions": [
       "continent; mainland",
       "CL: 個[ge4], 塊[kuai4]"
@@ -61461,6 +61487,12 @@
       "TBCL::level-4",
       "TOCFL::level-4"
     ],
+    "focus_entries": [
+      {
+        "part_of_speech": "Adjective",
+        "meaning": "hot and stuffy; muggy"
+      }
+    ],
     "definitions": [
       "sultry",
       "sultriness",
@@ -62817,6 +62849,12 @@
       "TBCL::intermediate",
       "TBCL::level-4",
       "TOCFL::level-3"
+    ],
+    "focus_entries": [
+      {
+        "part_of_speech": "Adjective",
+        "meaning": "safe and sound"
+      }
     ],
     "definitions": [
       "safe and sound",
@@ -81119,6 +81157,16 @@
       "TOCFL::level-3",
       "TOCFL::level-5"
     ],
+    "focus_entries": [
+      {
+        "part_of_speech": "Verb",
+        "meaning": "to investigate; to survey"
+      },
+      {
+        "part_of_speech": "Noun",
+        "meaning": "investigation"
+      }
+    ],
     "definitions": [
       "investigation",
       "inquiry",
@@ -90176,6 +90224,12 @@
       "TBCL::level-4-star",
       "TOCFL::level-3"
     ],
+    "focus_entries": [
+      {
+        "part_of_speech": "Verb",
+        "meaning": "to go near; to touch; to make contact"
+      }
+    ],
     "definitions": [
       "to touch",
       "to contact",
@@ -90966,8 +91020,9 @@
             "pinyin": "xiàyītiào",
             "audio_file": "ntnu_xiàyítiào.mp3",
             "tags": [
+              "Standard",
               "has sandhi",
-              "meta:fix_me"
+              "meta:validated"
             ]
           }
         ]
@@ -90978,6 +91033,12 @@
       "TBCL::intermediate",
       "TBCL::level-4-star",
       "TOCFL::level-3"
+    ],
+    "focus_entries": [
+      {
+        "part_of_speech": "Verb-Object Compound",
+        "meaning": "to be startled"
+      }
     ],
     "definitions": [
       "startled",
@@ -91022,11 +91083,8 @@
           {
             "pinyin": "juésè",
             "tags": [
-              "Mainland",
-              "Taiwan",
-              "meta:existing",
-              "meta:fix_me",
-              "meta:from_wiki"
+              "Standard",
+              "meta:validated"
             ]
           },
           {
@@ -91034,10 +91092,7 @@
             "audio_file": "ntnu_jiǎosè.mp3",
             "tags": [
               "Taiwan",
-              "Mainland (variant)",
-              "meta:existing",
-              "meta:fix_me",
-              "meta:from_wiki"
+              "meta:validated"
             ]
           }
         ]
@@ -91048,6 +91103,12 @@
       "TBCL::intermediate",
       "TBCL::level-4-star",
       "TOCFL::level-3"
+    ],
+    "focus_entries": [
+      {
+        "part_of_speech": "Noun",
+        "meaning": "role; part; character"
+      }
     ],
     "definitions": [
       "role; part (in a play or movie etc)"
@@ -221910,6 +221971,16 @@
       "TBCL::advanced",
       "TBCL::level-6",
       "TOCFL::level-5"
+    ],
+    "focus_entries": [
+      {
+        "part_of_speech": "Noun",
+        "meaning": "gossip"
+      },
+      {
+        "part_of_speech": "Verb",
+        "meaning": "to gossip"
+      }
     ],
     "definitions": [
       "the eight divinatory trigrams of the Book of Changes 易經[Yi4 jing1]",
