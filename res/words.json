@@ -49209,6 +49209,12 @@
       "TBCL::level-4",
       "TOCFL::level-3"
     ],
+    "focus_entries": [
+      {
+        "part_of_speech": "Verb",
+        "meaning": "to check; to examine; to inspect"
+      }
+    ],
     "definitions": [
       "inspection",
       "to examine",
@@ -62748,6 +62754,12 @@
       "TBCL::intermediate",
       "TBCL::level-4",
       "TOCFL::level-3"
+    ],
+    "focus_entries": [
+      {
+        "part_of_speech": "Verb",
+        "meaning": "to kill"
+      }
     ],
     "note": "Normally, the subject of 殺 should be animate. For death caused by non-living things, split forms of 致死 ([zhi4si3]) are often used instead.",
     "definitions": [
@@ -96872,7 +96884,7 @@
     "focus_entries": [
       {
         "part_of_speech": "Noun",
-        "meaning": "requirement; demand"
+        "meaning": "demand; requirement"
       }
     ],
     "note": "Demand in the \"induced necessity\" sense.",
@@ -182512,6 +182524,12 @@
       "TBCL::advanced",
       "TBCL::level-6",
       "TOCFL::level-4"
+    ],
+    "focus_entries": [
+      {
+        "part_of_speech": "Verb",
+        "meaning": "to promote; to advance"
+      }
     ],
     "definitions": [
       "to promote (an idea or cause); to advance; boost"
